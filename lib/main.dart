@@ -11,6 +11,7 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:mist/screens/no_internet_screen.dart';
 import 'package:mist/screens/splash_screen.dart';
 import 'package:mist/utils/app_common.dart';
+import 'package:mist/utils/app_constants.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -35,11 +36,11 @@ final navigatorKey = GlobalKey<NavigatorState>();
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
-      // options: const FirebaseOptions(
-          // apiKey: FIREBASEAPIKEY,
-          // appId: FIREBASEAPPID,
-          // messagingSenderId: FIREBASEMESSAGINGSENDERID,
-          // projectId: FIREBASEPROJECTID)
+      options: const FirebaseOptions(
+          apiKey: FIREBASEANDROIDAPIKEY,
+          appId: FIREBASEANDROIDAPPID,
+          messagingSenderId: FIREBASEANDROIDMESSAGINGSENDERID,
+          projectId: FIREBASEANDROIDPROJECTID)
   )
       .then((value) {
     FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;

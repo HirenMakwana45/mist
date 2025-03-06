@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 
 // App Color
-const primaryColor = Color(0xff2496df);
+const primaryColor = Color(0xfff8e600);
 
-const secondaryColor  = Color(0xff2496df);
+const secondaryColor  = Color(0xff0b0b0b);
+
+const lightGreenColor  = Color(0xfff0faed);
+const lightPinkColor  = Color(0xfffaedfa);
+const lightOrangeColor  = Color(0xfffdece5);
+const lightRedColor  = Color(0xffefcbd8);
 
 // Dark Color
 const scaffoldBackgroundColor = Color(0xFF4A4A4A);
@@ -39,8 +44,9 @@ const YellowColor = Color(0xffEBBB14);
 const BlueColor = Color(0xff3998DD);
 const GreenColor = Color(0xff3FC27B);
 const lightBlueColor = Color(0xFF405152);
-const lightRedColor = Color(0xFFFE615A);
-const darkRedColor = Color(0xFFF54E4E);
+// const lightRedColor = Color(0xFFFE615A);
+const darkRedColor = Color(0xFFF18D8D);
+const lRedColor = Color(0xFFFFE5E5);
 
 const stepBackground = Color(0xffEEF4FF);
 const favDietBackground = Color(0xffC2D5D9);

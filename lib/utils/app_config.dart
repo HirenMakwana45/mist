@@ -1,11 +1,10 @@
 //region App Name
-const APP_NAME = "Zap AI";
+const APP_NAME = "Mist";
 //endregion
 
 //region baseurl
 /// Note: /Add your domain is www.abc.com
-// const mBackendURL ="http://148.113.37.187:3000";
-const mBackendURL = "https://appadmin.talkyplay.com";
+const mBackendURL = "";
 
 //endregion
 

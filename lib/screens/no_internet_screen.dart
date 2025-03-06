@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../Utils/app_colors.dart';
 import '../extensions/extension_util/context_extensions.dart';
 import '../../extensions/extension_util/int_extensions.dart';
 import '../../extensions/extension_util/widget_extensions.dart';
@@ -18,7 +19,7 @@ class _NoInternetScreenState extends State<NoInternetScreen> {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.asset(no_internet, height: context.height() * 0.2, width: context.width() * 0.4),
+          Image.asset(no_internet, height: context.height() * 0.2, width: context.width() * 0.4,color:primaryColor),
           16.height,
           Text('No Internet', style: boldTextStyle(size: 20)),
         ],
