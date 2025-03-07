@@ -150,7 +150,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     Text('Mobile Number',
                         style: secondaryTextStyle(color: textPrimaryColorGlobal)),
                     2.width,
-                    Text('*', style: secondaryTextStyle(color: redColor))
+                    Text('*', style: secondaryTextStyle(color: RedColor))
                   ],
                 ).paddingSymmetric(horizontal: 26, vertical: 4),
                 4.height,

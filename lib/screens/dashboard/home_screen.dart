@@ -15,6 +15,7 @@ import '../../extensions/widgets.dart';
 // import '../../utils/app_colors.dart';
 import '../../utils/app_images.dart';
 import '../address_selection_screen.dart';
+import '../service_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -27,49 +28,72 @@ class _HomeScreenState extends State<HomeScreen> {
   int _current = 0;
   final CarouselSliderController _controller = CarouselSliderController();
   List<Widget> imageItems = [
-    cachedImage(ic_car_wash_1, fit: BoxFit.cover),
-    cachedImage(ic_car_wash_2, fit: BoxFit.cover),
-    cachedImage(ic_car_wash_3, fit: BoxFit.cover),
-    cachedImage(ic_car_wash_4, fit: BoxFit.cover),
+    Image.asset(ic_car_wash_1, fit: BoxFit.cover),
+    Image.asset(ic_car_wash_2, fit: BoxFit.cover),
+    Image.asset(ic_car_wash_3, fit: BoxFit.cover),
+    Image.asset(ic_car_wash_4, fit: BoxFit.cover),
   ];
-  List<Widget> autoCareItems = [
-    cachedImage('', fit: BoxFit.cover),
-    Column(
-      children: [
-        cachedImage('', fit: BoxFit.cover),
-        Text('Car wash',style: boldTextStyle(size: 16),)
+  // List<Widget> autoCareItems = [
+  //   Column(
+  //     mainAxisAlignment: MainAxisAlignment.center,
+  //     crossAxisAlignment: CrossAxisAlignment.center,
+  //     // mainAxisSize: MainAxisSize.min,
+  //     children: [
+  //       SizedBox(
+  //           child: cachedImage('', fit: BoxFit.cover, height: 30, width: 30)),
+  //       4.height,
+  //       Text('Car Wash', style: boldTextStyle(size: 10)),
+  //     ],
+  //   ).onTap((){}),
+  //   Column(
+  //     mainAxisAlignment: MainAxisAlignment.center,
+  //
+  //     crossAxisAlignment: CrossAxisAlignment.center,
+  //     children: [
+  //       cachedImage('', fit: BoxFit.cover, height: 30, width: 30),
+  //       4.height,
+  //       Text('Deep Clean', style: boldTextStyle(size: 10)),
+  //     ],
+  //   ),
+  //   Column(
+  //     mainAxisAlignment: MainAxisAlignment.center,
+  //
+  //     crossAxisAlignment: CrossAxisAlignment.center,
+  //     children: [
+  //       cachedImage('', fit: BoxFit.cover, height: 30, width: 30),
+  //       4.height,
+  //       Text('Shine and Coat', style: boldTextStyle(size: 10)),
+  //     ],
+  //   ),
+  //   Column(
+  //     crossAxisAlignment: CrossAxisAlignment.center,      mainAxisAlignment: MainAxisAlignment.center,
+  //
+  //     children: [
+  //       cachedImage('', fit: BoxFit.cover, height: 30, width: 30),
+  //       4.height,
+  //       Text('Luxury Car Care', style: boldTextStyle(size: 10)),
+  //     ],
+  //   ),
+  //   Column(
+  //     crossAxisAlignment: CrossAxisAlignment.center,      mainAxisAlignment: MainAxisAlignment.center,
+  //
+  //     children: [
+  //       cachedImage('', fit: BoxFit.cover, height: 30, width: 30),
+  //       4.height,
+  //       Text('Special Car Care', style: boldTextStyle(size: 10)),
+  //     ],
+  //   ),
+  //   Column(
+  //     crossAxisAlignment: CrossAxisAlignment.center,      mainAxisAlignment: MainAxisAlignment.center,
+  //
+  //     children: [
+  //       cachedImage('', fit: BoxFit.cover, height: 30, width: 30),
+  //       4.height,
+  //       Text('Bike and Moped', style: boldTextStyle(size: 10)),
+  //     ],
+  //   ),
+  // ];
 
-      ],
-    ),
-    Column(
-      children: [
-        cachedImage('', fit: BoxFit.cover),
-        Text('Car wash',style: boldTextStyle(size: 16),)
-
-      ],
-    ),
-    Column(
-      children: [
-        cachedImage('', fit: BoxFit.cover),
-        Text('Car wash',style: boldTextStyle(size: 16),)
-
-      ],
-    ),
-    Column(
-      children: [
-        cachedImage('', fit: BoxFit.cover),
-        Text('Car wash',style: boldTextStyle(size: 16),)
-
-      ],
-    ),
-    Column(
-      children: [
-        cachedImage('', fit: BoxFit.cover),
-        Text('Car wash',style: boldTextStyle(size: 16),)
-
-      ],
-    ),
-  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -298,26 +322,72 @@ class _HomeScreenState extends State<HomeScreen> {
                     style: boldTextStyle(),
                   ),
                   16.height,
-                  // AnimatedWrap(
-                  //     columnCount: 3,
-                  //     runSpacing: 30,
-                  //     spacing: 70,
-                  //     children: [
-                  //       ...List.generate(autoCareItems.length, (index) {
-                  //         return Container(
-                  //             height: 50,width: 50,
-                  //             child: Column(
-                  //               children: [
-                  //                 autoCareItems[index],
-                  //               ],
-                  //             ));
-                  //       }),
-                  //     ]),
-                  Text("Car Wash").onTap((){
-
-
-                  }),
-                  10.height,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Column(
+                        children: [
+                          cachedImage('',
+                              fit: BoxFit.cover, height: 50, width: 50),
+                          4.height,
+                          Text('Car Wash', style: boldTextStyle(size: 12)),
+                        ],
+                      ).onTap(() {
+                        ServiceScreen().launch(context);
+                      }),
+                      Column(
+                        children: [
+                          cachedImage('',
+                              fit: BoxFit.cover, height: 50, width: 50),
+                          4.height,
+                          Text('Deep Clean', style: boldTextStyle(size: 12)),
+                        ],
+                      ),
+                      Column(
+                        children: [
+                          cachedImage('',
+                              fit: BoxFit.cover, height: 50, width: 50),
+                          4.height,
+                          Text('Shine and Coat',
+                              style: boldTextStyle(size: 12)),
+                        ],
+                      ),
+                    ],
+                  ),
+                  20.height,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Column(
+                        children: [
+                          cachedImage('',
+                              fit: BoxFit.cover, height: 50, width: 50),
+                          4.height,
+                          Text('Luxury Car \nCare',
+                              style: boldTextStyle(size: 12)),
+                        ],
+                      ),
+                      Column(
+                        children: [
+                          cachedImage('',
+                              fit: BoxFit.cover, height: 50, width: 50),
+                          4.height,
+                          Text('Special Car \nCare',
+                              style: boldTextStyle(size: 12)),
+                        ],
+                      ),
+                      Column(
+                        children: [
+                          cachedImage('',
+                              fit: BoxFit.cover, height: 50, width: 50),
+                          4.height,
+                          Text('Bike and Moped',
+                              style: boldTextStyle(size: 12)),
+                        ],
+                      ),
+                    ],
+                  ),
+                  30.height,
                   Text(
                     "Benefits of Car Care",
                     style: boldTextStyle(size: 18, weight: FontWeight.w900),
@@ -379,6 +449,163 @@ class _HomeScreenState extends State<HomeScreen> {
                     "Popular Services",
                     style: boldTextStyle(),
                   ),
+                  10.height,
+                  HorizontalList(
+                      padding: EdgeInsets.all(0),
+                      itemCount: 1,
+                      itemBuilder: (context, index) {
+                        return Row(
+                          children: [
+                            SizedBox(
+                              width: 120,
+                              child: Column(
+                                children: [
+                                  cachedImage('', height: 110, width: 115),
+                                  6.height,
+                                  Row(
+                                    children: [
+                                      Text(
+                                        overflow: TextOverflow.ellipsis,
+                                        maxLines: 2,
+                                        "Interior + Exterior Foam Wash + Hybrid Ceramic Coat",
+                                        style: boldTextStyle(size: 10),
+                                      ).expand(),
+                                      8.width,
+                                      Icon(
+                                        Icons.arrow_forward_ios_rounded,
+                                        size: 16,
+                                      ),
+                                    ],
+                                  ),
+                                  4.height,
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        "₹809",
+                                        style: boldTextStyle(
+                                          color: Colors.black,
+                                          size: 12,
+                                        ),
+                                      ),
+                                      Row(
+                                        children: [
+                                          Text(
+                                            '4.5',
+                                            style: boldTextStyle(size: 12),
+                                          ),
+                                          6.width,
+                                          Icon(Icons.star,
+                                              color: Colors.yellow, size: 15),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ).paddingRight(14),
+                            SizedBox(
+                              width: 120,
+                              child: Column(
+                                children: [
+                                  cachedImage('', height: 110, width: 115),
+                                  6.height,
+                                  Row(
+                                    children: [
+                                      Text(
+                                        overflow: TextOverflow.ellipsis,
+                                        maxLines: 2,
+                                        "Interior + Exterior Foam Wash + Hybrid Ceramic Coat",
+                                        style: boldTextStyle(size: 10),
+                                      ).expand(),
+                                      8.width,
+                                      Icon(
+                                        Icons.arrow_forward_ios_rounded,
+                                        size: 16,
+                                      ),
+                                    ],
+                                  ),
+                                  4.height,
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        "₹809",
+                                        style: boldTextStyle(
+                                          color: Colors.black,
+                                          size: 12,
+                                        ),
+                                      ),
+                                      Row(
+                                        children: [
+                                          Text(
+                                            '4.5',
+                                            style: boldTextStyle(size: 12),
+                                          ),
+                                          6.width,
+                                          Icon(Icons.star,
+                                              color: Colors.yellow, size: 15),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ).paddingRight(14),
+                            SizedBox(
+                              width: 120,
+                              child: Column(
+                                children: [
+                                  cachedImage('', height: 110, width: 115),
+                                  6.height,
+                                  Row(
+                                    children: [
+                                      Text(
+                                        overflow: TextOverflow.ellipsis,
+                                        maxLines: 2,
+                                        "Interior + Exterior Foam Wash + Hybrid Ceramic Coat",
+                                        style: boldTextStyle(size: 10),
+                                      ).expand(),
+                                      8.width,
+                                      Icon(
+                                        Icons.arrow_forward_ios_rounded,
+                                        size: 16,
+                                      ),
+                                    ],
+                                  ),
+                                  4.height,
+                                  Row(
+                                    mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        "₹809",
+                                        style: boldTextStyle(
+                                          color: Colors.black,
+                                          size: 12,
+                                        ),
+                                      ),
+                                      Row(
+                                        children: [
+                                          Text(
+                                            '4.5',
+                                            style: boldTextStyle(size: 12),
+                                          ),
+                                          6.width,
+                                          Icon(Icons.star,
+                                              color: Colors.yellow, size: 15),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ).paddingRight(14),
+                          ],
+                        );
+                      })
                 ],
               ).paddingAll(16),
             ),

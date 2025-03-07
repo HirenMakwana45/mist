@@ -47,6 +47,7 @@ const lightBlueColor = Color(0xFF405152);
 // const lightRedColor = Color(0xFFFE615A);
 const darkRedColor = Color(0xFFF18D8D);
 const lRedColor = Color(0xFFFFE5E5);
+const blueGreyColor =Color(0xffecf0f4);
 
 const stepBackground = Color(0xffEEF4FF);
 const favDietBackground = Color(0xffC2D5D9);
