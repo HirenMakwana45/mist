@@ -5,7 +5,9 @@ import 'package:mist/extensions/extension_util/context_extensions.dart';
 import 'package:mist/extensions/extension_util/int_extensions.dart';
 import 'package:mist/extensions/extension_util/string_extensions.dart';
 import 'package:mist/extensions/extension_util/widget_extensions.dart';
+import 'package:mist/screens/faq_screen.dart';
 import 'package:mist/screens/review_screen.dart';
+import 'package:mist/screens/service_detail_screen.dart';
 
 // import '../Utils/app_colors.dart';
 import '../extensions/app_button.dart';
@@ -393,7 +395,11 @@ class _ServiceScreenState extends State<ServiceScreen> {
                                                                     4.height,
                                                                   ],
                                                                 ),
-                                                              ).paddingRight(
+                                                              ).onTap(() {
+                                                                ServiceDetailScreen()
+                                                                    .launch(
+                                                                        context);
+                                                              }).paddingRight(
                                                                   10),
                                                               SizedBox(
                                                                 width: 80,
@@ -601,12 +607,24 @@ class _ServiceScreenState extends State<ServiceScreen> {
                                                       style: boldTextStyle(
                                                           color: Colors.blue,
                                                           size: 14),
-                                                    ).onTap((){
-                                                      ReviewScreen().launch(context);
+                                                    ).onTap(() {
+                                                      ReviewScreen()
+                                                          .launch(context);
                                                     }).paddingSymmetric(
                                                         horizontal: 18),
                                                   ],
                                                 ),
+                                                Text(
+                                                  overflow:
+                                                      TextOverflow.ellipsis,
+                                                  maxLines: 2,
+                                                  "Frequently Asked Questions",
+                                                  style:
+                                                      boldTextStyle(size: 16),
+                                                ).onTap(() {
+                                                  FaqScreen().launch(context);
+                                                }).paddingSymmetric(
+                                                    horizontal: 18),
                                                 70.height,
                                               ],
                                             ),
