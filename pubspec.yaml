@@ -67,5 +67,8 @@ flutter:
   assets:
     - assets/images/
     - assets/icons/
+    - assets/vehicle_logo/
+    - assets/vehicle_images/
+    - assets/vehicle_images/audi/
     - assets/lottiefile/
 
