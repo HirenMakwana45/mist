@@ -10,6 +10,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:mist/screens/no_internet_screen.dart';
 import 'package:mist/screens/splash_screen.dart';
+import 'package:mist/store/UserStore/UserStore.dart';
+import 'package:mist/store/app_store.dart';
 import 'package:mist/utils/app_common.dart';
 import 'package:mist/utils/app_constants.dart';
 
@@ -20,8 +22,7 @@ import 'app_theme.dart';
 import 'extensions/common.dart';
 import 'extensions/constants.dart';
 import 'extensions/decorations.dart';
-import 'extensions/store/UserStore/UserStore.dart';
-import 'extensions/store/app_store.dart';
+
 import 'extensions/system_utils.dart';
 
 

@@ -3,7 +3,7 @@
 import 'package:mobx/mobx.dart';
 
 import '../../../utils/app_constants.dart';
-import '../../shared_pref.dart';
+import '../../extensions/shared_pref.dart';
 // import '../../models/user_response.dart';
 // import '../../utils/app_constants.dart';
 
