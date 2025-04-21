@@ -34,6 +34,7 @@ const ic_car_sedan = "assets/icons/ic_car_sedan.png";
 const ic_car_suv = "assets/icons/ic_car_suv.png";
 const ic_car_wash = "assets/icons/ic_car_wash.png";
 const ic_coupon = "assets/icons/ic_coupon.png";
+const ic_coupon_fill = "assets/icons/ic_coupon_filled.png";
 const ic_doorstep_service = "assets/icons/ic_doorstep_service.png";
 
 // vehicle logos

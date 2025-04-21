@@ -6,7 +6,7 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:mist/extensions/extension_util/context_extensions.dart';
 import 'package:mist/extensions/extension_util/int_extensions.dart';
 import 'package:mist/extensions/extension_util/widget_extensions.dart';
-import 'package:telephony/telephony.dart';
+// import 'package:telephony/telephony.dart';
 // import 'package:telephony/telephony.dart';
 
 import '../Utils/app_colors.dart';
@@ -38,7 +38,7 @@ class _OtpScreenState extends State<OtpScreen> with TickerProviderStateMixin {
 
   // final TextEditingController _otpController = TextEditingController();
 
-  Telephony telephony = Telephony.instance;
+  // Telephony telephony = Telephony.instance;
 
   String otpCode = '';
   int _start = 30;
@@ -59,23 +59,23 @@ class _OtpScreenState extends State<OtpScreen> with TickerProviderStateMixin {
     appStore.setLoading(false);
     startTimer();
 
-    telephony.listenIncomingSms(
-      onNewMessage: (SmsMessage message) {
-        String sms = message.body.toString();
-
-        if (message.body!.contains('yourFirebaseProjectName.firebaseapp.com')) {
-          String otpcode = sms.replaceAll(RegExp(r'[^0-9]'), '');
-          // _otpController.set(otpcode.split(""));
-          Future.delayed(Duration(milliseconds: 100), () {
-            otpTextFieldKey.currentState?.updateOTP(otpcode);
-          });
-          setState(() {
-            // refresh UI
-          });
-        } else {}
-      },
-      listenInBackground: false,
-    );
+    // telephony.listenIncomingSms(
+    //   onNewMessage: (SmsMessage message) {
+    //     String sms = message.body.toString();
+    //
+    //     if (message.body!.contains('yourFirebaseProjectName.firebaseapp.com')) {
+    //       String otpcode = sms.replaceAll(RegExp(r'[^0-9]'), '');
+    //       // _otpController.set(otpcode.split(""));
+    //       Future.delayed(Duration(milliseconds: 100), () {
+    //         otpTextFieldKey.currentState?.updateOTP(otpcode);
+    //       });
+    //       setState(() {
+    //         // refresh UI
+    //       });
+    //     } else {}
+    //   },
+    //   listenInBackground: false,
+    // );
     // Start listening for SMS code
     setState(() {});
   }

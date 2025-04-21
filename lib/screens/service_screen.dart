@@ -229,7 +229,7 @@ class _ServiceScreenState extends State<ServiceScreen> {
                                     padding: EdgeInsets.only(
                                       bottom: MediaQuery.of(context)
                                           .viewInsets
-                                          .bottom, // Adjust for keyboard
+                                          .bottom,
                                     ),
                                     child: SizedBox(
                                       width: double.infinity,
