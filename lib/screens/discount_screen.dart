@@ -3,6 +3,7 @@ import 'package:mist/Utils/app_colors.dart';
 import 'package:mist/extensions/extension_util/int_extensions.dart';
 import 'package:mist/extensions/extension_util/widget_extensions.dart';
 import 'package:mist/extensions/text_styles.dart';
+import 'package:mist/screens/slot_selection_screen.dart';
 
 import '../Utils/app_common.dart';
 import '../extensions/app_text_field.dart';
@@ -10,6 +11,7 @@ import '../extensions/common.dart';
 import '../extensions/decorations.dart';
 import '../extensions/widgets.dart';
 import '../utils/app_images.dart';
+import 'package:lottie/lottie.dart';
 
 class DiscountScreen extends StatefulWidget {
   const DiscountScreen({super.key});
@@ -40,6 +42,46 @@ class _DiscountScreenState extends State<DiscountScreen> {
         hideKeyboard(context);
       },
       icon: Icon(Icons.clear),
+    );
+  }
+
+  void showPopupDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+          contentPadding: EdgeInsets.symmetric(vertical: 16, horizontal: 20),
+          content: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Lottie.asset('assets/lottiefile/success.json',
+                  height: 80, width: 80),
+              10.height,
+              Text('Get50! applied', style: boldTextStyle(size: 14)),
+              10.height,
+              Text('You saved ' + "₹" + '100', style: boldTextStyle(size: 22)),
+              10.height,
+              Text('with this coupon code',
+                  style: secondaryTextStyle(size: 12)),
+              40.height,
+              Container(
+                decoration:
+                    BoxDecoration(border: Border.all(),borderRadius: BorderRadius.circular(20)),
+                child: Text(
+                  "Let's GO!",
+                  style: boldTextStyle(color: Colors.blue),
+                ).paddingSymmetric(horizontal: 42,vertical: 6),
+              ).onTap((){
+
+                SlotSelectionScreen().launch(context);
+              })
+            ],
+          ),
+        );
+      },
     );
   }
 
@@ -96,22 +138,22 @@ class _DiscountScreenState extends State<DiscountScreen> {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-
                         Text(
                           "50% OFF up to " + "₹" + "228",
                           style: boldTextStyle(color: secondaryColor),
                         ),
                         Text(
                           "Save " + "₹" + "100 " + "with this code",
-                          style: secondaryTextStyle(color: Colors.blue, size: 12),
+                          style:
+                              secondaryTextStyle(color: Colors.blue, size: 12),
                         ),
                       ],
                     ),
                     12.width,
-
                     Container(
                       decoration: BoxDecoration(
-                          border: Border.all(color: Colors.grey.withOpacity(0.5)),
+                          border:
+                              Border.all(color: Colors.grey.withOpacity(0.5)),
                           borderRadius: BorderRadius.circular(4)),
                       child: Text(
                         "GET50!",
@@ -131,11 +173,12 @@ class _DiscountScreenState extends State<DiscountScreen> {
                 Text(
                   "APPLY",
                   style: boldTextStyle(color: Colors.blue, size: 18),
-                )
+                ).onTap(() {
+                  showPopupDialog(context);
+                })
               ],
-            ).paddingSymmetric(horizontal: 20,vertical: 12),
+            ).paddingSymmetric(horizontal: 20, vertical: 12),
           ),
-
         ],
       ).paddingAll(16),
     );

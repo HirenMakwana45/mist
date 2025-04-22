@@ -390,9 +390,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ],
                   ),
                   30.height,
-                  Text('Payment').onTap((){
-                    PaymentScreen().launch(context);
-                  }),
+
                   20.height,
                   Text('Select Vehicle').onTap((){
                     SelectVehicleScreen().launch(context);

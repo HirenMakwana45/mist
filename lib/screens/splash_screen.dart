@@ -5,6 +5,7 @@ import 'package:mist/extensions/extension_util/int_extensions.dart';
 import 'package:mist/extensions/extension_util/widget_extensions.dart';
 import 'package:mist/screens/cart_screen.dart';
 import 'package:mist/screens/dashboard/dashboard_screen.dart';
+import 'package:mist/screens/discount_screen.dart';
 import 'package:mist/screens/select_vehicle_screen.dart';
 import 'package:mist/screens/slot_selection_screen.dart';
 import 'package:mist/utils/app_colors.dart';
@@ -36,7 +37,7 @@ class SplashScreenState extends State<SplashScreen> {
 
   init() async {
     await 2.seconds.delay;
-    CartScreen().launch(context);
+    MapLocationScreen().launch(context);
     // MapLocationScreen().launch(context);
     // LoginScreen().launch(context);
     // if (!getBoolAsync(IS_FIRST_TIME)) {

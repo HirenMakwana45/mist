@@ -31,6 +31,7 @@ dependencies:
 #  permission_handler: ^11.3.1
 #  emoji_regex: ^0.0.5
   dotted_border: ^2.1.0
+  lottie: ^3.3.1
 
 
   #Firebase

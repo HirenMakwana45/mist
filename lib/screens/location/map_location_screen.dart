@@ -33,14 +33,18 @@ class _MapLocationScreenState extends State<MapLocationScreen> {
     print("📍 Inside Get Current Location Function");
 
     try {
-      // Check if location services are enabled
+      // Step 1: Check if location services are enabled
       bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
+
+      print("===============>" + serviceEnabled.toString());
       if (!serviceEnabled) {
         print("⚠️ Location services are disabled.");
+        await Geolocator
+            .openLocationSettings(); // Open device location settings
         return;
       }
 
-      // Check and request location permission
+      // Step 2: Check and request permission
       LocationPermission permission = await Geolocator.checkPermission();
       if (permission == LocationPermission.denied) {
         permission = await Geolocator.requestPermission();
@@ -52,50 +56,59 @@ class _MapLocationScreenState extends State<MapLocationScreen> {
 
       if (permission == LocationPermission.deniedForever) {
         print("❌ Location permission permanently denied.");
+        await Geolocator.openLocationSettings();
+        await Geolocator.openAppSettings();
+// Open app settings
         return;
       }
+      print("✅ Current Location Start");
 
-      // Get last known location first (if available)
-      print("📍 Fetching last known location...");
-      Position? lastKnownPosition = await Geolocator.getLastKnownPosition();
-      if (lastKnownPosition != null) {
-        _currentPosition =
-            LatLng(lastKnownPosition.latitude, lastKnownPosition.longitude);
-        print("✅ Using last known location: $_currentPosition");
-      } else {
-        print("❌ No last known location available.");
+      try {
+        print("📍 Trying to get current position...");
+        Position position = await Geolocator.getCurrentPosition(
+          locationSettings: LocationSettings(
+            distanceFilter: 10,
+            timeLimit: Duration(seconds: 10),
+            accuracy: LocationAccuracy.high,
+          ),
+        );
+        Position pos = await Geolocator.getCurrentPosition();
+        print("Latitude: ${pos.latitude}, Longitude: ${pos.longitude}");
+
+
+        // This will only run if location fetch was successful
+        _currentPosition = LatLng(position.latitude, position.longitude);
+        print("✅ Fetched location: $_currentPosition");
+
+        setState(() {
+          markers.add(
+            Marker(
+              markerId: MarkerId("currentLocation"),
+              position: _currentPosition!,
+              infoWindow: InfoWindow(title: "You are here"),
+              icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+            ),
+          );
+        });
+
+        _mapController?.animateCamera(CameraUpdate.newLatLngZoom(_currentPosition!, 15));
+
+      } on TimeoutException {
+        print("⏱️ Location fetch timed out. Try moving outside or check GPS.");
+
+        // Optional: Show dialog or fallback logic here
+      } catch (e) {
+        print("❌ Error getting location: $e");
+
+        // Optional: Avoid using `_currentPosition!` when it's null
       }
 
-      // Manually handle timeout when fetching new location
-      print("⏳ Fetching new location...");
-      final position = await Geolocator.getCurrentPosition(
-          locationSettings: LocationSettings(accuracy: LocationAccuracy.high));
-
-      print("POSITION IS ==>" + position.toString());
-
-      // Position position = await Future.any([
-      //   Geolocator.getCurrentPosition(
-      //     desiredAccuracy: LocationAccuracy.high,
-      //   ),
-      //   Future.delayed(Duration(seconds: 10), () => throw TimeoutException("GPS Timeout!"))
-      // ]);
-
-      // _currentPosition = LatLng(position.latitude, position.longitude);
-      // print("✅ New location fetched: $_currentPosition");
-      //
-      // // Reverse Geocoding
-      // List<Placemark> placemarks =
-      //     await placemarkFromCoordinates(position.latitude, position.longitude);
-      // if (placemarks.isNotEmpty) {
-      //   _address = "${placemarks[0].street}, ${placemarks[0].locality}";
-      //   print("🏠 Address: $_address");
-      // }
 
       setState(() {
         _isLoading = false;
       });
 
-      // Add marker to the map
+      // Step 4: Add marker
       markers.add(
         Marker(
           markerId: MarkerId("currentLocation"),
@@ -106,24 +119,11 @@ class _MapLocationScreenState extends State<MapLocationScreen> {
         ),
       );
 
-      // Move camera to current location
+      // Step 5: Move camera
       _mapController
           ?.animateCamera(CameraUpdate.newLatLngZoom(_currentPosition!, 15));
-    } catch (error) {
-      print("❌ Error fetching location: $error");
-
-      // Retry with low accuracy if timeout occurs
-      if (error is TimeoutException) {
-        print("⏳ Retrying with lower accuracy...");
-        try {
-          Position position = await Geolocator.getCurrentPosition(
-              desiredAccuracy: LocationAccuracy.low);
-          _currentPosition = LatLng(position.latitude, position.longitude);
-          print("✅ Location fetched with low accuracy: $_currentPosition");
-        } catch (e) {
-          print("❌ Failed again: $e");
-        }
-      }
+    } catch (e) {
+      print("❌ Error getting location: $e");
     }
   }
 
