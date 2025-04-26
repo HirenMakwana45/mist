@@ -3,20 +3,12 @@ import 'package:flutter/services.dart';
 import 'package:mist/extensions/extension_util/duration_extensions.dart';
 import 'package:mist/extensions/extension_util/int_extensions.dart';
 import 'package:mist/extensions/extension_util/widget_extensions.dart';
-import 'package:mist/screens/cart_screen.dart';
-import 'package:mist/screens/dashboard/dashboard_screen.dart';
-import 'package:mist/screens/discount_screen.dart';
-import 'package:mist/screens/select_vehicle_screen.dart';
-import 'package:mist/screens/slot_selection_screen.dart';
 import 'package:mist/utils/app_colors.dart';
 
 import '../../../main.dart';
 import '../Utils/app_config.dart';
 import '../extensions/text_styles.dart';
-import 'address_selection_screen.dart';
-import 'choose_vehicle_screen.dart';
 import 'location/location_permission_screen.dart';
-import 'location/map_location_screen.dart';
 import 'login_screen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -37,9 +29,9 @@ class SplashScreenState extends State<SplashScreen> {
 
   init() async {
     await 2.seconds.delay;
-    MapLocationScreen().launch(context);
+    // LocationPermissionScreen().launch(context);
     // MapLocationScreen().launch(context);
-    // LoginScreen().launch(context);
+    LoginScreen().launch(context);
     // if (!getBoolAsync(IS_FIRST_TIME)) {
     //   WalkThroughScreen().launch(context, isNewTask: true);
     // } else {

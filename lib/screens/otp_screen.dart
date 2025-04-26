@@ -21,6 +21,7 @@ import '../extensions/text_styles.dart';
 import '../extensions/widgets.dart';
 import '../main.dart';
 import '../network/rest_api.dart';
+import 'location/location_permission_screen.dart';
 
 class OtpScreen extends StatefulWidget {
   final String mobileNumber;
@@ -398,9 +399,10 @@ class _OtpScreenState extends State<OtpScreen> with TickerProviderStateMixin {
           padding: EdgeInsetsDirectional.all(0),
           width: context.width() * 0.68,
           height: context.height() * 0.056,
-          color: primaryColor,
+          color: secondaryColor,
           onTap: () {
-            submit();
+            LocationPermissionScreen().launch(context);
+            // submit();
           },
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,

@@ -833,91 +833,91 @@ class _ServiceScreenState extends State<ServiceScreen> {
                 ),
               ).paddingSymmetric(vertical: 10, horizontal: 8),
             ),
-            Container(
-              height: 200,
-              child: StoryView(
-
-                controller: controller,
-                storyItems: [
-
-                  StoryItem.inlineImage(
-                    url:
-                    "https://srv1668-files.hstgr.io/6b84d6b571f2e6f0/files/public_html/Mist/img/ic_bike_delivery_3.jpg",
-                    controller: controller,
-                    caption: Text(
-                      "Omotuo & Nkatekwan; You will love this meal if taken as supper.",
-                      style: TextStyle(
-                        color: Colors.white,
-                        backgroundColor: Colors.black54,
-                        fontSize: 17,
-                      ),
-                    ),
-                  ),
-                  StoryItem.inlineImage(
-                    url:
-                    "https://srv1668-files.hstgr.io/6b84d6b571f2e6f0/files/public_html/Mist/img/ic_car_wash_5.jpg",
-                    controller: controller,
-                    caption: Text(
-                      "Omotuo & Nkatekwan; You will love this meal if taken as supper.",
-                      style: TextStyle(
-                        color: Colors.white,
-                        backgroundColor: Colors.black54,
-                        fontSize: 17,
-                      ),
-                    ),
-                  ),
-                  StoryItem.inlineImage(
-                    url:
-                    "https://srv1668-files.hstgr.io/6b84d6b571f2e6f0/files/public_html/Mist/img/ic_car_wash_2.jpg",
-                    controller: controller,
-                    caption: Text(
-                      "Omotuo & Nkatekwan; You will love this meal if taken as supper.",
-                      style: TextStyle(
-                        color: Colors.white,
-                        backgroundColor: Colors.black54,
-                        fontSize: 17,
-                      ),
-                    ),
-                  ),
-                  StoryItem.inlineImage(
-                    url:
-                    "https://srv1668-files.hstgr.io/6b84d6b571f2e6f0/files/public_html/Mist/img/ic_car_wash_6.jpg",
-                    controller: controller,
-                    caption: Text(
-                      "Omotuo & Nkatekwan; You will love this meal if taken as supper.",
-                      style: TextStyle(
-                        color: Colors.white,
-                        backgroundColor: Colors.black54,
-                        fontSize: 17,
-                      ),
-                    ),
-                  ),
-                  StoryItem.inlineImage(
-                    url:
-                    "https://srv1668-files.hstgr.io/6b84d6b571f2e6f0/files/public_html/Mist/img/ic_car_wash_3.jpg",
-                    controller: controller,
-                    caption: Text(
-                      "Omotuo & Nkatekwan; You will love this meal if taken as supper.",
-                      style: TextStyle(
-                        color: Colors.white,
-                        backgroundColor: Colors.black54,
-                        fontSize: 17,
-                      ),
-                    ),
-                  ),
-
-                ],
-                onStoryShow: (storyItem, index) {
-                  print("Showing a story");
-                },
-                onComplete: () {
-                  print("Completed a cycle");
-                },
-                progressPosition: ProgressPosition.bottom,
-                repeat: true,
-                inline: true,
-              ),
-            ),
+            // Container(
+            //   height: 200,
+            //   child: StoryView(
+            //
+            //     controller: controller,
+            //     storyItems: [
+            //
+            //       StoryItem.inlineImage(
+            //         url:
+            //         "https://srv1668-files.hstgr.io/6b84d6b571f2e6f0/files/public_html/Mist/img/ic_bike_delivery_3.jpg",
+            //         controller: controller,
+            //         caption: Text(
+            //           "Omotuo & Nkatekwan; You will love this meal if taken as supper.",
+            //           style: TextStyle(
+            //             color: Colors.white,
+            //             backgroundColor: Colors.black54,
+            //             fontSize: 17,
+            //           ),
+            //         ),
+            //       ),
+            //       StoryItem.inlineImage(
+            //         url:
+            //         "https://srv1668-files.hstgr.io/6b84d6b571f2e6f0/files/public_html/Mist/img/ic_car_wash_5.jpg",
+            //         controller: controller,
+            //         caption: Text(
+            //           "Omotuo & Nkatekwan; You will love this meal if taken as supper.",
+            //           style: TextStyle(
+            //             color: Colors.white,
+            //             backgroundColor: Colors.black54,
+            //             fontSize: 17,
+            //           ),
+            //         ),
+            //       ),
+            //       StoryItem.inlineImage(
+            //         url:
+            //         "https://srv1668-files.hstgr.io/6b84d6b571f2e6f0/files/public_html/Mist/img/ic_car_wash_2.jpg",
+            //         controller: controller,
+            //         caption: Text(
+            //           "Omotuo & Nkatekwan; You will love this meal if taken as supper.",
+            //           style: TextStyle(
+            //             color: Colors.white,
+            //             backgroundColor: Colors.black54,
+            //             fontSize: 17,
+            //           ),
+            //         ),
+            //       ),
+            //       StoryItem.inlineImage(
+            //         url:
+            //         "https://srv1668-files.hstgr.io/6b84d6b571f2e6f0/files/public_html/Mist/img/ic_car_wash_6.jpg",
+            //         controller: controller,
+            //         caption: Text(
+            //           "Omotuo & Nkatekwan; You will love this meal if taken as supper.",
+            //           style: TextStyle(
+            //             color: Colors.white,
+            //             backgroundColor: Colors.black54,
+            //             fontSize: 17,
+            //           ),
+            //         ),
+            //       ),
+            //       StoryItem.inlineImage(
+            //         url:
+            //         "https://srv1668-files.hstgr.io/6b84d6b571f2e6f0/files/public_html/Mist/img/ic_car_wash_3.jpg",
+            //         controller: controller,
+            //         caption: Text(
+            //           "Omotuo & Nkatekwan; You will love this meal if taken as supper.",
+            //           style: TextStyle(
+            //             color: Colors.white,
+            //             backgroundColor: Colors.black54,
+            //             fontSize: 17,
+            //           ),
+            //         ),
+            //       ),
+            //
+            //     ],
+            //     onStoryShow: (storyItem, index) {
+            //       print("Showing a story");
+            //     },
+            //     onComplete: () {
+            //       print("Completed a cycle");
+            //     },
+            //     progressPosition: ProgressPosition.bottom,
+            //     repeat: true,
+            //     inline: true,
+            //   ),
+            // ),
 
 
           ],

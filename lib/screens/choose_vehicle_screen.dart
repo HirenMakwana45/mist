@@ -3,6 +3,8 @@ import 'package:mist/Utils/app_colors.dart';
 import 'package:mist/extensions/extension_util/int_extensions.dart';
 import 'package:mist/extensions/extension_util/widget_extensions.dart';
 import 'package:mist/extensions/text_styles.dart';
+import 'package:mist/screens/dashboard/dashboard_screen.dart';
+import 'package:mist/screens/dashboard/home_screen.dart';
 
 import '../utils/app_images.dart';
 
@@ -69,7 +71,10 @@ class _ChooseVehicleScreenState extends State<ChooseVehicleScreen> {
                     height: 80, width: 181, fit: BoxFit.cover),
               ],
             ).paddingOnly(left: 20, top: 20),
-          ).onTap((){}),
+          ).onTap((){
+
+            DashboardScreen().launch(context);
+          }),
           16.height,
           Row(
             children: [

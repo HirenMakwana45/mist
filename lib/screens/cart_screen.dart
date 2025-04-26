@@ -3,6 +3,7 @@ import 'package:mist/extensions/extension_util/context_extensions.dart';
 import 'package:mist/extensions/extension_util/int_extensions.dart';
 import 'package:mist/extensions/extension_util/widget_extensions.dart';
 import 'package:mist/screens/discount_screen.dart';
+import 'package:mist/screens/slot_selection_screen.dart';
 
 import '../Utils/app_colors.dart';
 import '../Utils/app_common.dart';
@@ -443,7 +444,9 @@ class _CartScreenState extends State<CartScreen> {
                       ),
                     ],
                   ),
-                )
+                ).onTap((){
+                  SlotSelectionScreen().launch(context);
+                })
               ],
             ),
           ),

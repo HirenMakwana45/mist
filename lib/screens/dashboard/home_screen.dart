@@ -6,6 +6,7 @@ import 'package:mist/extensions/extension_util/int_extensions.dart';
 import 'package:mist/extensions/extension_util/widget_extensions.dart';
 import 'package:mist/extensions/horizontal_list.dart';
 import 'package:mist/extensions/text_styles.dart';
+import 'package:mist/screens/cart_screen.dart';
 import 'package:mist/screens/payment/payment_screen.dart';
 import 'package:mist/screens/select_vehicle_screen.dart';
 import 'package:mist/utils/app_colors.dart';
@@ -235,7 +236,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                           size: 16, color: Colors.grey),
                                     )
                                   ],
-                                ),
+                                ).onTap((){
+                                  CartScreen().launch(context);
+                                }),
                                 Container(
                                     decoration: BoxDecoration(
                                         color: lRedColor,
