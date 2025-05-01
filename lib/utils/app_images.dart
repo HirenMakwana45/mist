@@ -1,5 +1,6 @@
 // images
 
+const ic_logo = "assets/images/ic_logo.png";
 const ic_splash = "assets/images/ic_splash.png";
 const ic_placeholder = "assets/images/ic_placeholder.png";
 const no_internet = "assets/images/no_internet.png";

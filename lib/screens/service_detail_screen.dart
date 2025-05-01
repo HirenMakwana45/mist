@@ -83,7 +83,7 @@ class _ServiceDetailScreenState extends State<ServiceDetailScreen> {
                     ).expand()
                   ],
                 ).paddingSymmetric(vertical: 8, horizontal: 8),
-              ),
+              ).expand(),
 
             ],
           ).paddingSymmetric(horizontal: 18),

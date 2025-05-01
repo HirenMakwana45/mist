@@ -5,6 +5,7 @@ import 'package:mist/extensions/extension_util/context_extensions.dart';
 import 'package:mist/extensions/extension_util/int_extensions.dart';
 import 'package:mist/extensions/extension_util/string_extensions.dart';
 import 'package:mist/extensions/extension_util/widget_extensions.dart';
+import 'package:mist/screens/cart_screen.dart';
 import 'package:mist/screens/faq_screen.dart';
 import 'package:mist/screens/review_screen.dart';
 import 'package:mist/screens/service_detail_screen.dart';
@@ -691,7 +692,9 @@ class _ServiceScreenState extends State<ServiceScreen> {
                                                       ),
                                                     ],
                                                   ),
-                                                )
+                                                ).onTap((){
+                                                  CartScreen().launch(context);
+                                                })
                                               ],
                                             ),
                                           ),
@@ -771,7 +774,9 @@ class _ServiceScreenState extends State<ServiceScreen> {
                         'ADD',
                         style: boldTextStyle(color: Colors.white),
                       ).paddingSymmetric(horizontal: 26, vertical: 10),
-                    )
+                    ).onTap((){
+                      CartScreen().launch(context);
+                    })
                   ],
                 ).paddingOnly(right: 12, top: 40),
               ],

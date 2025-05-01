@@ -4,6 +4,7 @@ import 'package:mist/Utils/app_colors.dart';
 import 'package:mist/extensions/extension_util/context_extensions.dart';
 import 'package:mist/extensions/extension_util/int_extensions.dart';
 import 'package:mist/extensions/extension_util/widget_extensions.dart';
+import 'package:mist/screens/dashboard/dashboard_screen.dart';
 import 'package:mist/screens/payment/payment_screen.dart';
 import 'package:razorpay_flutter/razorpay_flutter.dart';
 
@@ -73,7 +74,9 @@ class _SlotSelectionScreenState extends State<SlotSelectionScreen> {
     // set up the buttons
     Widget continueButton = ElevatedButton(
       child: const Text("Continue"),
-      onPressed: () {},
+      onPressed: () {
+        DashboardScreen().launch(context);
+      },
     );
     // set up the AlertDialog
     AlertDialog alert = AlertDialog(
@@ -300,6 +303,7 @@ class _SlotSelectionScreenState extends State<SlotSelectionScreen> {
                     'key': 'rzp_live_ILgsfZCZoFIKMb',
                     'amount': 100,
                     'name': 'Prepaid Booking',
+                    'image': 'https://heypion.com/assets/img/img_mist_logo',
                     'description': 'Fine T-Shirt',
                     'retry': {'enabled': true, 'max_count': 1},
                     'send_sms_hash': true,

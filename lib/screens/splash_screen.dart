@@ -8,6 +8,7 @@ import 'package:mist/utils/app_colors.dart';
 import '../../../main.dart';
 import '../Utils/app_config.dart';
 import '../extensions/text_styles.dart';
+import '../utils/app_images.dart';
 import 'location/location_permission_screen.dart';
 import 'login_screen.dart';
 
@@ -63,9 +64,9 @@ class SplashScreenState extends State<SplashScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
 
           children: [
-            // Image.asset("ic_bike_logo",
-            //     width: 100, fit: BoxFit.cover),
-            Text(APP_NAME,style: boldTextStyle(color: primaryColor,size: 28),)
+            Image.asset(ic_logo,
+                width: 100, fit: BoxFit.cover),
+            // Text(APP_NAME,style: boldTextStyle(color: primaryColor,size: 28),)
           ],
         ).center(),
       ),
