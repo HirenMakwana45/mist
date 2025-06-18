@@ -9,13 +9,17 @@ import 'package:mist/extensions/widgets.dart';
 import 'package:mist/screens/choose_vehicle_screen.dart';
 
 import '../Utils/app_common.dart';
+import '../extensions/app_button.dart';
 import '../extensions/app_text_field.dart';
 import '../extensions/common.dart';
 import '../extensions/decorations.dart';
 import '../extensions/loader_widget.dart';
+import '../extensions/no_data_widget.dart';
 import '../main.dart';
 import '../utils/app_images.dart';
 import 'no_data_screen.dart';
+
+
 
 class CitySelectionScreen extends StatefulWidget {
   const CitySelectionScreen({super.key});
@@ -27,24 +31,30 @@ class CitySelectionScreen extends StatefulWidget {
 class _CitySelectionScreenState extends State<CitySelectionScreen> {
   TextEditingController mSearch = TextEditingController();
   FocusNode mSearchFocus = FocusNode();
-  String? mSearchValue = "";
+  String mSearchValue = "";
   bool _showClearButton = false;
+  String? selectedCity;
+
+  List<String> cityList = ['Rajkot', 'Ahmedabad', 'Surat'];
 
   @override
-  void setState(fn) {
-    if (mounted) super.setState(fn);
+  void initState() {
+    super.initState();
+    mSearch.addListener(() {
+      setState(() {
+        _showClearButton = mSearch.text.isNotEmpty;
+      });
+    });
   }
 
   Widget _getClearButton() {
-    if (!_showClearButton) {
-      return mSuffixTextFieldIconWidget(ic_search);
-    }
-
+    if (!_showClearButton) return mSuffixTextFieldIconWidget(ic_search);
     return IconButton(
       onPressed: () {
         mSearch.clear();
         mSearchValue = "";
         hideKeyboard(context);
+        setState(() {});
       },
       icon: Icon(Icons.clear),
     );
@@ -52,202 +62,83 @@ class _CitySelectionScreenState extends State<CitySelectionScreen> {
 
   @override
   Widget build(BuildContext context) {
+    List<String> filteredCities = cityList
+        .where((city) => city.toLowerCase().contains(mSearch.text.toLowerCase()))
+        .toList();
+
     return Scaffold(
-      appBar: appBarWidget('Select your city',
-          context: context, showBack: false, center: true),
-      body: Stack(
+      appBar: appBarWidget('Select your city', context: context, showBack: false, center: true),
+      body: Column(
         children: [
-          SingleChildScrollView(
-            physics: NeverScrollableScrollPhysics(),
-            child: Column(
-              children: [
-                AppTextField(
-                  controller: mSearch,
-                  textFieldType: TextFieldType.OTHER,
-                  isValidationRequired: false,
-                  autoFocus: false,
-                  suffix: _getClearButton(),
-                  decoration: defaultInputDecoration(context,
-                      isFocusTExtField: true, label: 'Search for your city'),
-                  onChanged: (v) {
-                    mSearchValue = v;
-                    // appStore.setLoading(true);
-                    // prescriptionsRowList.clear();
-                    // searchDataPrescriptionApi();
-                    setState(() {});
+          AppTextField(
+            controller: mSearch,
+            textFieldType: TextFieldType.OTHER,
+            isValidationRequired: false,
+            autoFocus: false,
+            suffix: _getClearButton(),
+            decoration: defaultInputDecoration(context, isFocusTExtField: true, label: 'Search for your city'),
+            onChanged: (v) {
+              setState(() {
+                mSearchValue = v;
+              });
+            },
+          ).paddingAll(18),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(
+                children: [
+                  Icon(Icons.my_location, color: Colors.blue),
+                  10.width,
+                  Text("Use Current Location", style: boldTextStyle(color: Colors.blue)),
+                ],
+              ),
+              Icon(Icons.arrow_forward_ios_rounded, color: Colors.blue).onTap((){
+                ChooseVehicleScreen().launch(context);
+
+              }),
+            ],
+          ).paddingAll(16),
+          Divider(color: Colors.grey.withOpacity(0.5)),
+          8.height,
+          Expanded(
+            child: filteredCities.isEmpty
+                ? NoDataWidget(title: "City not found")
+                : ListView.builder(
+              padding: const EdgeInsets.symmetric(horizontal: 18),
+              itemCount: filteredCities.length,
+              itemBuilder: (_, index) {
+                String city = filteredCities[index];
+                bool isSelected = selectedCity == city;
+
+                return GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      selectedCity = city;
+                    });
                   },
-                  // onFieldSubmitted: (p0) {
-                  //   mSearchValue = p0;
-                  //   appStore.setLoading(true);
-                  //   searchDataPrescriptionApi();
-                  //   setState(() {});
-                  // },
-                ).paddingAll(18),
-                20.height,
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      children: [
-                        Icon(
-                          Icons.my_location,
-                          color: Colors.blue,
-                        ),
-                        10.width,
-                        Text(
-                          "Use Current Location",
-                          style: boldTextStyle(
-                            color: Colors.blue,
-                          ),
-                        ),
-                      ],
+                  child: Container(
+                    margin: const EdgeInsets.symmetric(vertical: 6),
+                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12),
+                      color: isSelected ? primaryColor.withOpacity(0.7) : Colors.grey.shade200,
+                      border: isSelected ? Border.all(color:secondaryColor, width: 2) : null,
                     ),
-                    Icon(
-                      Icons.arrow_forward_ios_rounded,
-                      color: Colors.blue,
-                    ),
-                  ],
-                ).paddingAll(16),
-                30.height,
-                Divider(color: Colors.grey.withOpacity(0.5)),
-                8.height,
-                Divider(color: Colors.grey.withOpacity(0.5)),
-                // GridView.builder(
-                //   shrinkWrap: true,
-                //   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                //       crossAxisCount: 3),
-                //   itemBuilder: (context, index) {
-                //     return Column(
-                //       children: [],
-                //     );
-                //   },
-                // ),
-                // prescriptionsRowList.isNotEmpty
-                //     ? SizedBox(
-                //   height: 600,
-                //   child: ListView.builder(
-                //     // reverse: prescriptionsRowList.length > 1,
-                //     physics: AlwaysScrollableScrollPhysics(),
-                //     shrinkWrap: true,
-                //     itemCount: prescriptionsRowList.length,
-                //     itemBuilder: (context, i) {
-                //       return Column(
-                //         crossAxisAlignment: CrossAxisAlignment.start,
-                //         children: [
-                //           Row(
-                //             mainAxisAlignment:
-                //             MainAxisAlignment.spaceBetween,
-                //             children: [
-                //               Text(
-                //                 prescriptionsRowList[i]
-                //                     .patientName
-                //                     .toString(),
-                //                 style: primaryTextStyle(size: 16),
-                //               ),
-                //               Container(
-                //                 padding: const EdgeInsets.only(
-                //                     left: 8,
-                //                     right: 8,
-                //                     bottom: 5,
-                //                     top: 5),
-                //                 decoration: BoxDecoration(
-                //                     border: Border.all(
-                //                         color: prescriptionsRowList[i]
-                //                             .status ==
-                //                             'open'
-                //                             ? BlueColor
-                //                             : prescriptionsRowList[i]
-                //                             .status ==
-                //                             'close'
-                //                             ? YellowColor
-                //                             : prescriptionsRowList[
-                //                         i]
-                //                             .status ==
-                //                             'delivered'
-                //                             ? GreenColor
-                //                             : darkRedColor),
-                //                     borderRadius:
-                //                     BorderRadius.circular(24)),
-                //                 child: Text(
-                //                   prescriptionsRowList[i]
-                //                       .status
-                //                       .toString(),
-                //                   style: primaryTextStyle(
-                //                       size: 12,
-                //                       color: prescriptionsRowList[i]
-                //                           .status ==
-                //                           'open'
-                //                           ? BlueColor
-                //                           : prescriptionsRowList[i]
-                //                           .status ==
-                //                           'closed'
-                //                           ? YellowColor
-                //                           : prescriptionsRowList[i]
-                //                           .status ==
-                //                           'delivered'
-                //                           ? GreenColor
-                //                           : darkRedColor),
-                //                 ),
-                //               ),
-                //             ],
-                //           ),
-                //           4.height,
-                //           Row(
-                //             mainAxisAlignment:
-                //             MainAxisAlignment.spaceBetween,
-                //             children: [
-                //               Text(
-                //                 parseDocumentDate(DateTime.parse(
-                //                     prescriptionsRowList[i]
-                //                         .createdAt
-                //                         .toString())),
-                //                 style: secondaryTextStyle(
-                //                     size: 12, color: lightColor),
-                //               ),
-                //               Text(
-                //                 prescriptionsRowList[i].prId.toString(),
-                //                 style: secondaryTextStyle(
-                //                     size: 12, color: lightColor),
-                //               ),
-                //             ],
-                //           ),
-                //           10.height,
-                //           Container(
-                //               width: double.infinity,
-                //               height: 1,
-                //               color: context.dividerColor),
-                //           10.height,
-                //         ],
-                //       ).onTap(() {
-                //         PrescriptionDetailsScreen(
-                //           prescriptionId:
-                //           prescriptionsRowList[i].prescriptionId!,
-                //         ).launch(context);
-                //       });
-                //     },
-                //   ),
-                // )
-                //     : Stack(
-                //   children: [
-                //     SizedBox(
-                //       height: context.height() * 0.6,
-                //       child: NoDataScreen(
-                //         mTitle: 'No Data found',
-                //       )
-                //           .visible(prescriptionsRowList!.isEmpty)
-                //           .center()
-                //           .visible(!appStore.isLoading),
-                //     )
-                //   ],
-                // ),
-                Text('Next').onTap(() {
-                  ChooseVehicleScreen().launch(context);
-                }),
-                70.height,
-              ],
+                    child: Text(city, style: primaryTextStyle()),
+                  ),
+                );
+              },
             ),
           ),
-          // Loader().visible(appStore.isLoading)
+          if (selectedCity != null)
+            AppButton(
+              color: secondaryColor,
+              text: 'Next',
+              onTap: () {
+                ChooseVehicleScreen().launch(context);
+              },
+            ).paddingAll(16),
         ],
       ),
     );

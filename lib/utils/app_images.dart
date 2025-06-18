@@ -25,6 +25,17 @@ const ic_my_orders = "assets/images/ic_my_orders.png";
 const ic_plus = "assets/images/ic_plus.png";
 const ic_profile = "assets/images/ic_profile.png";
 
+const img_map_mobile = "assets/images/img_map_mobile.png";
+const img_mist_premium = "assets/images/img_mist_premium.png";
+const img_select_city = "assets/images/img_select_city.png";
+const img_station_chat = "assets/images/img_station_chat.png";
+
+const img_bike_care = "assets/images/img_bike_care.png";
+const img_car_care = "assets/images/img_car_care.png";
+const img_car_deep_clean = "assets/images/img_car_deep_clean.png";
+const img_car_shine= "assets/images/img_car_shine.png";
+const img_car_wash = "assets/images/img_car_wash.png";
+const img_car_wash_2 = "assets/images/img_car_wash_2.png";
 
 // icons
 

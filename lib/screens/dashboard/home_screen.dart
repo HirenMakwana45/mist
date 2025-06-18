@@ -155,10 +155,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   ],
                 ).paddingTop(8),
                 8.width,
-                cachedImage(
-                  ic_car_logo,
-                  height: 28,
-                  width: 28,
+                Icon(
+                  Icons.directions_car_filled,
+                  size: 28,
                 ),
                 8.width,
               ],
@@ -201,7 +200,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                         style: boldTextStyle(
                                           size: 14,
                                         ),
-                                      ),
+                                      ).onTap(() {
+                                        SelectVehicleScreen().launch(context);
+                                      }),
                                     ],
                                   ).paddingSymmetric(
                                       horizontal: 6, vertical: 8),
@@ -236,7 +237,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           size: 16, color: Colors.grey),
                                     )
                                   ],
-                                ).onTap((){
+                                ).onTap(() {
                                   CartScreen().launch(context);
                                 }),
                                 Container(
@@ -332,8 +333,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     children: [
                       Column(
                         children: [
-                          cachedImage('',
-                              fit: BoxFit.cover, height: 50, width: 50),
+                          Image.asset(img_car_wash,
+                              fit: BoxFit.cover, height: 50, width: 80),
                           4.height,
                           Text('Car Wash', style: boldTextStyle(size: 12)),
                         ],
@@ -342,16 +343,16 @@ class _HomeScreenState extends State<HomeScreen> {
                       }),
                       Column(
                         children: [
-                          cachedImage('',
-                              fit: BoxFit.cover, height: 50, width: 50),
+                          Image.asset(img_car_deep_clean,
+                              fit: BoxFit.cover, height: 50, width: 80),
                           4.height,
                           Text('Deep Clean', style: boldTextStyle(size: 12)),
                         ],
                       ),
                       Column(
                         children: [
-                          cachedImage('',
-                              fit: BoxFit.cover, height: 50, width: 50),
+                          Image.asset(img_car_shine,
+                              fit: BoxFit.cover, height: 50, width: 80),
                           4.height,
                           Text('Shine and Coat',
                               style: boldTextStyle(size: 12)),
@@ -365,8 +366,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     children: [
                       Column(
                         children: [
-                          cachedImage('',
-                              fit: BoxFit.cover, height: 50, width: 50),
+                          Image.asset(img_car_wash_2,
+                              fit: BoxFit.cover, height: 50, width: 80),
                           4.height,
                           Text('Luxury Car \nCare',
                               style: boldTextStyle(size: 12)),
@@ -374,8 +375,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       Column(
                         children: [
-                          cachedImage('',
-                              fit: BoxFit.cover, height: 50, width: 50),
+                          Image.asset(img_car_care,
+                              fit: BoxFit.cover, height: 50, width: 80),
+                          4.height,
                           4.height,
                           Text('Special Car \nCare',
                               style: boldTextStyle(size: 12)),
@@ -383,8 +385,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       Column(
                         children: [
-                          cachedImage('',
-                              fit: BoxFit.cover, height: 50, width: 50),
+                          Image.asset(img_bike_care,
+                              fit: BoxFit.cover, height: 50, width: 80),
+                          4.height,
                           4.height,
                           Text('Bike and Moped',
                               style: boldTextStyle(size: 12)),
@@ -394,10 +397,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   30.height,
 
-                  20.height,
-                  Text('Select Vehicle').onTap((){
-                    SelectVehicleScreen().launch(context);
-                  }),
+                  // 20.height,
+                  // Text('Select Vehicle').onTap((){
+                  //   SelectVehicleScreen().launch(context);
+                  // }),
                   20.height,
                   Text(
                     "Benefits of Car Care",
@@ -417,10 +420,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                 borderRadius: BorderRadius.circular(6)),
                             child: Row(
                               children: [
-                                cachedImage(
-                                  ic_car_logo,
-                                  height: 30,
-                                  width: 30,
+                                Icon(
+                                  Icons.directions_car_filled,
+                                  size: 28,
                                 ),
                                 10.width,
                                 Text(
@@ -438,10 +440,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                 borderRadius: BorderRadius.circular(6)),
                             child: Row(
                               children: [
-                                cachedImage(
-                                  ic_car_wash,
-                                  height: 30,
-                                  width: 30,
+                                Icon(
+                                  Icons.groups_rounded,
+                                  size: 28,
                                 ),
                                 10.width,
                                 Text(
@@ -471,7 +472,11 @@ class _HomeScreenState extends State<HomeScreen> {
                               width: 120,
                               child: Column(
                                 children: [
-                                  cachedImage('', height: 110, width: 115),
+                                  ClipRRect(
+                                      borderRadius: BorderRadius.circular(12),
+                                      child: Image.asset(ic_car_wash_6,
+                                          fit: BoxFit.cover,
+                                          height: 110, width: 115)),
                                   6.height,
                                   Row(
                                     children: [
@@ -520,14 +525,18 @@ class _HomeScreenState extends State<HomeScreen> {
                               width: 120,
                               child: Column(
                                 children: [
-                                  cachedImage('', height: 110, width: 115),
+                                  ClipRRect(
+                                      borderRadius: BorderRadius.circular(12),
+                                      child: Image.asset(ic_car_wash_3,
+                                          fit: BoxFit.cover,
+                                          height: 110, width: 115)),
                                   6.height,
                                   Row(
                                     children: [
                                       Text(
                                         overflow: TextOverflow.ellipsis,
                                         maxLines: 2,
-                                        "Interior + Exterior Foam Wash + Hybrid Ceramic Coat",
+                                        "Interior Deep Clean + Odor Blaster",
                                         style: boldTextStyle(size: 10),
                                       ).expand(),
                                       8.width,
@@ -543,7 +552,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Text(
-                                        "₹809",
+                                        "₹1399",
                                         style: boldTextStyle(
                                           color: Colors.black,
                                           size: 12,
@@ -552,7 +561,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       Row(
                                         children: [
                                           Text(
-                                            '4.5',
+                                            '4.1',
                                             style: boldTextStyle(size: 12),
                                           ),
                                           6.width,
@@ -569,14 +578,18 @@ class _HomeScreenState extends State<HomeScreen> {
                               width: 120,
                               child: Column(
                                 children: [
-                                  cachedImage('', height: 110, width: 115),
+                                  ClipRRect(
+                                      borderRadius: BorderRadius.circular(12),
+                                      child: Image.asset(ic_car_wash_5,
+                                          fit: BoxFit.cover,
+                                          height: 110, width: 115)),
                                   6.height,
                                   Row(
                                     children: [
                                       Text(
                                         overflow: TextOverflow.ellipsis,
                                         maxLines: 2,
-                                        "Interior + Exterior Foam Wash + Hybrid Ceramic Coat",
+                                        "Super Shine Hydrophobic Ceramic Wash + Underbody Cleaning",
                                         style: boldTextStyle(size: 10),
                                       ).expand(),
                                       8.width,
@@ -589,10 +602,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                   4.height,
                                   Row(
                                     mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                                        MainAxisAlignment.spaceBetween,
                                     children: [
                                       Text(
-                                        "₹809",
+                                        "₹1189",
                                         style: boldTextStyle(
                                           color: Colors.black,
                                           size: 12,
@@ -601,7 +614,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       Row(
                                         children: [
                                           Text(
-                                            '4.5',
+                                            '4.4',
                                             style: boldTextStyle(size: 12),
                                           ),
                                           6.width,
@@ -616,7 +629,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ).paddingRight(14),
                           ],
                         );
-                      })
+                      }).onTap((){ServiceScreen().launch(context);})
                 ],
               ).paddingAll(16),
             ),

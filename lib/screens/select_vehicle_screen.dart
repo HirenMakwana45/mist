@@ -3,6 +3,8 @@ import 'package:mist/extensions/animatedList/animated_wrap.dart';
 import 'package:mist/extensions/extension_util/int_extensions.dart';
 import 'package:mist/extensions/extension_util/widget_extensions.dart';
 import 'package:mist/extensions/text_styles.dart';
+import 'package:mist/screens/service_screen.dart';
+import 'package:mist/utils/app_colors.dart';
 
 import '../Utils/app_common.dart';
 import '../extensions/animatedList/animated_configurations.dart';
@@ -48,7 +50,6 @@ class _SelectVehicleScreenState extends State<SelectVehicleScreen> {
     ic_tata_logo,
     ic_toyota_logo,
     ic_volksvegan_logo
-
   ];
 
   Widget _getClearButton() {
@@ -111,13 +112,16 @@ class _SelectVehicleScreenState extends State<SelectVehicleScreen> {
               ),
               SizedBox(height: 12),
               ElevatedButton(
+
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.grey.shade400,
+                  backgroundColor: secondaryColor,
                   minimumSize: Size(double.infinity, 45),
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8)),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  ServiceScreen().launch(context);
+                },
                 child: Text('Proceed', style: TextStyle(color: Colors.white)),
               ),
               SizedBox(height: 8),
@@ -145,7 +149,7 @@ class _SelectVehicleScreenState extends State<SelectVehicleScreen> {
           style: boldTextStyle(),
         )
       ],
-    ).paddingSymmetric(horizontal: 10,vertical: 4);
+    ).paddingSymmetric(horizontal: 10, vertical: 4);
   }
 
   @override
@@ -219,7 +223,7 @@ class _SelectVehicleScreenState extends State<SelectVehicleScreen> {
                   child: Container(
                     alignment: Alignment.center,
                     child: Image.asset(imageItems[index], fit: BoxFit.cover),
-                  ).onTap((){
+                  ).onTap(() {
                     showCarTypeDialog(context);
                   }),
                 );

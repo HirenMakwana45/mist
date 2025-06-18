@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:toastification/toastification.dart';
 
 import '../../extensions/extension_util/widget_extensions.dart';
 import '../extensions/shared_pref.dart';
@@ -24,10 +25,18 @@ Future<void> loginWithOTP(
     verificationFailed: (FirebaseAuthException e) {
       appStore.setLoading(false);
       if (e.code == 'invalid-phone-number') {
-        toast('The provided Phone number is not valid.');
+        showToast(
+          'The provided Phone number is not valid.',
+          type: ToastificationType.error,
+          progressColor: Colors.red,
+        );
         throw 'The provided Phone number is not valid.';
       } else {
-        toast(e.toString());
+        showToast(
+          e.toString(),
+          type: ToastificationType.error,
+          progressColor: Colors.red,
+        );
         throw e.toString();
       }
     },

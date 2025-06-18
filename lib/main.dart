@@ -16,6 +16,7 @@ import 'package:mist/utils/app_common.dart';
 import 'package:mist/utils/app_constants.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:toastification/toastification.dart';
 
 import 'Utils/app_config.dart';
 import 'app_theme.dart';
@@ -118,7 +119,11 @@ class MyAppState extends State<MyApp> {
         if (isCurrentlyOnNoInternet) {
           pop();
           isCurrentlyOnNoInternet = false;
-          toast('Internet is connected');
+          showToast(
+            'Internet is connected',
+            type: ToastificationType.error,
+            progressColor: Colors.red,
+          );
         }
         log('connected');
       }

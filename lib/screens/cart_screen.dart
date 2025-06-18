@@ -137,8 +137,9 @@ class _CartScreenState extends State<CartScreen> {
                               children: [
                                 Stack(
                                   children: [
-                                    cachedImage('',
-                                        radius: 12, height: 80, width: 140),
+                                    Image.asset(ic_car_wash_5,
+                                         fit: BoxFit.cover,
+                                         height: 80, width: 140),
                                     Container(
                                       child: Text(
                                         '35 mins',
@@ -209,11 +210,12 @@ class _CartScreenState extends State<CartScreen> {
                               children: [
                                 Stack(
                                   children: [
-                                    cachedImage('',
-                                        radius: 12, height: 80, width: 140),
+                                    Image.asset(ic_car_wash_6,
+                                        fit: BoxFit.cover,
+                                      height: 80, width: 140),
                                     Container(
                                       child: Text(
-                                        '35 mins',
+                                        '1 mins',
                                         style: secondaryTextStyle(
                                             size: 12, color: Colors.black),
                                       ).paddingSymmetric(
@@ -231,7 +233,7 @@ class _CartScreenState extends State<CartScreen> {
                                     Text(
                                       overflow: TextOverflow.ellipsis,
                                       maxLines: 1,
-                                      "Bike Pressure  Wash + Hybrid Ceramic Coat",
+                                      "Foam Wash",
                                       style: boldTextStyle(
                                           size: 12, color: Colors.white),
                                     ).expand(),
@@ -281,8 +283,9 @@ class _CartScreenState extends State<CartScreen> {
                               children: [
                                 Stack(
                                   children: [
-                                    cachedImage('',
-                                        radius: 12, height: 80, width: 140),
+                                    Image.asset(ic_car_wash_4,
+                                        fit: BoxFit.cover,
+                                         height: 80, width: 140),
                                     Container(
                                       child: Text(
                                         '35 mins',
@@ -384,7 +387,8 @@ class _CartScreenState extends State<CartScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    cachedImage('', radius: 0, height: 55, width: 90),
+                    Image.asset(img_car_shine,
+                        fit: BoxFit.cover, height: 55, width: 90),
                     Text(
                       'Add another Car/Bike',
                       style: boldTextStyle(color: secondaryColor, size: 18),

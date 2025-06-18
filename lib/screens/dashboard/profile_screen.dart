@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:mist/extensions/common.dart';
 import 'package:mist/extensions/extension_util/context_extensions.dart';
 import 'package:mist/extensions/extension_util/int_extensions.dart';
 import 'package:mist/extensions/extension_util/widget_extensions.dart';
 import 'package:mist/extensions/text_styles.dart';
+import 'package:mist/screens/choose_vehicle_screen.dart';
+import 'package:mist/screens/login_screen.dart';
 
 import '../../Utils/app_colors.dart';
 import '../../extensions/app_button.dart';
@@ -20,6 +23,15 @@ class ProfileScreen extends StatefulWidget {
 
 class _ProfileScreenState extends State<ProfileScreen> {
   TextEditingController mNameCont = TextEditingController();
+  TextEditingController mEmailCont = TextEditingController();
+  TextEditingController mMobileCont = TextEditingController();
+  TextEditingController mAddressCont = TextEditingController();
+  TextEditingController mVehicleCont = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -103,50 +115,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 CrossAxisAlignment.start,
                                 children: [
                                   14.height,
-                                  // Text(
-                                  //   "Save Address as",
-                                  //   style: boldTextStyle(size: 18),
-                                  // ),
-                                  // 16.height,
-                                  // Row(
-                                  //   mainAxisAlignment: MainAxisAlignment.center,
-                                  //   children: options.map((option) {
-                                  //     bool isSelected = selectedOption == option;
-                                  //     return GestureDetector(
-                                  //       onTap: () {
-                                  //         setState(() {
-                                  //           selectedOption = option;
-                                  //           print("Selected option is ===>"+selectedOption.toString());
-                                  //         });
-                                  //       },
-                                  //       child: Container(
-                                  //         padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-                                  //         margin: EdgeInsets.symmetric(horizontal: 8),
-                                  //         decoration: BoxDecoration(
-                                  //           color: isSelected ? primaryColor : Colors.grey[300], // Background color
-                                  //           borderRadius: BorderRadius.circular(12),
-                                  //         ),
-                                  //         child: Text(
-                                  //           option,
-                                  //           style: TextStyle(
-                                  //             color: isSelected ? Colors.white : Colors.black, // Text color
-                                  //             fontWeight: FontWeight.bold,
-                                  //           ),
-                                  //         ),
-                                  //       ),
-                                  //     );
-                                  //   }).toList(),
-                                  // ),
-                                  // Row(
-                                  //   crossAxisAlignment:
-                                  //   CrossAxisAlignment.start,
-                                  //   children: [
-                                  //     Text('Name',
-                                  //         style: secondaryTextStyle(
-                                  //             color:
-                                  //             textPrimaryColorGlobal)),
-                                  //   ],
-                                  // ),
+
                                   4.height,
                                   AppTextField(
                                     controller: mNameCont,
@@ -175,7 +144,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   width: context.width() * 0.92,
                                   height: context.height() * 0.066,
                                   color: secondaryColor,
-                                  onTap: () {},
+                                  onTap: () {
+                                    pop();
+                                  },
                                 ),
                               ),
                             ],
@@ -218,7 +189,71 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ),
                     Icon(Icons.arrow_forward_ios)
                   ],
-                ).onTap(() {}).paddingSymmetric(horizontal: 20, vertical: 14),
+                ).onTap(() {
+                  showModalBottomSheet(
+                    // isScrollControlled: true,
+                    backgroundColor: Colors.white,
+                    context: context,
+                    builder: (context) {
+                      return
+                        Padding(
+                          padding: EdgeInsets.only(
+                            bottom: MediaQuery.of(context).viewInsets.bottom, // Adjust for keyboard
+                          ),
+                          child: SizedBox(
+                            width: double.infinity,
+                            height: context.height() * 0.20,
+                            child: Stack(
+                              children: [
+                                Column(
+                                  mainAxisAlignment:
+                                  MainAxisAlignment.start,
+                                  crossAxisAlignment:
+                                  CrossAxisAlignment.start,
+                                  children: [
+                                    14.height,
+
+                                    4.height,
+                                    AppTextField(
+                                      controller: mEmailCont,
+                                      textFieldType: TextFieldType.NAME,
+                                      // isValidationRequired: true,
+                                      // focus: mFirstNameFocus,
+                                      // nextFocus: mLastNameFocus,
+                                      decoration:
+                                      defaultInputDecoration(
+                                          context,
+                                          label: 'Enter Email'),
+                                    ),
+                                    16.height,
+
+                                    10.height,
+                                  ],
+                                ).paddingSymmetric(horizontal: 18),
+                                Positioned(
+                                  bottom: 16,
+                                  left: 16,
+                                  right: 16,
+                                  child: AppButton(
+                                    text: 'Save',
+                                    padding:
+                                    EdgeInsetsDirectional.all(0),
+                                    width: context.width() * 0.92,
+                                    height: context.height() * 0.066,
+                                    color: secondaryColor,
+                                    onTap: () {
+                                      pop();
+                                    },
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        );
+                    },
+                  );
+
+                }).paddingSymmetric(horizontal: 20, vertical: 14),
                 Divider(
                   color: Colors.grey.withOpacity(0.5),
                   indent: 20,
@@ -252,7 +287,70 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ),
                     Icon(Icons.arrow_forward_ios)
                   ],
-                ).onTap(() {}).paddingSymmetric(horizontal: 20, vertical: 14),
+                ).onTap(() {
+                  showModalBottomSheet(
+                    // isScrollControlled: true,
+                    backgroundColor: Colors.white,
+                    context: context,
+                    builder: (context) {
+                      return
+                        Padding(
+                          padding: EdgeInsets.only(
+                            bottom: MediaQuery.of(context).viewInsets.bottom, // Adjust for keyboard
+                          ),
+                          child: SizedBox(
+                            width: double.infinity,
+                            height: context.height() * 0.20,
+                            child: Stack(
+                              children: [
+                                Column(
+                                  mainAxisAlignment:
+                                  MainAxisAlignment.start,
+                                  crossAxisAlignment:
+                                  CrossAxisAlignment.start,
+                                  children: [
+                                    14.height,
+
+                                    4.height,
+                                    AppTextField(
+                                      controller: mMobileCont,
+                                      textFieldType: TextFieldType.NAME,
+                                      // isValidationRequired: true,
+                                      // focus: mFirstNameFocus,
+                                      // nextFocus: mLastNameFocus,
+                                      decoration:
+                                      defaultInputDecoration(
+                                          context,
+                                          label: 'Enter Mobile'),
+                                    ),
+                                    16.height,
+
+                                    10.height,
+                                  ],
+                                ).paddingSymmetric(horizontal: 18),
+                                Positioned(
+                                  bottom: 16,
+                                  left: 16,
+                                  right: 16,
+                                  child: AppButton(
+                                    text: 'Save',
+                                    padding:
+                                    EdgeInsetsDirectional.all(0),
+                                    width: context.width() * 0.92,
+                                    height: context.height() * 0.066,
+                                    color: secondaryColor,
+                                    onTap: () {
+                                      pop();
+                                    },
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        );
+                    },
+                  );
+                }).paddingSymmetric(horizontal: 20, vertical: 14),
                 Divider(
                   color: Colors.grey.withOpacity(0.5),
                   indent: 20,
@@ -277,7 +375,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               style: boldTextStyle(size: 14),
                             ),
                             Text(
-                              "Vehicle",
+                              "134-A,Abc Street",
                               style: primaryTextStyle(size: 12),
                             ),
                           ],
@@ -286,7 +384,70 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ),
                     Icon(Icons.arrow_forward_ios)
                   ],
-                ).onTap(() {}).paddingSymmetric(horizontal: 20, vertical: 14),
+                ).onTap(() {
+
+                  showModalBottomSheet(
+                    // isScrollControlled: true,
+                    backgroundColor: Colors.white,
+                    context: context,
+                    builder: (context) {
+                      return
+                        Padding(
+                          padding: EdgeInsets.only(
+                            bottom: MediaQuery.of(context).viewInsets.bottom, // Adjust for keyboard
+                          ),
+                          child: SizedBox(
+                            width: double.infinity,
+                            height: context.height() * 0.20,
+                            child: Stack(
+                              children: [
+                                Column(
+                                  mainAxisAlignment:
+                                  MainAxisAlignment.start,
+                                  crossAxisAlignment:
+                                  CrossAxisAlignment.start,
+                                  children: [
+                                    14.height,
+
+                                    4.height,
+                                    AppTextField(
+                                      controller: mAddressCont,
+                                      textFieldType: TextFieldType.NAME,
+                                      // isValidationRequired: true,
+                                      // focus: mFirstNameFocus,
+                                      // nextFocus: mLastNameFocus,
+                                      decoration:
+                                      defaultInputDecoration(
+                                          context,
+                                          label: 'Enter Address'),
+                                    ),
+                                    26.height,
+
+                                  ],
+                                ).paddingSymmetric(horizontal: 18),
+                                Positioned(
+                                  bottom: 16,
+                                  left: 16,
+                                  right: 16,
+                                  child: AppButton(
+                                    text: 'Save',
+                                    padding:
+                                    EdgeInsetsDirectional.all(0),
+                                    width: context.width() * 0.92,
+                                    height: context.height() * 0.066,
+                                    color: secondaryColor,
+                                    onTap: () {
+                                      pop();
+                                    },
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        );
+                    },
+                  );
+                }).paddingSymmetric(horizontal: 20, vertical: 14),
                 Divider(
                   color: Colors.grey.withOpacity(0.5),
                   indent: 20,
@@ -311,7 +472,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               style: boldTextStyle(size: 14),
                             ),
                             Text(
-                              "Vehicle",
+                              "Bike",
                               style: primaryTextStyle(size: 12),
                             ),
                           ],
@@ -320,7 +481,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ),
                     Icon(Icons.arrow_forward_ios)
                   ],
-                ).onTap(() {}).paddingSymmetric(horizontal: 20, vertical: 14),
+                ).onTap(() {
+                  ChooseVehicleScreen().launch(context);
+
+                }).paddingSymmetric(horizontal: 20, vertical: 14),
               ],
             ),
           ),
@@ -357,7 +521,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
               width: context.width() * 0.90,
               height: context.height() * 0.060,
               color: Colors.white,
-              onTap: () {},
+              onTap: () {
+                LoginScreen().launch(context);
+
+              },
             ),
             width: 120,
           ),

@@ -303,14 +303,14 @@ class _SlotSelectionScreenState extends State<SlotSelectionScreen> {
                     'key': 'rzp_live_ILgsfZCZoFIKMb',
                     'amount': 100,
                     'name': 'Prepaid Booking',
-                    'image': 'https://heypion.com/assets/img/img_mist_logo',
-                    'description': 'Fine T-Shirt',
+                    'image': 'https://heypion.com/assets/img/ic_i_Talk_logo_light.png',
+                    // 'description': 'Fine T-Shirt',
                     'retry': {'enabled': true, 'max_count': 1},
                     'send_sms_hash': true,
-                    'prefill': {
-                      'contact': '+91 9638469716',
-                      'email': 'cntact@heyepion.com'
-                    },
+                    // 'prefill': {
+                    //   'contact': '+91 9638469716',
+                    //   'email': 'cntact@heyepion.com'
+                    // },
                     'external': {
                       'wallets': ['paytm'],
                     },

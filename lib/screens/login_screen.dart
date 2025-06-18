@@ -8,6 +8,7 @@ import 'package:mist/extensions/extension_util/int_extensions.dart';
 import 'package:mist/extensions/extension_util/widget_extensions.dart';
 import 'package:mist/extensions/text_styles.dart';
 import 'package:mist/utils/app_colors.dart';
+import 'package:toastification/toastification.dart';
 
 import '../Services/auth_service.dart';
 import '../extensions/app_button.dart';
@@ -31,8 +32,8 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   TextEditingController mMobileCont = TextEditingController();
   String cCode = '+91';
-  final String termsUrl = "https://heypion.com.com";
-  final String privacyUrl = "https://heypion.com.com";
+  final String termsUrl = "https://heypion.com/Mist/term&condition";
+  final String privacyUrl = "https://heypion.com/Mist/privacy_policy";
 
   GlobalKey<FormState> mFormKey = GlobalKey<FormState>();
 
@@ -59,7 +60,12 @@ class _LoginScreenState extends State<LoginScreen> {
       number,
       mMobileCont.text.trim(),
     ).then((value) {}).catchError((e) {
-      toast(e.toString());
+      showToast(
+        e.toString(),
+        type: ToastificationType.error,
+        progressColor: Colors.red,
+      );
+      // toast(e.toString());
       appStore.setLoading(false);
     });
   }

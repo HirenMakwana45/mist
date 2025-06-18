@@ -16,6 +16,8 @@ class ChooseVehicleScreen extends StatefulWidget {
 }
 
 class _ChooseVehicleScreenState extends State<ChooseVehicleScreen> {
+  String? selectedVehicle; // "car" or "bike"
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -127,7 +129,7 @@ class _ChooseVehicleScreenState extends State<ChooseVehicleScreen> {
               ],
             ).paddingOnly(left: 20, top: 20),
           ).onTap((){
-
+            DashboardScreen().launch(context);
           }),
         ],
       ).paddingAll(16),

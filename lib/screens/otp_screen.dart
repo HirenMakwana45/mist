@@ -6,6 +6,7 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:mist/extensions/extension_util/context_extensions.dart';
 import 'package:mist/extensions/extension_util/int_extensions.dart';
 import 'package:mist/extensions/extension_util/widget_extensions.dart';
+import 'package:toastification/toastification.dart';
 // import 'package:telephony/telephony.dart';
 // import 'package:telephony/telephony.dart';
 
@@ -14,6 +15,7 @@ import '../Utils/app_common.dart';
 import '../Utils/app_constants.dart';
 import '../extensions/app_button.dart';
 import '../extensions/common.dart';
+import '../extensions/constants.dart';
 import '../extensions/loader_widget.dart';
 import '../extensions/otp_text_field.dart';
 import '../extensions/shared_pref.dart';
@@ -113,7 +115,11 @@ class _OtpScreenState extends State<OtpScreen> with TickerProviderStateMixin {
       reSendOTP();
       startTimer();
     } else {
-      toast('You cannot resend OTP yet. Please wait.');
+      showToast(
+        'You cannot resend OTP yet. Please wait.',
+        type: ToastificationType.warning,
+        progressColor: primaryColor,
+      );
     }
   }
 
@@ -128,10 +134,19 @@ class _OtpScreenState extends State<OtpScreen> with TickerProviderStateMixin {
       verificationFailed: (FirebaseAuthException e) {
         appStore.setLoading(false);
         if (e.code == 'invalid-phone-number') {
-          toast('The provided Phone number is not valid.');
+          showToast(
+            '',
+            type: ToastificationType.error,
+            progressColor: Colors.red,
+          );
           throw 'The provided Phone number is not valid.';
         } else {
-          toast(e.toString());
+          showToast(
+            e.toString(),
+            type: ToastificationType.error,
+            progressColor: Colors.red,
+          );
+
           throw e.toString();
         }
       },
@@ -156,7 +171,11 @@ class _OtpScreenState extends State<OtpScreen> with TickerProviderStateMixin {
       number,
       widget.mobileNumber,
     ).then((value) {}).catchError((e) {
-      toast(e.toString());
+      showToast(
+        e.toString(),
+        type: ToastificationType.error,
+        progressColor: Colors.red,
+      );
       appStore.setLoading(false);
     });
   }
@@ -185,9 +204,18 @@ class _OtpScreenState extends State<OtpScreen> with TickerProviderStateMixin {
         default:
           errorMessage = 'An unknown error occurred. Please try again.';
       }
-      toast(errorMessage);
+      showToast(
+        errorMessage,
+        type: ToastificationType.error,
+        progressColor: Colors.red,
+      );
     } catch (e) {
-      toast('An error occurred: ${e.toString()}');
+      showToast(
+        'An error occurred: ${e.toString()}',
+        type: ToastificationType.error,
+        progressColor: Colors.red,
+      );
+
     } finally {
       appStore.setLoading(false);
     }

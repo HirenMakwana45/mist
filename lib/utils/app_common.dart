@@ -7,6 +7,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 // import 'package:html/parser.dart';
 import 'package:intl/intl.dart';
 import 'package:mist/extensions/extension_util/widget_extensions.dart';
+import 'package:toastification/toastification.dart';
 import '../extensions/extension_util/int_extensions.dart';
 // import 'package:onesignal_flutter/onesignal_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -24,6 +25,7 @@ import '../main.dart';
 // import '../models/user_response.dart';
 // import '../network/rest_api.dart';
 import '../network/rest_api.dart';
+import 'app_colors.dart';
 import 'app_config.dart';
 import 'app_constants.dart';
 
@@ -132,47 +134,33 @@ Widget placeHolderWidget(
       .cornerRadiusWithClipRRect(radius ?? defaultRadius);
 }
 
-toast(String? value,
-    {ToastGravity? gravity,
-    length = Toast.LENGTH_SHORT,
-    Color? bgColor,
-    Color? textColor}) {
-  Fluttertoast.showToast(
-    msg: value.validate(),
-    toastLength: length,
-    gravity: ToastGravity.BOTTOM,
-    timeInSecForIosWeb: 1,
-    backgroundColor: bgColor,
-    textColor: textColor,
-    fontSize: 16.0,
+void showToast(
+    String? value, {
+      ToastificationType type = ToastificationType.info,
+      ToastificationStyle style = ToastificationStyle.flat,
+      Duration duration = const Duration(seconds: 2),
+      Color? backgroundColor,
+      Color? foregroundColor,
+      Color? progressColor,
+    }) {
+  if (value.validate().isEmpty) return;
+
+  toastification.show(
+    type: type,
+    style: style,
+    primaryColor: primaryColor,
+    backgroundColor: backgroundColor ?? Colors.white,
+    foregroundColor: foregroundColor ?? Colors.black,
+    title: Text(value.validate()),
+    autoCloseDuration: duration,
+    showProgressBar: true,
+    progressBarTheme: ProgressIndicatorThemeData(
+      linearTrackColor: Colors.grey[300],
+      color: primaryColor,
+    ),
   );
 }
 
-void toastLeft(
-  String? value, {
-  ToastGravity? gravity,
-  int durationInSeconds = 1,
-  Color? bgColor,
-  Color? textColor,
-}) {
-  int repeatCount = (durationInSeconds / 2).ceil();
-  Timer.periodic(Duration(seconds: 2), (timer) {
-    if (repeatCount > 0) {
-      Fluttertoast.showToast(
-        msg: value ?? '',
-        toastLength: Toast.LENGTH_SHORT,
-        gravity: gravity ?? ToastGravity.BOTTOM,
-        backgroundColor: bgColor,
-        textColor: textColor,
-        fontSize: 16.0,
-        webPosition: "left",
-      );
-      repeatCount--;
-    } else {
-      timer.cancel();
-    }
-  });
-}
 
 setLogInValue() {
   userStore.setLogin(getBoolAsync(IS_LOGIN));
@@ -219,7 +207,11 @@ Future<void> launchUrls(String url, {bool forceWebView = false}) async {
   await launchUrl(Uri.parse(url), mode: LaunchMode.externalApplication)
       .catchError((e) {
     log(e);
-    toast('Invalid URL: $url');
+    showToast(
+      'Invalid URL: $url',
+      type: ToastificationType.error,
+      progressColor: Colors.red,
+    );
   });
 }
 

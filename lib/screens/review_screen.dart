@@ -59,7 +59,8 @@ class _ReviewScreenState extends State<ReviewScreen> {
               LinearProgressBar(
                 minHeight: 6,
                 maxSteps: 10,
-                progressType: LinearProgressBar.progressTypeLinear, // Use Dots progress
+                progressType:
+                    LinearProgressBar.progressTypeLinear, // Use Dots progress
                 currentStep: 1,
                 progressColor: secondaryColor,
                 backgroundColor: Colors.grey.withOpacity(0.5),
@@ -67,7 +68,7 @@ class _ReviewScreenState extends State<ReviewScreen> {
               6.width,
               Text(
                 '5',
-                style: boldTextStyle(size: 12,color: Colors.grey),
+                style: boldTextStyle(size: 12, color: Colors.grey),
               ),
             ],
           ),
@@ -84,7 +85,8 @@ class _ReviewScreenState extends State<ReviewScreen> {
               LinearProgressBar(
                 minHeight: 6,
                 maxSteps: 10,
-                progressType: LinearProgressBar.progressTypeLinear, // Use Dots progress
+                progressType:
+                    LinearProgressBar.progressTypeLinear, // Use Dots progress
                 currentStep: 6,
                 progressColor: secondaryColor,
                 backgroundColor: Colors.grey.withOpacity(0.5),
@@ -92,11 +94,11 @@ class _ReviewScreenState extends State<ReviewScreen> {
               6.width,
               Text(
                 '5',
-                style: boldTextStyle(size: 12,color: Colors.grey),
+                style: boldTextStyle(size: 12, color: Colors.grey),
               ),
             ],
           ),
-6.height,
+          6.height,
           Row(
             children: [
               Icon(Icons.star, color: secondaryColor, size: 14),
@@ -109,7 +111,8 @@ class _ReviewScreenState extends State<ReviewScreen> {
               LinearProgressBar(
                 minHeight: 6,
                 maxSteps: 10,
-                progressType: LinearProgressBar.progressTypeLinear, // Use Dots progress
+                progressType:
+                    LinearProgressBar.progressTypeLinear, // Use Dots progress
                 currentStep: 3,
                 progressColor: secondaryColor,
                 backgroundColor: Colors.grey.withOpacity(0.5),
@@ -117,11 +120,11 @@ class _ReviewScreenState extends State<ReviewScreen> {
               6.width,
               Text(
                 '5',
-                style: boldTextStyle(size: 12,color: Colors.grey),
+                style: boldTextStyle(size: 12, color: Colors.grey),
               ),
             ],
           ),
-6.height,
+          6.height,
           Row(
             children: [
               Icon(Icons.star, color: secondaryColor, size: 14),
@@ -134,7 +137,8 @@ class _ReviewScreenState extends State<ReviewScreen> {
               LinearProgressBar(
                 minHeight: 6,
                 maxSteps: 10,
-                progressType: LinearProgressBar.progressTypeLinear, // Use Dots progress
+                progressType:
+                    LinearProgressBar.progressTypeLinear, // Use Dots progress
                 currentStep: 1,
                 progressColor: secondaryColor,
                 backgroundColor: Colors.grey.withOpacity(0.5),
@@ -142,7 +146,7 @@ class _ReviewScreenState extends State<ReviewScreen> {
               6.width,
               Text(
                 '5',
-                style: boldTextStyle(size: 12,color: Colors.grey),
+                style: boldTextStyle(size: 12, color: Colors.grey),
               ),
             ],
           ),
@@ -159,7 +163,8 @@ class _ReviewScreenState extends State<ReviewScreen> {
               LinearProgressBar(
                 minHeight: 6,
                 maxSteps: 10,
-                progressType: LinearProgressBar.progressTypeLinear, // Use Dots progress
+                progressType:
+                    LinearProgressBar.progressTypeLinear, // Use Dots progress
                 currentStep: 5,
                 progressColor: secondaryColor,
                 backgroundColor: Colors.grey.withOpacity(0.5),
@@ -167,12 +172,10 @@ class _ReviewScreenState extends State<ReviewScreen> {
               6.width,
               Text(
                 '5',
-                style: boldTextStyle(size: 12,color: Colors.grey),
+                style: boldTextStyle(size: 12, color: Colors.grey),
               ),
             ],
           ),
-
-
           40.height,
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -188,12 +191,11 @@ class _ReviewScreenState extends State<ReviewScreen> {
                   6.height,
                   Text(
                     '04 08 2025',
-                    style: primaryTextStyle(color: Colors.grey.withOpacity(0.7),size: 14),
+                    style: primaryTextStyle(
+                        color: Colors.grey.withOpacity(0.7), size: 14),
                   ),
                 ],
               ),
-
-
               Row(
                 children: [
                   Text(
@@ -204,13 +206,12 @@ class _ReviewScreenState extends State<ReviewScreen> {
                   Icon(Icons.star, color: Colors.yellow, size: 22),
                 ],
               ),
-
             ],
           ),
           6.height,
           Text(
             'The bike pressure wash from Mist is incredible. The technician was professional, and the results were beyond my expectations .My bike looks spotless, and the convenience is a huge plus.',
-            style: primaryTextStyle(color: Colors.grey,size: 14),
+            style: primaryTextStyle(color: Colors.grey, size: 14),
           ),
           22.height,
           Row(
@@ -227,12 +228,11 @@ class _ReviewScreenState extends State<ReviewScreen> {
                   6.height,
                   Text(
                     '04 08 2025',
-                    style: primaryTextStyle(color: Colors.grey.withOpacity(0.7),size: 14),
+                    style: primaryTextStyle(
+                        color: Colors.grey.withOpacity(0.7), size: 14),
                   ),
                 ],
               ),
-
-
               Row(
                 children: [
                   Text(
@@ -243,13 +243,12 @@ class _ReviewScreenState extends State<ReviewScreen> {
                   Icon(Icons.star, color: Colors.yellow, size: 22),
                 ],
               ),
-
             ],
           ),
           6.height,
           Text(
             'The bike pressure wash from Mist is incredible. The technician was professional, and the results were beyond my expectations .My bike looks spotless, and the convenience is a huge plus.',
-            style: primaryTextStyle(color: Colors.grey,size: 14),
+            style: primaryTextStyle(color: Colors.grey, size: 14),
           ),
         ],
       ).paddingAll(16),
