@@ -348,7 +348,9 @@ class _HomeScreenState extends State<HomeScreen> {
                           4.height,
                           Text('Deep Clean', style: boldTextStyle(size: 12)),
                         ],
-                      ),
+                      ).onTap(() {
+                        ServiceScreen().launch(context);
+                      }),
                       Column(
                         children: [
                           Image.asset(img_car_shine,
@@ -357,7 +359,9 @@ class _HomeScreenState extends State<HomeScreen> {
                           Text('Shine and Coat',
                               style: boldTextStyle(size: 12)),
                         ],
-                      ),
+                      ).onTap(() {
+                        ServiceScreen().launch(context);
+                      }),
                     ],
                   ),
                   20.height,
@@ -372,7 +376,9 @@ class _HomeScreenState extends State<HomeScreen> {
                           Text('Luxury Car \nCare',
                               style: boldTextStyle(size: 12)),
                         ],
-                      ),
+                      ).onTap(() {
+                        ServiceScreen().launch(context);
+                      }),
                       Column(
                         children: [
                           Image.asset(img_car_care,
@@ -382,7 +388,9 @@ class _HomeScreenState extends State<HomeScreen> {
                           Text('Special Car \nCare',
                               style: boldTextStyle(size: 12)),
                         ],
-                      ),
+                      ).onTap(() {
+                        ServiceScreen().launch(context);
+                      }),
                       Column(
                         children: [
                           Image.asset(img_bike_care,
@@ -392,7 +400,9 @@ class _HomeScreenState extends State<HomeScreen> {
                           Text('Bike and Moped',
                               style: boldTextStyle(size: 12)),
                         ],
-                      ),
+                      ).onTap(() {
+                        ServiceScreen().launch(context);
+                      }),
                     ],
                   ),
                   30.height,
