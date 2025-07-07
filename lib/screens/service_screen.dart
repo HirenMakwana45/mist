@@ -20,6 +20,7 @@ import '../extensions/colors.dart';
 import '../extensions/horizontal_list.dart';
 import '../extensions/text_styles.dart';
 import '../extensions/widgets.dart';
+import '../main.dart';
 import '../utils/app_colors.dart';
 
 class ServiceScreen extends StatefulWidget {
@@ -201,7 +202,8 @@ class _ServiceScreenState extends State<ServiceScreen> {
                                 color: Colors.black,
                                 size: 14,
                               ),
-                              Text("3 more"),
+                              Text("3 more",style: secondaryTextStyle(                                    color: appStore.isDarkMode ? Colors.white :Colors.black
+                              ),),
                               Icon(
                                 Icons.arrow_forward_ios_rounded,
                                 color: Colors.black,
@@ -1239,7 +1241,7 @@ class _ServiceScreenState extends State<ServiceScreen> {
                                 color: Colors.black,
                                 size: 14,
                               ),
-                              Text("3 more"),
+                              Text("3 more",style: secondaryTextStyle(  color: appStore.isDarkMode ? Colors.white :Colors.black),),
                               Icon(
                                 Icons.arrow_forward_ios_rounded,
                                 color: Colors.black,

@@ -3,6 +3,7 @@ import 'package:mist/extensions/extension_util/int_extensions.dart';
 import 'package:mist/extensions/extension_util/widget_extensions.dart';
 
 import '../../extensions/widgets.dart';
+import '../../main.dart';
 import '../../utils/app_images.dart';
 
 import 'package:flutter/material.dart';
@@ -95,7 +96,7 @@ class _PlusScreenState extends State<PlusScreen> {
           Expanded(
             child: Text(
               text,
-              style: const TextStyle(fontSize: 15),
+              style: TextStyle(fontSize: 15,color:  appStore.isDarkMode ? Colors.white :Colors.black ),
             ),
           ),
         ],

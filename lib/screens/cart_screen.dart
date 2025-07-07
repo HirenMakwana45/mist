@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mist/extensions/extension_util/context_extensions.dart';
 import 'package:mist/extensions/extension_util/int_extensions.dart';
 import 'package:mist/extensions/extension_util/widget_extensions.dart';
+import 'package:mist/main.dart';
 import 'package:mist/screens/discount_screen.dart';
 import 'package:mist/screens/slot_selection_screen.dart';
 
@@ -108,18 +109,18 @@ class _CartScreenState extends State<CartScreen> {
                   children: [
                     Text(
                       'Interior + Exterior Foam Wash ',
-                      style: boldTextStyle(color: secondaryColor),
+                      style: boldTextStyle(color: appStore.isDarkMode? Colors.white: secondaryColor),
                     ),
                     Text(
                       '₹' + '129 ',
-                      style: boldTextStyle(color: secondaryColor),
+                      style: boldTextStyle(color:appStore.isDarkMode? Colors.white: secondaryColor),
                     )
                   ],
                 ).paddingSymmetric(horizontal: 16),
                 28.height,
                 Text(
                   'Add Ons',
-                  style: boldTextStyle(color: secondaryColor),
+                  style: boldTextStyle(color:appStore.isDarkMode? Colors.white: secondaryColor),
                 ).paddingSymmetric(horizontal: 16),
                 HorizontalList(
                     padding: EdgeInsets.all(0),
@@ -359,11 +360,12 @@ class _CartScreenState extends State<CartScreen> {
                           ic_coupon,
                           height: 25,
                           width: 25,
+
                         ),
                         6.width,
                         Text(
                           'Apply Coupon',
-                          style: boldTextStyle(color: secondaryColor),
+                          style: boldTextStyle(color:appStore.isDarkMode? Colors.white: secondaryColor),
                         ).onTap(() {
                           DiscountScreen().launch(context);
                         }),
@@ -391,7 +393,7 @@ class _CartScreenState extends State<CartScreen> {
                         fit: BoxFit.cover, height: 55, width: 90),
                     Text(
                       'Add another Car/Bike',
-                      style: boldTextStyle(color: secondaryColor, size: 18),
+                      style: boldTextStyle(color:appStore.isDarkMode? Colors.white: secondaryColor, size: 18),
                     ),
                     Container(
                       child: Text(

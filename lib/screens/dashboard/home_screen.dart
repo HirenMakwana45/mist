@@ -16,6 +16,7 @@ import '../../extensions/animatedList/animated_wrap.dart';
 import '../../extensions/app_button.dart';
 import '../../extensions/widgets.dart';
 // import '../../utils/app_colors.dart';
+import '../../main.dart';
 import '../../utils/app_images.dart';
 import '../address_selection_screen.dart';
 import '../service_screen.dart';
@@ -105,7 +106,7 @@ class _HomeScreenState extends State<HomeScreen> {
             children: [
               Icon(
                 Icons.location_on,
-                color: Colors.black,
+                color: appStore.isDarkMode ? Colors.grey : Colors.black,
               ),
               8.width,
               Column(
@@ -316,7 +317,7 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Container(
               width: double.infinity,
               decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: appStore.isDarkMode ? Colors.black : Colors.white,
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(14),
                       topRight: Radius.circular(14))),
@@ -325,7 +326,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 children: [
                   Text(
                     "Doorstep Autocare Services",
-                    style: boldTextStyle(),
+                    style: boldTextStyle(
+                        color:
+                            appStore.isDarkMode ? Colors.white : Colors.black),
                   ),
                   16.height,
                   Row(
@@ -414,7 +417,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   20.height,
                   Text(
                     "Benefits of Car Care",
-                    style: boldTextStyle(size: 18, weight: FontWeight.w900),
+                    style: boldTextStyle(
+                        size: 18,
+                        weight: FontWeight.w900,
+                        color:
+                            appStore.isDarkMode ? Colors.white : Colors.black),
                   ),
                   16.height,
                   HorizontalList(
@@ -430,14 +437,19 @@ class _HomeScreenState extends State<HomeScreen> {
                                 borderRadius: BorderRadius.circular(6)),
                             child: Row(
                               children: [
-                                Icon(
-                                  Icons.directions_car_filled,
-                                  size: 28,
-                                ),
+                                Icon(Icons.directions_car_filled,
+                                    size: 28,
+                                    color: appStore.isDarkMode
+                                        ? Colors.black
+                                        : Colors.black),
                                 10.width,
                                 Text(
                                   'Why Car Care is \nImportant?',
-                                  style: boldTextStyle(size: 12),
+                                  style: boldTextStyle(
+                                      size: 12,
+                                      color: appStore.isDarkMode
+                                          ? Colors.black87
+                                          : Colors.black),
                                 )
                               ],
                             ).paddingSymmetric(vertical: 10, horizontal: 10),
@@ -450,14 +462,19 @@ class _HomeScreenState extends State<HomeScreen> {
                                 borderRadius: BorderRadius.circular(6)),
                             child: Row(
                               children: [
-                                Icon(
-                                  Icons.groups_rounded,
-                                  size: 28,
-                                ),
+                                Icon(Icons.groups_rounded,
+                                    size: 28,
+                                    color: appStore.isDarkMode
+                                        ? Colors.black
+                                        : Colors.black),
                                 10.width,
                                 Text(
                                   'Why Professional Car\nWash is Important?',
-                                  style: boldTextStyle(size: 12),
+                                  style: boldTextStyle(
+                                      size: 12,
+                                      color: appStore.isDarkMode
+                                          ? Colors.black
+                                          : Colors.black),
                                 )
                               ],
                             ).paddingSymmetric(vertical: 10, horizontal: 10),
@@ -486,7 +503,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                       borderRadius: BorderRadius.circular(12),
                                       child: Image.asset(ic_car_wash_6,
                                           fit: BoxFit.cover,
-                                          height: 110, width: 115)),
+                                          height: 110,
+                                          width: 115)),
                                   6.height,
                                   Row(
                                     children: [
@@ -539,7 +557,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                       borderRadius: BorderRadius.circular(12),
                                       child: Image.asset(ic_car_wash_3,
                                           fit: BoxFit.cover,
-                                          height: 110, width: 115)),
+                                          height: 110,
+                                          width: 115)),
                                   6.height,
                                   Row(
                                     children: [
@@ -592,7 +611,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                       borderRadius: BorderRadius.circular(12),
                                       child: Image.asset(ic_car_wash_5,
                                           fit: BoxFit.cover,
-                                          height: 110, width: 115)),
+                                          height: 110,
+                                          width: 115)),
                                   6.height,
                                   Row(
                                     children: [
@@ -639,7 +659,9 @@ class _HomeScreenState extends State<HomeScreen> {
                             ).paddingRight(14),
                           ],
                         );
-                      }).onTap((){ServiceScreen().launch(context);})
+                      }).onTap(() {
+                    ServiceScreen().launch(context);
+                  })
                 ],
               ).paddingAll(16),
             ),
