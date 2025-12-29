@@ -42,7 +42,9 @@ bool leapYear(int year) {
   bool leap = ((year % 100 == 0) && (year % 400 != 0));
   if (leap == true) {
     leapYear = false;
-  } else if (year % 4 == 0) leapYear = true;
+  } else if (year % 4 == 0) {
+    leapYear = true;
+  }
 
   return leapYear;
 }

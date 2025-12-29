@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:mist/Utils/app_colors.dart';
-import 'package:mist/extensions/extension_util/context_extensions.dart';
 import 'package:mist/extensions/extension_util/int_extensions.dart';
 import 'package:mist/extensions/extension_util/widget_extensions.dart';
 import 'package:mist/extensions/text_styles.dart';
@@ -13,11 +11,8 @@ import '../extensions/app_button.dart';
 import '../extensions/app_text_field.dart';
 import '../extensions/common.dart';
 import '../extensions/decorations.dart';
-import '../extensions/loader_widget.dart';
 import '../extensions/no_data_widget.dart';
-import '../main.dart';
 import '../utils/app_images.dart';
-import 'no_data_screen.dart';
 
 
 
@@ -48,7 +43,7 @@ class _CitySelectionScreenState extends State<CitySelectionScreen> {
   }
 
   Widget _getClearButton() {
-    if (!_showClearButton) return mSuffixTextFieldIconWidget(ic_search);
+    if (!_showClearButton) return mSuffixTextFieldIconWidget(icSearch);
     return IconButton(
       onPressed: () {
         mSearch.clear();
@@ -72,7 +67,7 @@ class _CitySelectionScreenState extends State<CitySelectionScreen> {
         children: [
           AppTextField(
             controller: mSearch,
-            textFieldType: TextFieldType.OTHER,
+            textFieldType: TextFieldType.oTHER,
             isValidationRequired: false,
             autoFocus: false,
             suffix: _getClearButton(),
@@ -99,7 +94,7 @@ class _CitySelectionScreenState extends State<CitySelectionScreen> {
               }),
             ],
           ).paddingAll(16),
-          Divider(color: Colors.grey.withOpacity(0.5)),
+          Divider(color: Colors.grey.withValues(red:0.5)),
           8.height,
           Expanded(
             child: filteredCities.isEmpty
@@ -122,7 +117,7 @@ class _CitySelectionScreenState extends State<CitySelectionScreen> {
                     padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(12),
-                      color: isSelected ? primaryColor.withOpacity(0.7) : Colors.grey.shade200,
+                      color: isSelected ? primaryColor.withValues(red:0.7) : Colors.grey.shade200,
                       border: isSelected ? Border.all(color:secondaryColor, width: 2) : null,
                     ),
                     child: Text(city, style: primaryTextStyle()),

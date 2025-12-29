@@ -6,10 +6,6 @@ import 'package:mist/screens/dashboard/plus_screen.dart';
 import 'package:mist/screens/dashboard/profile_screen.dart';
 
 import '../../Utils/app_colors.dart';
-import '../../components/double_back_to_close_app.dart';
-import '../../extensions/colors.dart';
-import '../../extensions/text_styles.dart';
-import '../../main.dart';
 import '../../utils/app_images.dart';
 
 class DashboardScreen extends StatefulWidget {
@@ -31,17 +27,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: DoubleBackToCloseApp(
-        snackBar: SnackBar(
-          elevation: 4,
-          backgroundColor: appStore.isDarkMode ? cardDarkColor : secondaryColor,
-          content: Text('Tap back again to leave', style: primaryTextStyle(color: Colors.white)),
-        ),
-        child: AnimatedContainer(
-          color: context.cardColor,
-          duration: const Duration(seconds: 1),
-          child: IndexedStack(index: mCurrentIndex, children: tab),
-        ),
+      body: AnimatedContainer(
+        color: context.cardColor,
+        duration: const Duration(seconds: 1),
+        child: IndexedStack(index: mCurrentIndex, children: tab),
       ),
       bottomNavigationBar: BottomNavigationBar(
         selectedFontSize: 13,
@@ -57,19 +46,19 @@ class _DashboardScreenState extends State<DashboardScreen> {
         },
         items: [
           BottomNavigationBarItem(
-            icon: Image.asset(ic_home_outline, height: 22, color: mCurrentIndex == 0 ? secondaryColor : Colors.grey),
+            icon: Image.asset(icHomeOutline, height: 22, color: mCurrentIndex == 0 ? secondaryColor : Colors.grey),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Image.asset(ic_my_orders, height: 22, color: mCurrentIndex == 1 ? secondaryColor : Colors.grey),
+            icon: Image.asset(icMyOrders, height: 22, color: mCurrentIndex == 1 ? secondaryColor : Colors.grey),
             label: 'My Orders',
           ),
           BottomNavigationBarItem(
-            icon: Image.asset(ic_plus, height: 22, color: mCurrentIndex == 2 ? secondaryColor : Colors.grey),
+            icon: Image.asset(icPlus, height: 22, color: mCurrentIndex == 2 ? secondaryColor : Colors.grey),
             label: 'Plus',
           ),
           BottomNavigationBarItem(
-            icon: Image.asset(ic_profile, height: 22, color: mCurrentIndex == 3 ? secondaryColor : Colors.grey),
+            icon: Image.asset(icProfile, height: 22, color: mCurrentIndex == 3 ? secondaryColor : Colors.grey),
             label: 'Profile',
           ),
         ],

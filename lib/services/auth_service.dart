@@ -69,9 +69,9 @@ Future deleteUserFirebase() async {
 }
 
 Future<void> logout(BuildContext context, {Function? onLogout}) async {
-  await removeKey(IS_LOGIN);
-  await removeKey(USER_ID);
-  await removeKey(PHONE_NUMBER);
+  await removeKey(iSLOGIN);
+  await removeKey(uSERID);
+  await removeKey(pHONENUMBER);
   userStore.clearUserData();
   userStore.setLogin(false);
   onLogout?.call();

@@ -74,6 +74,22 @@ mixin _$AppStore on AppStoreBase, Store {
     });
   }
 
+  late final _$userResponseAtom =
+      Atom(name: 'AppStoreBase.userResponse', context: context);
+
+  @override
+  String get userResponse {
+    _$userResponseAtom.reportRead();
+    return super.userResponse;
+  }
+
+  @override
+  set userResponse(String value) {
+    _$userResponseAtom.reportWrite(value, super.userResponse, () {
+      super.userResponse = value;
+    });
+  }
+
   late final _$accessTokenAtom =
       Atom(name: 'AppStoreBase.accessToken', context: context);
 
@@ -243,6 +259,14 @@ mixin _$AppStore on AppStoreBase, Store {
     return _$setLastWordsAsyncAction.run(() => super.setLastWords(val));
   }
 
+  late final _$setUserResponseAsyncAction =
+      AsyncAction('AppStoreBase.setUserResponse', context: context);
+
+  @override
+  Future<void> setUserResponse(String val) {
+    return _$setUserResponseAsyncAction.run(() => super.setUserResponse(val));
+  }
+
   late final _$setAccessTokenAsyncAction =
       AsyncAction('AppStoreBase.setAccessToken', context: context);
 
@@ -298,6 +322,7 @@ isDarkMode: ${isDarkMode},
 isLoading: ${isLoading},
 selectedLanguageCode: ${selectedLanguageCode},
 lastWords: ${lastWords},
+userResponse: ${userResponse},
 accessToken: ${accessToken},
 signUpIndex: ${signUpIndex},
 isSurvey: ${isSurvey},

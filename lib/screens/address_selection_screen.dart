@@ -9,7 +9,6 @@ import '../Utils/app_colors.dart';
 import '../Utils/app_common.dart';
 import '../extensions/app_button.dart';
 import '../extensions/app_text_field.dart';
-import '../extensions/colors.dart';
 import '../extensions/common.dart';
 import '../extensions/constants.dart';
 import '../extensions/decorations.dart';
@@ -31,7 +30,7 @@ class _AddressSelectionScreenState extends State<AddressSelectionScreen> {
 
   FocusNode mSearchFocus = FocusNode();
   String? mSearchValue = "";
-  bool _showClearButton = false;
+  final bool _showClearButton = false;
   String selectedOption = "Home";
   final List<String> options = ["Home", "Work", "Other"];
 
@@ -43,7 +42,7 @@ class _AddressSelectionScreenState extends State<AddressSelectionScreen> {
 
   Widget _getClearButton() {
     if (!_showClearButton) {
-      return mSuffixTextFieldIconWidget(ic_search);
+      return mSuffixTextFieldIconWidget(icSearch);
     }
 
     return IconButton(
@@ -70,7 +69,7 @@ class _AddressSelectionScreenState extends State<AddressSelectionScreen> {
                 children: [
                   AppTextField(
                     controller: mSearch,
-                    textFieldType: TextFieldType.OTHER,
+                    textFieldType: TextFieldType.oTHER,
                     isValidationRequired: false,
                     autoFocus: false,
                     suffix: _getClearButton(),
@@ -122,7 +121,7 @@ class _AddressSelectionScreenState extends State<AddressSelectionScreen> {
                     MapLocationScreen().launch(context);
                   }).paddingSymmetric(horizontal: 10),
                   26.height,
-                  Divider(color: Colors.grey.withOpacity(0.5)),
+                  Divider(color: Colors.grey.withValues(red:0.5)),
                   14.height,
                   Text(
                     "Saved Addresses",
@@ -191,7 +190,6 @@ class _AddressSelectionScreenState extends State<AddressSelectionScreen> {
                                                   onTap: () {
                                                     setState(() {
                                                       selectedOption = option;
-                                                      print("Selected option is ===>"+selectedOption.toString());
                                                     });
                                                   },
                                                   child: Container(
@@ -225,7 +223,7 @@ class _AddressSelectionScreenState extends State<AddressSelectionScreen> {
                                             4.height,
                                             AppTextField(
                                               controller: mNameCont,
-                                              textFieldType: TextFieldType.NAME,
+                                              textFieldType: TextFieldType.nAME,
                                               // isValidationRequired: true,
                                               // focus: mFirstNameFocus,
                                               // nextFocus: mLastNameFocus,
@@ -246,7 +244,7 @@ class _AddressSelectionScreenState extends State<AddressSelectionScreen> {
                                             4.height,
                                             AppTextField(
                                               controller: mCompleteAddressCont,
-                                              textFieldType: TextFieldType.NAME,
+                                              textFieldType: TextFieldType.nAME,
                                               isValidationRequired: true,
                                               // focus: mLastNameFocus,
                                               // nextFocus: mDesignationFocus,
@@ -262,7 +260,7 @@ class _AddressSelectionScreenState extends State<AddressSelectionScreen> {
                                                   borderRadius:
                                                       BorderRadius.circular(12),
                                                   color: Colors.green
-                                                      .withOpacity(0.1)),
+                                                      .withValues(red:0.1)),
                                               child: Text(
                                                 "We need this info to provide the best experience for \n you. We ensure your data stay private.",
                                                 style: boldTextStyle(
@@ -321,7 +319,7 @@ class _AddressSelectionScreenState extends State<AddressSelectionScreen> {
                     ],
                   ),
                   20.height,
-                  Divider(color: Colors.grey.withOpacity(0.5)),
+                  Divider(color: Colors.grey.withValues(red:0.5)),
                   70.height,
                 ],
               ),

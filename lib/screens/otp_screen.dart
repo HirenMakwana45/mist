@@ -7,22 +7,17 @@ import 'package:mist/extensions/extension_util/context_extensions.dart';
 import 'package:mist/extensions/extension_util/int_extensions.dart';
 import 'package:mist/extensions/extension_util/widget_extensions.dart';
 import 'package:toastification/toastification.dart';
-// import 'package:telephony/telephony.dart';
-// import 'package:telephony/telephony.dart';
+
 
 import '../Utils/app_colors.dart';
 import '../Utils/app_common.dart';
-import '../Utils/app_constants.dart';
 import '../extensions/app_button.dart';
 import '../extensions/common.dart';
-import '../extensions/constants.dart';
 import '../extensions/loader_widget.dart';
 import '../extensions/otp_text_field.dart';
-import '../extensions/shared_pref.dart';
 import '../extensions/text_styles.dart';
 import '../extensions/widgets.dart';
 import '../main.dart';
-import '../network/rest_api.dart';
 import 'location/location_permission_screen.dart';
 
 class OtpScreen extends StatefulWidget {
@@ -46,10 +41,10 @@ class _OtpScreenState extends State<OtpScreen> with TickerProviderStateMixin {
   String otpCode = '';
   int _start = 30;
   bool _canResendOTP = false;
-  Timer? _timer;
   bool isResend = false;
   String resendVerificationId = '';
   String? appSignature;
+  Timer? _timer;
 
   @override
   void initState() {
@@ -91,7 +86,7 @@ class _OtpScreenState extends State<OtpScreen> with TickerProviderStateMixin {
   void startTimer() {
     _start = 60;
     _canResendOTP = false;
-
+    _timer?.cancel();
     _timer = Timer.periodic(Duration(seconds: 1), (timer) {
       if (_start > 0) {
         _start--;

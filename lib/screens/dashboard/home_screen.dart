@@ -1,21 +1,16 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:mist/extensions/colors.dart';
 import 'package:mist/extensions/extension_util/context_extensions.dart';
 import 'package:mist/extensions/extension_util/int_extensions.dart';
 import 'package:mist/extensions/extension_util/widget_extensions.dart';
 import 'package:mist/extensions/horizontal_list.dart';
 import 'package:mist/extensions/text_styles.dart';
 import 'package:mist/screens/cart_screen.dart';
-import 'package:mist/screens/payment/payment_screen.dart';
 import 'package:mist/screens/select_vehicle_screen.dart';
 import 'package:mist/utils/app_colors.dart';
 import 'package:mist/utils/app_common.dart';
 
-import '../../extensions/animatedList/animated_wrap.dart';
-import '../../extensions/app_button.dart';
 import '../../extensions/widgets.dart';
-// import '../../utils/app_colors.dart';
 import '../../main.dart';
 import '../../utils/app_images.dart';
 import '../address_selection_screen.dart';
@@ -32,10 +27,10 @@ class _HomeScreenState extends State<HomeScreen> {
   int _current = 0;
   final CarouselSliderController _controller = CarouselSliderController();
   List<Widget> imageItems = [
-    Image.asset(ic_car_wash_1, fit: BoxFit.cover),
-    Image.asset(ic_car_wash_2, fit: BoxFit.cover),
-    Image.asset(ic_car_wash_3, fit: BoxFit.cover),
-    Image.asset(ic_car_wash_4, fit: BoxFit.cover),
+    Image.asset(icCarWash_1, fit: BoxFit.cover),
+    Image.asset(icCarWash_2, fit: BoxFit.cover),
+    Image.asset(icCarWash_3, fit: BoxFit.cover),
+    Image.asset(icCarWash_4, fit: BoxFit.cover),
   ];
   // List<Widget> autoCareItems = [
   //   Column(
@@ -223,7 +218,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 Row(
                                   children: [
                                     cachedImage(
-                                      ic_bike_logo,
+                                      icBikeLogo,
                                       height: 28,
                                       width: 28,
                                     ),
@@ -256,7 +251,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             Divider(
                               indent: 10,
                               endIndent: 10,
-                              color: Colors.grey.withOpacity(0.5),
+                              color: Colors.grey.withValues(red:0.5),
                             ),
                             12.height
                           ],
@@ -304,7 +299,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       Brightness.dark
                                   ? Colors.black
                                   : Colors.white)
-                              .withOpacity(_current == entry.key ? 0.9 : 0.4)),
+                              .withValues(red:_current == entry.key ? 0.9 : 0.4)),
                     ),
                   );
                 }).toList(),
@@ -336,7 +331,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     children: [
                       Column(
                         children: [
-                          Image.asset(img_car_wash,
+                          Image.asset(imgCarWash,
                               fit: BoxFit.cover, height: 50, width: 80),
                           4.height,
                           Text('Car Wash', style: boldTextStyle(size: 12)),
@@ -346,7 +341,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       }),
                       Column(
                         children: [
-                          Image.asset(img_car_deep_clean,
+                          Image.asset(imgCarDeepClean,
                               fit: BoxFit.cover, height: 50, width: 80),
                           4.height,
                           Text('Deep Clean', style: boldTextStyle(size: 12)),
@@ -356,7 +351,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       }),
                       Column(
                         children: [
-                          Image.asset(img_car_shine,
+                          Image.asset(imgCarShine,
                               fit: BoxFit.cover, height: 50, width: 80),
                           4.height,
                           Text('Shine and Coat',
@@ -373,7 +368,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     children: [
                       Column(
                         children: [
-                          Image.asset(img_car_wash_2,
+                          Image.asset(icCarWash_2,
                               fit: BoxFit.cover, height: 50, width: 80),
                           4.height,
                           Text('Luxury Car \nCare',
@@ -384,7 +379,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       }),
                       Column(
                         children: [
-                          Image.asset(img_car_care,
+                          Image.asset(imgCarCare,
                               fit: BoxFit.cover, height: 50, width: 80),
                           4.height,
                           4.height,
@@ -396,7 +391,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       }),
                       Column(
                         children: [
-                          Image.asset(img_bike_care,
+                          Image.asset(imgBikeCare,
                               fit: BoxFit.cover, height: 50, width: 80),
                           4.height,
                           4.height,
@@ -501,7 +496,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 children: [
                                   ClipRRect(
                                       borderRadius: BorderRadius.circular(12),
-                                      child: Image.asset(ic_car_wash_6,
+                                      child: Image.asset(icCarWash_6,
                                           fit: BoxFit.cover,
                                           height: 110,
                                           width: 115)),
@@ -555,7 +550,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 children: [
                                   ClipRRect(
                                       borderRadius: BorderRadius.circular(12),
-                                      child: Image.asset(ic_car_wash_3,
+                                      child: Image.asset(icCarWash_3,
                                           fit: BoxFit.cover,
                                           height: 110,
                                           width: 115)),
@@ -609,7 +604,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 children: [
                                   ClipRRect(
                                       borderRadius: BorderRadius.circular(12),
-                                      child: Image.asset(ic_car_wash_5,
+                                      child: Image.asset(icCarWash_5,
                                           fit: BoxFit.cover,
                                           height: 110,
                                           width: 115)),

@@ -186,7 +186,7 @@ extension WidgetExtension on Widget? {
     );
   }
 
-  @deprecated
+  @Deprecated('Use withRoundedCorners() instead')
   Container withRoundedCorners({
     Color backgroundColor = whiteColor,
     BorderRadius borderRadius = const BorderRadius.all(Radius.circular(8.0)),
@@ -210,7 +210,7 @@ extension WidgetExtension on Widget? {
     );
   }
 
-  @deprecated
+  @Deprecated('Use withShadow() instead')
   Container withShadow({
     Color bgColor = whiteColor,
     Color shadowColor = Colors.black12,
@@ -302,7 +302,7 @@ extension WidgetExtension on Widget? {
     );
   }
 
-  @deprecated
+  @Deprecated('Use withScroll() instead')
   Widget withScroll({
     ScrollPhysics? physics,
     EdgeInsetsGeometry? padding,

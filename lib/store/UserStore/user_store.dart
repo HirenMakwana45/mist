@@ -1,13 +1,11 @@
-// import '../../models/progress_setting_model.dart';
-// import 'package:image_picker/image_picker.dart';
+
 import 'package:mobx/mobx.dart';
 
 import '../../../utils/app_constants.dart';
 import '../../extensions/shared_pref.dart';
-// import '../../models/user_response.dart';
-// import '../../utils/app_constants.dart';
 
-part 'UserStore.g.dart';
+
+part 'user_store.g.dart';
 
 class UserStore = UserStoreBase with _$UserStore;
 
@@ -83,19 +81,19 @@ abstract class UserStoreBase with Store {
   @action
   Future<void> setPhoneNo(String val, {bool isInitialization = false}) async {
     phoneNo = val;
-    if (!isInitialization) await setValue(PHONE_NUMBER, val);
+    if (!isInitialization) await setValue(pHONENUMBER, val);
   }
 
   @action
   Future<void> setTTSPlaying(String val, {bool isInitialization = false}) async {
     isTTSPlaying = val;
-    if (!isInitialization) await setValue(IS_TTS_PLAYING, val);
+    if (!isInitialization) await setValue(isTTSPlaying, val);
   }
 
   @action
   Future<void> setPreviousSentence(String val, {bool isInitialization = false}) async {
     previousSentence = val;
-    if (!isInitialization) await setValue(PREVIOUS_SENTENCE, val);
+    if (!isInitialization) await setValue(pREVIOUSSENTENCE, val);
   }
 
 
@@ -104,24 +102,24 @@ abstract class UserStoreBase with Store {
   @action
   Future<void> setToken(String val, {bool isInitialization = false}) async {
     token = val;
-    if (!isInitialization) await setValue(TOKEN, val);
+    if (!isInitialization) await setValue(tOKEN, val);
   }
 
 
   @action
   Future<void> setUserID(String val, {bool isInitialization = false}) async {
     userId = val;
-    if (!isInitialization) await setValue(USER_ID, val);
+    if (!isInitialization) await setValue(uSERID, val);
   }
   @action
   Future<void> setUserNativeLanguage(String val, {bool isInitialization = false}) async {
     userNativeLanguage = val;
-    if (!isInitialization) await setValue(USER_NATIVE_LANGUAGE, val);
+    if (!isInitialization) await setValue(uSERNATIVELANGUAGE, val);
   }
   @action
   Future<void> setUserEnglishProficiency(String val, {bool isInitialization = false}) async {
     userEnglishProficiency = val;
-    if (!isInitialization) await setValue(USER_ENGLISH_PROFICIENCY, val);
+    if (!isInitialization) await setValue(uSERENGLISHPROFICIENCY, val);
   }
 
 
@@ -129,20 +127,20 @@ abstract class UserStoreBase with Store {
   @action
   Future<void> setLogin(bool val, {bool isInitializing = false}) async {
     isLoggedIn = val;
-    if (!isInitializing) await setValue(IS_LOGIN, val);
+    if (!isInitializing) await setValue(iSLOGIN, val);
   }
 
 
   @action
   Future<void> setFirstName(String val, {bool isInitialization = false}) async {
     fName = val;
-    if (!isInitialization) await setValue(FIRSTNAME, val);
+    if (!isInitialization) await setValue(fIRSTNAME, val);
   }
 
   @action
   Future<void> setLastName(String val, {bool isInitialization = false}) async {
     lName = val;
-    if (!isInitialization) await setValue(LASTNAME, val);
+    if (!isInitialization) await setValue(lASTNAME, val);
   }
 
 

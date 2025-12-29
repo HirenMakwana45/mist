@@ -38,7 +38,7 @@ ShapeBorder? defaultAppButtonShapeBorder;
 
 double defaultAppButtonRadius = 24.0;
 double defaultAppButtonElevation = 4.0;
-PageRouteAnimation? pageRouteAnimationGlobal= PageRouteAnimation.Fade;
+PageRouteAnimation? pageRouteAnimationGlobal= PageRouteAnimation.fade;
 Duration pageRouteTransitionDurationGlobal = 400.milliseconds;
 
 int passwordLengthGlobal = 6;
@@ -51,8 +51,6 @@ var errorNotAllow = 'Sorry, You are not allowed';
 const playStoreBaseURL = 'https://play.google.com/store/apps/details?id=';
 const appStoreBaseURL = 'https://apps.apple.com/in/app/';
 
-const SELECTED_LANGUAGE_CODE = 'selected_language_code';
-const THEME_MODE_INDEX = 'theme_mode_index';
 
 var errorMessage = 'Please try again';
 
@@ -60,8 +58,6 @@ var customDialogHeight = 0.0;
 var customDialogWidth = 250.0;
 
 
-const MAIL_TO_PREFIX = 'mailto:';
-const TEL_PREFIX = 'tel:';
 
 const facebookBaseURL = 'https://www.facebook.com/';
 const instagramBaseURL = 'https://www.instagram.com/';

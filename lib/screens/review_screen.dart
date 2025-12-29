@@ -63,7 +63,7 @@ class _ReviewScreenState extends State<ReviewScreen> {
                     LinearProgressBar.progressTypeLinear, // Use Dots progress
                 currentStep: 1,
                 progressColor: secondaryColor,
-                backgroundColor: Colors.grey.withOpacity(0.5),
+                backgroundColor: Colors.grey.withValues(red:0.5),
               ).expand(),
               6.width,
               Text(
@@ -89,7 +89,7 @@ class _ReviewScreenState extends State<ReviewScreen> {
                     LinearProgressBar.progressTypeLinear, // Use Dots progress
                 currentStep: 6,
                 progressColor: secondaryColor,
-                backgroundColor: Colors.grey.withOpacity(0.5),
+                backgroundColor: Colors.grey.withValues(red:0.5),
               ).expand(),
               6.width,
               Text(
@@ -115,7 +115,7 @@ class _ReviewScreenState extends State<ReviewScreen> {
                     LinearProgressBar.progressTypeLinear, // Use Dots progress
                 currentStep: 3,
                 progressColor: secondaryColor,
-                backgroundColor: Colors.grey.withOpacity(0.5),
+                backgroundColor: Colors.grey.withValues(red:0.5),
               ).expand(),
               6.width,
               Text(
@@ -141,7 +141,7 @@ class _ReviewScreenState extends State<ReviewScreen> {
                     LinearProgressBar.progressTypeLinear, // Use Dots progress
                 currentStep: 1,
                 progressColor: secondaryColor,
-                backgroundColor: Colors.grey.withOpacity(0.5),
+                backgroundColor: Colors.grey.withValues(red:0.5),
               ).expand(),
               6.width,
               Text(
@@ -167,7 +167,7 @@ class _ReviewScreenState extends State<ReviewScreen> {
                     LinearProgressBar.progressTypeLinear, // Use Dots progress
                 currentStep: 5,
                 progressColor: secondaryColor,
-                backgroundColor: Colors.grey.withOpacity(0.5),
+                backgroundColor: Colors.grey.withValues(red:0.5),
               ).expand(),
               6.width,
               Text(
@@ -192,7 +192,7 @@ class _ReviewScreenState extends State<ReviewScreen> {
                   Text(
                     '04 08 2025',
                     style: primaryTextStyle(
-                        color: Colors.grey.withOpacity(0.7), size: 14),
+                        color: Colors.grey.withValues(red:0.7), size: 14),
                   ),
                 ],
               ),
@@ -229,7 +229,7 @@ class _ReviewScreenState extends State<ReviewScreen> {
                   Text(
                     '04 08 2025',
                     style: primaryTextStyle(
-                        color: Colors.grey.withOpacity(0.7), size: 14),
+                        color: Colors.grey.withValues(red:0.7), size: 14),
                   ),
                 ],
               ),

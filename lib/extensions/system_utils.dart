@@ -134,7 +134,7 @@ Widget Function(BuildContext, Widget?)? scrollBehaviour() {
 class SBehavior extends ScrollBehavior {
   @override
   Widget buildOverscrollIndicator(
-      BuildContext context, Widget child, ScrollableDetails axisDirection) {
+      BuildContext context, Widget child, ScrollableDetails details) {
     return child;
   }
 }
@@ -151,7 +151,7 @@ Future<T?> invokeNativeMethod<T>(
 
 /// Prints only if in debug or profile mode
 void log(Object? value) {
-  if (!kReleaseMode || forceEnableDebug) print(value);
+  if (!kReleaseMode || forceEnableDebug) {}
 }
 
 /// use this for catchError in Future functions

@@ -18,7 +18,7 @@ import 'widgets.dart';
 T? makeNullable<T>(T? value) => value;
 
 /// Enum for page route
-enum PageRouteAnimation { Fade, Scale, Rotate, Slide, SlideBottomTop }
+enum PageRouteAnimation { fade, scale, rotate, slide, slideBottomTop }
 
 /// has match return bool for pattern matching
 bool hasMatch(String? s, String p) {
@@ -87,46 +87,46 @@ Future<dynamic> pasteObject() async {
 
 /// Enum for Link Provider
 enum LinkProvider {
-  PLAY_STORE,
-  APPSTORE,
-  FACEBOOK,
-  INSTAGRAM,
-  LINKEDIN,
-  TWITTER,
-  YOUTUBE,
-  REDDIT,
-  TELEGRAM,
-  WHATSAPP,
-  FB_MESSENGER,
-  GOOGLE_DRIVE
+  pLAYSTORE,
+  aPPSTORE,
+  fACEBOOK,
+  iNSTAGRAM,
+  lINKEDIN,
+  tWITTER,
+  yOUTUBE,
+  rEDDIT,
+  tELEGRAM,
+  wHATSAPP,
+  fbMESSENGER,
+  googleDRIVE
 }
 
 /// Use getSocialMediaLink function to build social media links
 String getSocialMediaLink(LinkProvider linkProvider, {String url = ''}) {
   switch (linkProvider) {
-    case LinkProvider.PLAY_STORE:
+    case LinkProvider.pLAYSTORE:
       return "$playStoreBaseURL$url";
-    case LinkProvider.APPSTORE:
+    case LinkProvider.aPPSTORE:
       return "$appStoreBaseURL$url";
-    case LinkProvider.FACEBOOK:
+    case LinkProvider.fACEBOOK:
       return "$facebookBaseURL$url";
-    case LinkProvider.INSTAGRAM:
+    case LinkProvider.iNSTAGRAM:
       return "$instagramBaseURL$url";
-    case LinkProvider.LINKEDIN:
+    case LinkProvider.lINKEDIN:
       return "$linkedinBaseURL$url";
-    case LinkProvider.TWITTER:
+    case LinkProvider.tWITTER:
       return "$twitterBaseURL$url";
-    case LinkProvider.YOUTUBE:
+    case LinkProvider.yOUTUBE:
       return "$youtubeBaseURL$url";
-    case LinkProvider.REDDIT:
+    case LinkProvider.rEDDIT:
       return "$redditBaseURL$url";
-    case LinkProvider.TELEGRAM:
+    case LinkProvider.tELEGRAM:
       return "$telegramBaseURL$url";
-    case LinkProvider.FB_MESSENGER:
+    case LinkProvider.fbMESSENGER:
       return "$facebookMessengerURL$url";
-    case LinkProvider.WHATSAPP:
+    case LinkProvider.wHATSAPP:
       return "$whatsappURL$url";
-    case LinkProvider.GOOGLE_DRIVE:
+    case LinkProvider.googleDRIVE:
       return "$googleDriveURL$url";
   }
 }
@@ -147,7 +147,7 @@ Widget dialogAnimatedWrapperWidget({
   required Curve curve,
 }) {
   switch (dialogAnimation) {
-    case DialogAnimation.ROTATE:
+    case DialogAnimation.rOTATE:
       return Transform.rotate(
         angle: radians(animation.value * 360),
         child: Opacity(
@@ -156,7 +156,7 @@ Widget dialogAnimatedWrapperWidget({
         ),
       );
 
-    case DialogAnimation.SLIDE_TOP_BOTTOM:
+    case DialogAnimation.sLIDETOPBOTTOM:
       final curvedValue = curve.transform(animation.value) - 1.0;
 
       return Transform(
@@ -167,13 +167,13 @@ Widget dialogAnimatedWrapperWidget({
         ),
       );
 
-    case DialogAnimation.SCALE:
+    case DialogAnimation.sCALE:
       return Transform.scale(
         scale: animation.value,
         child: FadeTransition(opacity: animation, child: child),
       );
 
-    case DialogAnimation.SLIDE_BOTTOM_TOP:
+    case DialogAnimation.sLIDEBOTTOMTOP:
       return SlideTransition(
         position: Tween(begin: Offset(0, 1), end: Offset.zero)
             .chain(CurveTween(curve: curve))
@@ -184,7 +184,7 @@ Widget dialogAnimatedWrapperWidget({
         ),
       );
 
-    case DialogAnimation.SLIDE_LEFT_RIGHT:
+    case DialogAnimation.sLIDELEFTRIGHT:
       return SlideTransition(
         position: Tween(begin: Offset(1.0, 0.0), end: Offset.zero)
             .chain(CurveTween(curve: curve))
@@ -195,7 +195,7 @@ Widget dialogAnimatedWrapperWidget({
         ),
       );
 
-    case DialogAnimation.SLIDE_RIGHT_LEFT:
+    case DialogAnimation.sLIDERIGHTLEFT:
       return SlideTransition(
         position: Tween(begin: Offset(-1, 0), end: Offset.zero)
             .chain(CurveTween(curve: curve))
@@ -206,7 +206,7 @@ Widget dialogAnimatedWrapperWidget({
         ),
       );
 
-    case DialogAnimation.DEFAULT:
+    case DialogAnimation.dEFAULT:
       return FadeTransition(opacity: animation, child: child);
   }
 }
@@ -217,7 +217,7 @@ Route<T> buildPageRoute<T>(
   Duration? duration,
 ) {
   if (pageRouteAnimation != null) {
-    if (pageRouteAnimation == PageRouteAnimation.Fade) {
+    if (pageRouteAnimation == PageRouteAnimation.fade) {
       return PageRouteBuilder(
         pageBuilder: (c, a1, a2) => child,
         transitionsBuilder: (c, anim, a2, child) {
@@ -225,7 +225,7 @@ Route<T> buildPageRoute<T>(
         },
         transitionDuration: duration ?? pageRouteTransitionDurationGlobal,
       );
-    } else if (pageRouteAnimation == PageRouteAnimation.Rotate) {
+    } else if (pageRouteAnimation == PageRouteAnimation.rotate) {
       return PageRouteBuilder(
         pageBuilder: (c, a1, a2) => child,
         transitionsBuilder: (c, anim, a2, child) {
@@ -235,7 +235,7 @@ Route<T> buildPageRoute<T>(
         },
         transitionDuration: duration ?? pageRouteTransitionDurationGlobal,
       );
-    } else if (pageRouteAnimation == PageRouteAnimation.Scale) {
+    } else if (pageRouteAnimation == PageRouteAnimation.scale) {
       return PageRouteBuilder(
         pageBuilder: (c, a1, a2) => child,
         transitionsBuilder: (c, anim, a2, child) {
@@ -243,7 +243,7 @@ Route<T> buildPageRoute<T>(
         },
         transitionDuration: duration ?? pageRouteTransitionDurationGlobal,
       );
-    } else if (pageRouteAnimation == PageRouteAnimation.Slide) {
+    } else if (pageRouteAnimation == PageRouteAnimation.slide) {
       return PageRouteBuilder(
         pageBuilder: (c, a1, a2) => child,
         transitionsBuilder: (c, anim, a2, child) {
@@ -257,7 +257,7 @@ Route<T> buildPageRoute<T>(
         },
         transitionDuration: duration ?? pageRouteTransitionDurationGlobal,
       );
-    } else if (pageRouteAnimation == PageRouteAnimation.SlideBottomTop) {
+    } else if (pageRouteAnimation == PageRouteAnimation.slideBottomTop) {
       return PageRouteBuilder(
         pageBuilder: (c, a1, a2) => child,
         transitionsBuilder: (c, anim, a2, child) {
@@ -286,14 +286,14 @@ EdgeInsets dynamicAppButtonPadding(BuildContext context) {
   }
 }
 
-enum BottomSheetDialog { Dialog, BottomSheet }
+enum BottomSheetDialog { dialog, bottomSheet }
 
 Future<dynamic> showBottomSheetOrDialog({
   required BuildContext context,
   required Widget child,
-  BottomSheetDialog bottomSheetDialog = BottomSheetDialog.Dialog,
+  BottomSheetDialog bottomSheetDialog = BottomSheetDialog.dialog,
 }) {
-  if (bottomSheetDialog == BottomSheetDialog.BottomSheet) {
+  if (bottomSheetDialog == BottomSheetDialog.bottomSheet) {
     return showModalBottomSheet(context: context, builder: (_) => child);
   } else {
     return showInDialog(context, builder: (_) => child);
@@ -344,7 +344,7 @@ Widget dotIndicator(list, i, {bool isPersonal = false}) {
                     ? appStore.isDarkMode == true
                     ? Colors.white
                     : primaryColor
-                    : Colors.grey.withOpacity(0.5),
+                    : Colors.grey.withValues(red:  0.5),
                 borderRadius: radius(4)),
           );
         },
@@ -355,9 +355,10 @@ Widget dotIndicator(list, i, {bool isPersonal = false}) {
 
 /// returns true if network is available
 Future<bool> isNetworkAvailable() async {
-  var connectivityResult = await Connectivity().checkConnectivity();
-  return connectivityResult != ConnectivityResult.none;
+  final result = await Connectivity().checkConnectivity();
+  return result.any((e) => e != ConnectivityResult.none);
 }
+
 get getContext => navigatorKey.currentState?.overlay?.context;
 
 Future<T?> push<T>(

@@ -25,7 +25,7 @@ class _LocationPermissionScreenState extends State<LocationPermissionScreen> {
   Set<Marker> markers = {};
   LatLng? _currentPosition;
   GoogleMapController? _mapController;
-  bool _isLoading = true;
+  // bool _isLoading = true;
 
   @override
   void initState() {
@@ -34,15 +34,12 @@ class _LocationPermissionScreenState extends State<LocationPermissionScreen> {
   }
 
   Future<void> _getCurrentLocation() async {
-    print("📍 Inside Get Current Location Function");
 
     try {
       // Step 1: Check if location services are enabled
       bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
 
-      print("===============>" + serviceEnabled.toString());
       if (!serviceEnabled) {
-        print("⚠️ Location services are disabled.");
         await Geolocator
             .openLocationSettings(); // Open device location settings
         return;
@@ -53,22 +50,18 @@ class _LocationPermissionScreenState extends State<LocationPermissionScreen> {
       if (permission == LocationPermission.denied) {
         permission = await Geolocator.requestPermission();
         if (permission == LocationPermission.denied) {
-          print("⚠️ Location permission denied.");
           return;
         }
       }
 
       if (permission == LocationPermission.deniedForever) {
-        print("❌ Location permission permanently denied.");
         await Geolocator.openLocationSettings();
         await Geolocator.openAppSettings();
 // Open app settings
         return;
       }
-      print("✅ Current Location Start");
 
       try {
-        print("📍 Trying to get current position...");
         Position position = await Geolocator.getCurrentPosition(
           locationSettings: LocationSettings(
             distanceFilter: 10,
@@ -76,13 +69,11 @@ class _LocationPermissionScreenState extends State<LocationPermissionScreen> {
             accuracy: LocationAccuracy.high,
           ),
         );
-        Position pos = await Geolocator.getCurrentPosition();
-        print("Latitude: ${pos.latitude}, Longitude: ${pos.longitude}");
+        // Position pos = await Geolocator.getCurrentPosition();
 
 
         // This will only run if location fetch was successful
         _currentPosition = LatLng(position.latitude, position.longitude);
-        print("✅ Fetched location: $_currentPosition");
 
         setState(() {
           markers.add(
@@ -98,19 +89,17 @@ class _LocationPermissionScreenState extends State<LocationPermissionScreen> {
         _mapController?.animateCamera(CameraUpdate.newLatLngZoom(_currentPosition!, 15));
 
       } on TimeoutException {
-        print("⏱️ Location fetch timed out. Try moving outside or check GPS.");
 
         // Optional: Show dialog or fallback logic here
       } catch (e) {
-        print("❌ Error getting location: $e");
 
         // Optional: Avoid using `_currentPosition!` when it's null
       }
 
 
-      setState(() {
-        _isLoading = false;
-      });
+      // setState(() {
+      //   _isLoading = false;
+      // });
 
       // Step 4: Add marker
       markers.add(
@@ -127,7 +116,8 @@ class _LocationPermissionScreenState extends State<LocationPermissionScreen> {
       _mapController
           ?.animateCamera(CameraUpdate.newLatLngZoom(_currentPosition!, 15));
     } catch (e) {
-      print("❌ Error getting location: $e");
+      // Optional: Avoid using `_currentPosition!` when it's null
+
     }
   }
   @override
@@ -146,9 +136,8 @@ class _LocationPermissionScreenState extends State<LocationPermissionScreen> {
             ],
           ),
           50.height,
-          Image.asset(img_map_mobile, fit: BoxFit.cover),
+          Image.asset(imgMapMobile, fit: BoxFit.cover),
           50.height,
-
           AppButton(
             text: 'Open Location Settings',
             padding: EdgeInsetsDirectional.all(0),

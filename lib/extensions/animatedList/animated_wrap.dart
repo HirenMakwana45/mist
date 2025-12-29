@@ -43,7 +43,7 @@ class AnimatedWrap extends StatelessWidget {
     this.textDirection,
     this.verticalDirection,
     this.columnCount = 1,
-    this.listAnimationType = ListAnimationType.Slide,
+    this.listAnimationType = ListAnimationType.slide,
     this.slideConfiguration,
     this.fadeInConfiguration,
     this.scaleConfiguration,

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mist/extensions/colors.dart';
 import 'package:mist/extensions/common.dart';
 import 'package:mist/extensions/extension_util/context_extensions.dart';
 import 'package:mist/extensions/extension_util/int_extensions.dart';
@@ -13,7 +12,6 @@ import '../../Utils/app_colors.dart';
 import '../../components/darkmode_support.dart';
 import '../../extensions/app_button.dart';
 import '../../extensions/app_text_field.dart';
-import '../../extensions/constants.dart';
 import '../../extensions/decorations.dart';
 import '../../extensions/widgets.dart';
 import '../../main.dart';
@@ -52,7 +50,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: secondaryColor.withOpacity(0.06),
+      backgroundColor: secondaryColor.withValues(red:0.06),
       appBar: appBarWidget('Profile',
           titleSpacing: 30, showBack: false, context: context, actions: []),
       body:SizedBox(
@@ -70,7 +68,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       borderRadius: BorderRadius.circular(14),
                       boxShadow: [
                         BoxShadow(
-                            color: Colors.grey.withOpacity(0.3),
+                            color: Colors.grey.withValues(red:0.3),
                             // spreadRadius: 1,
                             blurRadius: 1,
                             offset: Offset(0, 4)),
@@ -82,7 +80,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         "YOUR PROFILE DETAILS",
                         style: boldTextStyle(size: 14),
                       ),
-                      // Divider(color: Colors.grey.withOpacity(0.5),indent: 20,endIndent: 20,),
+                      // Divider(color: Colors.grey.withValues(red:0.5),indent: 20,endIndent: 20,),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -139,7 +137,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                           4.height,
                                           AppTextField(
                                             controller: mNameCont,
-                                            textFieldType: TextFieldType.NAME,
+                                            textFieldType: TextFieldType.nAME,
                                             // isValidationRequired: true,
                                             // focus: mFirstNameFocus,
                                             // nextFocus: mLastNameFocus,
@@ -177,7 +175,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         );
                       }).paddingSymmetric(horizontal: 20, vertical: 14),
                       Divider(
-                        color: Colors.grey.withOpacity(0.5),
+                        color: Colors.grey.withValues(red:0.5),
                         indent: 20,
                         endIndent: 20,
                       ),
@@ -236,7 +234,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                           4.height,
                                           AppTextField(
                                             controller: mEmailCont,
-                                            textFieldType: TextFieldType.NAME,
+                                            textFieldType: TextFieldType.nAME,
                                             // isValidationRequired: true,
                                             // focus: mFirstNameFocus,
                                             // nextFocus: mLastNameFocus,
@@ -275,7 +273,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
                       }).paddingSymmetric(horizontal: 20, vertical: 14),
                       Divider(
-                        color: Colors.grey.withOpacity(0.5),
+                        color: Colors.grey.withValues(red:0.5),
                         indent: 20,
                         endIndent: 20,
                       ),
@@ -291,7 +289,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               16.width,
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
-                                // mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
                                   Text(
                                     "Mobile",
@@ -309,7 +306,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         ],
                       ).onTap(() {
                         showModalBottomSheet(
-                          // isScrollControlled: true,
                           backgroundColor: Colors.white,
                           context: context,
                           builder: (context) {
@@ -334,7 +330,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                           4.height,
                                           AppTextField(
                                             controller: mMobileCont,
-                                            textFieldType: TextFieldType.NAME,
+                                            textFieldType: TextFieldType.nAME,
                                             // isValidationRequired: true,
                                             // focus: mFirstNameFocus,
                                             // nextFocus: mLastNameFocus,
@@ -372,7 +368,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         );
                       }).paddingSymmetric(horizontal: 20, vertical: 14),
                       Divider(
-                        color: Colors.grey.withOpacity(0.5),
+                        color: Colors.grey.withValues(red:0.5),
                         indent: 20,
                         endIndent: 20,
                       ),
@@ -432,7 +428,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                           4.height,
                                           AppTextField(
                                             controller: mAddressCont,
-                                            textFieldType: TextFieldType.NAME,
+                                            textFieldType: TextFieldType.nAME,
                                             // isValidationRequired: true,
                                             // focus: mFirstNameFocus,
                                             // nextFocus: mLastNameFocus,
@@ -469,7 +465,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         );
                       }).paddingSymmetric(horizontal: 20, vertical: 14),
                       Divider(
-                        color: Colors.grey.withOpacity(0.5),
+                        color: Colors.grey.withValues(red:0.5),
                         indent: 20,
                         endIndent: 20,
                       ),
@@ -506,7 +502,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
                       }).paddingSymmetric(horizontal: 20, vertical: 14),
                       Divider(
-                        color: Colors.grey.withOpacity(0.5),
+                        color: Colors.grey.withValues(red:0.5),
                         indent: 20,
                         endIndent: 20,
                       ),
@@ -565,12 +561,21 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       borderRadius: BorderRadius.circular(24),
                       boxShadow: [
                         BoxShadow(
-                            color: Colors.grey.withOpacity(0.3),
+                            color: Colors.grey.withValues(red:0.3),
                             // spreadRadius: 1,
                             blurRadius: 1,
                             offset: Offset(0, 4)),
                       ]),
+                  width: 120,
                   child: AppButton(
+                    padding: EdgeInsetsDirectional.all(0),
+                    width: context.width() * 0.90,
+                    height: context.height() * 0.060,
+                    color: Colors.white,
+                    onTap: () {
+                      LoginScreen().launch(context);
+
+                    },
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -585,19 +590,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         )
                       ],
                     ),
-                    // shapeBorder: Border.all(color: Colors.black,),
-                    // text: 'Log out',
-                    // textColor: Colors.red.shade300,
-                    padding: EdgeInsetsDirectional.all(0),
-                    width: context.width() * 0.90,
-                    height: context.height() * 0.060,
-                    color: Colors.white,
-                    onTap: () {
-                      LoginScreen().launch(context);
-
-                    },
                   ),
-                  width: 120,
                 ),
 
 
@@ -612,14 +605,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 children: [
                   // Image.asset(
                   //   img_logo_transparent,
-                  //   color: Colors.grey.withOpacity(0.6),
+                  //   color: Colors.grey.withValues(red:0.6),
                   //   height: 80,
                   // ),
                   // 8.height,
                   Text(
                     'Version: $_version+$_buildNumber',
                     style: secondaryTextStyle(
-                      color: Colors.grey.withOpacity(0.6),
+                      color: Colors.grey.withValues(red:0.6),
                     ).copyWith(height: 1.3),
                   ),
                 ],

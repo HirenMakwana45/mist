@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mist/extensions/animatedList/animated_wrap.dart';
 import 'package:mist/extensions/extension_util/int_extensions.dart';
 import 'package:mist/extensions/extension_util/widget_extensions.dart';
 import 'package:mist/extensions/text_styles.dart';
@@ -7,9 +6,7 @@ import 'package:mist/screens/service_screen.dart';
 import 'package:mist/utils/app_colors.dart';
 
 import '../Utils/app_common.dart';
-import '../extensions/animatedList/animated_configurations.dart';
 import '../extensions/app_text_field.dart';
-import '../extensions/colors.dart';
 import '../extensions/common.dart';
 import '../extensions/decorations.dart';
 import '../extensions/widgets.dart';
@@ -26,35 +23,35 @@ class _SelectVehicleScreenState extends State<SelectVehicleScreen> {
   TextEditingController mSearch = TextEditingController();
   FocusNode mSearchFocus = FocusNode();
   String? mSearchValue = "";
-  bool _showClearButton = false;
+  final bool _showClearButton = false;
 
   List<String> imageItems = [
-    ic_audi_logo,
-    ic_bmw_logo,
-    ic_chevrolet_logo,
-    ic_citroen_logo,
-    ic_fiat_logo,
-    ic_ford_logo,
-    ic_honda_logo,
-    ic_hyundai_logo,
-    ic_jeep_logo,
-    ic_land_over_logo,
-    ic_lexus_logo,
-    ic_mahindra_logo,
-    ic_maruti_suzuki_logo,
-    ic_mercedes_benz_logo,
-    ic_nissan_logo,
-    ic_porsche_logo,
-    ic_renault_logo,
-    ic_skoda_logo,
-    ic_tata_logo,
-    ic_toyota_logo,
-    ic_volksvegan_logo
+    icAudiLogo,
+    icBmwLogo,
+    icChevroletLogo,
+    icCitroenLogo,
+    icFiatLogo,
+    icFordLogo,
+    icHondaLogo,
+    icHyundaiLogo,
+    icJeepLogo,
+    icLandOverLogo,
+    icLexusLogo,
+    icMahindraLogo,
+    icMarutiSuzukiLogo,
+    icMercedesBenzLogo,
+    icNissanLogo,
+    icPorscheLogo,
+    icRenaultLogo,
+    icSkodaLogo,
+    icTataLogo,
+    icToyotaLogo,
+    icVolksveganLogo
   ];
 
   Widget _getClearButton() {
     if (!_showClearButton) {
-      return mSuffixTextFieldIconWidget(ic_search);
+      return mSuffixTextFieldIconWidget(icSearch);
     }
 
     return IconButton(
@@ -83,15 +80,15 @@ class _SelectVehicleScreenState extends State<SelectVehicleScreen> {
               SizedBox(height: 12),
               _buildCarTypeButton(
                   Image.asset(
-                    ic_car_hatchback,
+                    icCarHatchback,
                     height: 40,
                     width: 40,
                   ),
                   'Hatchback'),
               _buildCarTypeButton(
-                  Image.asset(ic_car_sedan, height: 40, width: 40), 'Sedan'),
+                  Image.asset(icCarSedan, height: 40, width: 40), 'Sedan'),
               _buildCarTypeButton(
-                  Image.asset(ic_car_suv, height: 40, width: 40), 'SUV or MUV'),
+                  Image.asset(icCarSuv, height: 40, width: 40), 'SUV or MUV'),
               SizedBox(height: 16),
               Align(
                 alignment: Alignment.centerLeft,
@@ -163,7 +160,7 @@ class _SelectVehicleScreenState extends State<SelectVehicleScreen> {
           actions: [
             Container(
                     decoration: BoxDecoration(
-                        color: Colors.grey.withOpacity(0.2),
+                        color: Colors.grey.withValues(red:0.2),
                         borderRadius: BorderRadius.circular(4)),
                     child: Text(
                       "Cannot find your Vehicle?",
@@ -177,7 +174,7 @@ class _SelectVehicleScreenState extends State<SelectVehicleScreen> {
           children: [
             AppTextField(
               controller: mSearch,
-              textFieldType: TextFieldType.OTHER,
+              textFieldType: TextFieldType.oTHER,
               isValidationRequired: false,
               autoFocus: false,
               suffix: _getClearButton(),

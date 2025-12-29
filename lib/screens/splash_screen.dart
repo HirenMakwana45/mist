@@ -3,13 +3,9 @@ import 'package:flutter/services.dart';
 import 'package:mist/extensions/extension_util/duration_extensions.dart';
 import 'package:mist/extensions/extension_util/int_extensions.dart';
 import 'package:mist/extensions/extension_util/widget_extensions.dart';
-import 'package:mist/utils/app_colors.dart';
 
 import '../../../main.dart';
-import '../Utils/app_config.dart';
-import '../extensions/text_styles.dart';
 import '../utils/app_images.dart';
-import 'location/location_permission_screen.dart';
 import 'login_screen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -30,6 +26,7 @@ class SplashScreenState extends State<SplashScreen> {
 
   init() async {
     await 2.seconds.delay;
+    if (!mounted) return;
     // LocationPermissionScreen().launch(context);
     // MapLocationScreen().launch(context);
     LoginScreen().launch(context);
@@ -64,7 +61,7 @@ class SplashScreenState extends State<SplashScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
 
           children: [
-            Image.asset(ic_logo,
+            Image.asset(icLogo,
                 width: 100, fit: BoxFit.cover),
             // Text(APP_NAME,style: boldTextStyle(color: primaryColor,size: 28),)
           ],

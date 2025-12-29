@@ -12,17 +12,17 @@ import 'extension_util/string_extensions.dart';
 
 /// Enum for Text Field
 enum TextFieldType {
-  EMAIL,
-  PASSWORD,
-  NAME,
+  eMAIL,
+  pASSWORD,
+  nAME,
   @Deprecated('Use MULTILINE instead. ADDRESS will be removed in major update')
-  ADDRESS,
-  MULTILINE,
-  OTHER,
-  PHONE,
-  URL,
-  NUMBER,
-  USERNAME
+  aDDRESS,
+  mULTILINE,
+  oTHER,
+  pHONE,
+  uRL,
+  nUMBER,
+  uSERNAME
 }
 
 /// Default Text Form Field
@@ -131,7 +131,7 @@ class AppTextField extends StatefulWidget {
   });
 
   @override
-  _AppTextFieldState createState() => _AppTextFieldState();
+  State<AppTextField> createState() => _AppTextFieldState();
 }
 
 class _AppTextFieldState extends State<AppTextField> {
@@ -141,24 +141,24 @@ class _AppTextFieldState extends State<AppTextField> {
     if (widget.isValidationRequired.validate(value: true)) {
       if (widget.validator != null) {
         return widget.validator;
-      } else if (widget.textFieldType == TextFieldType.EMAIL) {
+      } else if (widget.textFieldType == TextFieldType.eMAIL) {
         return (s) {
           if (s!.trim().isEmpty) return widget.errorThisFieldRequired.validate(value: errorThisFieldRequired);
           if (!s.trim().validateEmail()) return widget.errorInvalidEmail.validate(value: 'Email is invalid');
           return null;
         };
-      } else if (widget.textFieldType == TextFieldType.PASSWORD) {
+      } else if (widget.textFieldType == TextFieldType.pASSWORD) {
         return (s) {
           if (s!.trim().isEmpty) return widget.errorThisFieldRequired.validate(value: errorThisFieldRequired);
           if (s.trim().length < passwordLengthGlobal) return widget.errorMinimumPasswordLength.validate(value: 'Minimum password length should be $passwordLengthGlobal');
           return null;
         };
-      } else if (widget.textFieldType == TextFieldType.NAME || widget.textFieldType == TextFieldType.PHONE || widget.textFieldType == TextFieldType.NUMBER) {
+      } else if (widget.textFieldType == TextFieldType.nAME || widget.textFieldType == TextFieldType.pHONE || widget.textFieldType == TextFieldType.nUMBER) {
         return (s) {
           if (s!.trim().isEmpty) return widget.errorThisFieldRequired.validate(value: errorThisFieldRequired);
           return null;
         };
-      } else if (widget.textFieldType == TextFieldType.URL) {
+      } else if (widget.textFieldType == TextFieldType.uRL) {
         return (s) {
           if (s!.trim().isEmpty) return widget.errorThisFieldRequired.validate(value: errorThisFieldRequired);
           if (!s.validateURL()) {
@@ -166,7 +166,7 @@ class _AppTextFieldState extends State<AppTextField> {
           }
           return null;
         };
-      } else if (widget.textFieldType == TextFieldType.USERNAME) {
+      } else if (widget.textFieldType == TextFieldType.uSERNAME) {
         return (s) {
           if (s!.trim().isEmpty) return widget.errorThisFieldRequired.validate(value: errorThisFieldRequired);
           if (s.contains(' ')) {
@@ -174,7 +174,7 @@ class _AppTextFieldState extends State<AppTextField> {
           }
           return null;
         };
-      } else if (widget.textFieldType == TextFieldType.MULTILINE) {
+      } else if (widget.textFieldType == TextFieldType.mULTILINE) {
         return (s) {
           if (s!.trim().isEmpty) return widget.errorThisFieldRequired.validate(value: errorThisFieldRequired);
           return null;
@@ -190,9 +190,9 @@ class _AppTextFieldState extends State<AppTextField> {
   TextCapitalization applyTextCapitalization() {
     if (widget.textCapitalization != null) {
       return widget.textCapitalization!;
-    } else if (widget.textFieldType == TextFieldType.NAME) {
+    } else if (widget.textFieldType == TextFieldType.nAME) {
       return TextCapitalization.words;
-    } else if (widget.textFieldType == TextFieldType.MULTILINE) {
+    } else if (widget.textFieldType == TextFieldType.mULTILINE) {
       return TextCapitalization.sentences;
     } else {
       return TextCapitalization.none;
@@ -202,7 +202,7 @@ class _AppTextFieldState extends State<AppTextField> {
   TextInputAction? applyTextInputAction() {
     if (widget.textInputAction != null) {
       return widget.textInputAction;
-    } else if (widget.textFieldType == TextFieldType.MULTILINE) {
+    } else if (widget.textFieldType == TextFieldType.mULTILINE) {
       return TextInputAction.newline;
     } else if (widget.nextFocus != null) {
       return TextInputAction.next;
@@ -214,15 +214,15 @@ class _AppTextFieldState extends State<AppTextField> {
   TextInputType? applyTextInputType() {
     if (widget.keyboardType != null) {
       return widget.keyboardType;
-    } else if (widget.textFieldType == TextFieldType.EMAIL) {
+    } else if (widget.textFieldType == TextFieldType.eMAIL) {
       return TextInputType.emailAddress;
-    } else if (widget.textFieldType == TextFieldType.MULTILINE) {
+    } else if (widget.textFieldType == TextFieldType.mULTILINE) {
       return TextInputType.multiline;
-    } else if (widget.textFieldType == TextFieldType.PASSWORD) {
+    } else if (widget.textFieldType == TextFieldType.pASSWORD) {
       return TextInputType.visiblePassword;
-    } else if (widget.textFieldType == TextFieldType.PHONE || widget.textFieldType == TextFieldType.NUMBER) {
+    } else if (widget.textFieldType == TextFieldType.pHONE || widget.textFieldType == TextFieldType.nUMBER) {
       return TextInputType.number;
-    } else if (widget.textFieldType == TextFieldType.URL) {
+    } else if (widget.textFieldType == TextFieldType.uRL) {
       return TextInputType.url;
     } else {
       return TextInputType.text;
@@ -235,7 +235,7 @@ class _AppTextFieldState extends State<AppTextField> {
   }
 
   Widget? suffixIcon() {
-    if (widget.textFieldType == TextFieldType.PASSWORD) {
+    if (widget.textFieldType == TextFieldType.pASSWORD) {
       // if (widget.suffix != null) {
       //   return widget.suffix;
       // } else {
@@ -248,9 +248,9 @@ class _AppTextFieldState extends State<AppTextField> {
   }
 
   Iterable<String>? applyAutofillHints() {
-    if (widget.textFieldType == TextFieldType.EMAIL) {
+    if (widget.textFieldType == TextFieldType.eMAIL) {
       return [AutofillHints.email];
-    } else if (widget.textFieldType == TextFieldType.PASSWORD) {
+    } else if (widget.textFieldType == TextFieldType.pASSWORD) {
       return [AutofillHints.password];
     }
     return null;
@@ -260,7 +260,7 @@ class _AppTextFieldState extends State<AppTextField> {
   Widget build(BuildContext context) {
     return TextFormField(
       controller: widget.controller,
-      obscureText: widget.textFieldType == TextFieldType.PASSWORD && !isPasswordVisible,
+      obscureText: widget.textFieldType == TextFieldType.pASSWORD && !isPasswordVisible,
       validator: applyValidation(),
       textCapitalization: applyTextCapitalization(),
       textInputAction: applyTextInputAction(),
@@ -278,8 +278,8 @@ class _AppTextFieldState extends State<AppTextField> {
       focusNode: widget.focus,
       style: widget.textStyle ?? primaryTextStyle(),
       textAlign: widget.textAlign ?? TextAlign.start,
-      maxLines: widget.textFieldType == TextFieldType.MULTILINE ? null : widget.maxLines.validate(value: 1),
-      minLines: widget.minLines.validate(value: widget.textFieldType == TextFieldType.MULTILINE ? 3 : 1),
+      maxLines: widget.textFieldType == TextFieldType.mULTILINE ? null : widget.maxLines.validate(value: 1),
+      minLines: widget.minLines.validate(value: widget.textFieldType == TextFieldType.mULTILINE ? 3 : 1),
       autofocus: widget.autoFocus ?? false,
       enabled: widget.enabled,
       onChanged: widget.onChanged,

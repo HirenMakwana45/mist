@@ -25,9 +25,9 @@ const gradientStartColor = Color(0xFF7A2291);
 
 const gradientEndColor = Color(0xFFFF4B8B);
 
-const BackgroundColorImageColor = Color(0xffFAFAFA);
-
-const GreyLightColor = Color(0xffEDEDED);
+// const BackgroundColorImageColor = Color(0xffFAFAFA);
+//
+// const GreyLightColor = Color(0xffEDEDED);
 
 const cardBackground = Color(0xFFFAFAFA);
 
@@ -39,11 +39,11 @@ const replyMsgBgColor = Color(0xFF243037);
 
 const textColor = Color(0xff8A8A8A);
 
-const RedColor = Color(0xffF4462C);
+const redColor = Color(0xffF4462C);
 
-const YellowColor = Color(0xffEBBB14);
-const BlueColor = Color(0xff3998DD);
-const GreenColor = Color(0xff3FC27B);
+// const YellowColor = Color(0xffEBBB14);
+// const BlueColor = Color(0xff3998DD);
+// const GreenColor = Color(0xff3FC27B);
 const lightBlueColor = Color(0xFF405152);
 // const lightRedColor = Color(0xFFFE615A);
 const darkRedColor = Color(0xFFF18D8D);

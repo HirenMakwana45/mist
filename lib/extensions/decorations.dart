@@ -13,12 +13,12 @@ InputDecoration defaultInputDecoration(BuildContext context, {String? hint, Stri
     contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 14),
     floatingLabelBehavior: FloatingLabelBehavior.never,
     prefixIcon: mPrefix,
-    border: OutlineInputBorder(borderRadius: radius(), borderSide: BorderSide(color: isFocusTExtField == true ? context.dividerColor.withOpacity(0.7) : context.dividerColor.withOpacity(0.7))),
-    focusedErrorBorder: OutlineInputBorder(borderRadius: radius(), borderSide: BorderSide(color: isFocusTExtField == true ? context.dividerColor.withOpacity(0.7) : primaryColor)),
-    disabledBorder: OutlineInputBorder(borderRadius: radius(), borderSide: BorderSide(color: isFocusTExtField == true ? context.dividerColor.withOpacity(0.7) : context.dividerColor.withOpacity(0.7))),
-    focusedBorder: OutlineInputBorder(borderRadius: radius(), borderSide: BorderSide(color: isFocusTExtField == true ? context.dividerColor.withOpacity(0.7) : primaryColor)),
-    enabledBorder: OutlineInputBorder(borderRadius: radius(), borderSide: BorderSide(color: isFocusTExtField == true ? context.dividerColor.withOpacity(0.7) : context.dividerColor.withOpacity(0.7))),
-    errorBorder: OutlineInputBorder(borderRadius: radius(), borderSide: BorderSide(color: isFocusTExtField == true ? context.dividerColor.withOpacity(0.7) : Colors.red)),
+    border: OutlineInputBorder(borderRadius: radius(), borderSide: BorderSide(color: isFocusTExtField == true ? context.dividerColor.withValues(red:0.7) : context.dividerColor.withValues(red:0.7))),
+    focusedErrorBorder: OutlineInputBorder(borderRadius: radius(), borderSide: BorderSide(color: isFocusTExtField == true ? context.dividerColor.withValues(red:0.7) : primaryColor)),
+    disabledBorder: OutlineInputBorder(borderRadius: radius(), borderSide: BorderSide(color: isFocusTExtField == true ? context.dividerColor.withValues(red:0.7) : context.dividerColor.withValues(red:0.7))),
+    focusedBorder: OutlineInputBorder(borderRadius: radius(), borderSide: BorderSide(color: isFocusTExtField == true ? context.dividerColor.withValues(red:0.7) : primaryColor)),
+    enabledBorder: OutlineInputBorder(borderRadius: radius(), borderSide: BorderSide(color: isFocusTExtField == true ? context.dividerColor.withValues(red:0.7) : context.dividerColor.withValues(red:0.7))),
+    errorBorder: OutlineInputBorder(borderRadius: radius(), borderSide: BorderSide(color: isFocusTExtField == true ? context.dividerColor.withValues(red:0.7) : Colors.red)),
     alignLabelWithHint: true,
     // filled: true,
     isDense: true,
@@ -148,7 +148,7 @@ Decoration boxDecorationRoundedWithShadow(
 }) {
   return BoxDecoration(
     boxShadow: defaultBoxShadow(
-      shadowColor: shadowColor ?? Colors.grey.withOpacity(0.065),
+      shadowColor: shadowColor ?? Colors.grey.withValues(red:0.065),
       blurRadius: blurRadius ?? defaultBlurRadius,
       spreadRadius: spreadRadius ?? defaultSpreadRadius,
       offset: offset,
@@ -170,7 +170,7 @@ List<BoxShadow> defaultBoxShadow({
 }) {
   return [
     BoxShadow(
-      color: shadowColor ?? Colors.grey.withOpacity(0.065),
+      color: shadowColor ?? Colors.grey.withValues(red:0.065),
       blurRadius: blurRadius ?? defaultBlurRadius,
       spreadRadius: spreadRadius ?? defaultSpreadRadius,
       offset: offset,

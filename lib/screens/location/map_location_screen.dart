@@ -5,9 +5,7 @@ import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:mist/extensions/text_styles.dart';
-import 'package:permission_handler/permission_handler.dart';
 
-import '../../extensions/widgets.dart';
 
 class MapLocationScreen extends StatefulWidget {
   const MapLocationScreen({super.key});
@@ -43,7 +41,6 @@ class _MapLocationScreenState extends State<MapLocationScreen> {
         });
       }
     } catch (e) {
-      print("❌ Error fetching address: $e");
       setState(() {
         _address = "Address not available";
       });
@@ -52,7 +49,6 @@ class _MapLocationScreenState extends State<MapLocationScreen> {
 
 
   Future<void> _getCurrentLocation() async {
-    print("📍 Inside Get Current Location Function");
     try {
       bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
       if (!serviceEnabled) {
@@ -81,12 +77,10 @@ class _MapLocationScreenState extends State<MapLocationScreen> {
           ),
         );
       } on TimeoutException {
-        print("⏱️ Timeout: using last known position...");
         Position? lastKnown = await Geolocator.getLastKnownPosition();
         if (lastKnown != null) {
           position = lastKnown;
         } else {
-          print("❌ No location available.");
           return;
         }
       }
@@ -111,7 +105,7 @@ class _MapLocationScreenState extends State<MapLocationScreen> {
         CameraUpdate.newLatLngZoom(_currentPosition!, 15),
       );
     } catch (e) {
-      print("❌ Error getting location: $e");
+      //error
     }
   }
 

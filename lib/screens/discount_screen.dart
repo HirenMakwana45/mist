@@ -5,9 +5,7 @@ import 'package:mist/extensions/extension_util/widget_extensions.dart';
 import 'package:mist/extensions/text_styles.dart';
 import 'package:mist/screens/slot_selection_screen.dart';
 
-import '../Utils/app_common.dart';
 import '../extensions/app_text_field.dart';
-import '../extensions/common.dart';
 import '../extensions/decorations.dart';
 import '../extensions/widgets.dart';
 import '../utils/app_images.dart';
@@ -24,26 +22,26 @@ class _DiscountScreenState extends State<DiscountScreen> {
   TextEditingController mSearch = TextEditingController();
   FocusNode mSearchFocus = FocusNode();
   String? mSearchValue = "";
-  bool _showClearButton = false;
+  // final bool _showClearButton = false;
   @override
   void setState(fn) {
     if (mounted) super.setState(fn);
   }
 
-  Widget _getClearButton() {
-    if (!_showClearButton) {
-      return mSuffixTextFieldIconWidget(ic_search);
-    }
-
-    return IconButton(
-      onPressed: () {
-        mSearch.clear();
-        mSearchValue = "";
-        hideKeyboard(context);
-      },
-      icon: Icon(Icons.clear),
-    );
-  }
+  // Widget _getClearButton() {
+  //   if (!_showClearButton) {
+  //     return mSuffixTextFieldIconWidget(icSearch);
+  //   }
+  //
+  //   return IconButton(
+  //     onPressed: () {
+  //       mSearch.clear();
+  //       mSearchValue = "";
+  //       hideKeyboard(context);
+  //     },
+  //     icon: Icon(Icons.clear),
+  //   );
+  // }
 
   void showPopupDialog(BuildContext context) {
     showDialog(
@@ -62,20 +60,24 @@ class _DiscountScreenState extends State<DiscountScreen> {
               10.height,
               Text('Get50! applied', style: boldTextStyle(size: 14)),
               10.height,
-              Text('You saved ' + "₹" + '100', style: boldTextStyle(size: 22)),
+              Text(
+                  'You saved '
+                  "₹"
+                  '100',
+                  style: boldTextStyle(size: 22)),
               10.height,
               Text('with this coupon code',
                   style: secondaryTextStyle(size: 12)),
               40.height,
               Container(
-                decoration:
-                    BoxDecoration(border: Border.all(),borderRadius: BorderRadius.circular(20)),
+                decoration: BoxDecoration(
+                    border: Border.all(),
+                    borderRadius: BorderRadius.circular(20)),
                 child: Text(
                   "Let's GO!",
                   style: boldTextStyle(color: Colors.blue),
-                ).paddingSymmetric(horizontal: 42,vertical: 6),
-              ).onTap((){
-
+                ).paddingSymmetric(horizontal: 42, vertical: 6),
+              ).onTap(() {
                 SlotSelectionScreen().launch(context);
               })
             ],
@@ -98,7 +100,7 @@ class _DiscountScreenState extends State<DiscountScreen> {
           ),
           AppTextField(
             controller: mSearch,
-            textFieldType: TextFieldType.OTHER,
+            textFieldType: TextFieldType.oTHER,
             isValidationRequired: false,
             autoFocus: false,
             // suffix: Text("Apply"),
@@ -121,7 +123,7 @@ class _DiscountScreenState extends State<DiscountScreen> {
           20.height,
           Container(
             decoration: BoxDecoration(
-                border: Border.all(color: Colors.grey.withOpacity(0.4)),
+                border: Border.all(color: Colors.grey.withValues(red: 0.4)),
                 borderRadius: BorderRadius.circular(4)),
             child: Column(
               children: [
@@ -130,7 +132,7 @@ class _DiscountScreenState extends State<DiscountScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Image.asset(
-                      ic_coupon_fill,
+                      icCouponFill,
                       height: 28,
                       width: 28,
                     ),
@@ -139,11 +141,16 @@ class _DiscountScreenState extends State<DiscountScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "50% OFF up to " + "₹" + "228",
+                          "50% OFF up to "
+                          "₹ "
+                          "228",
                           style: boldTextStyle(color: secondaryColor),
                         ),
                         Text(
-                          "Save " + "₹" + "100 " + "with this code",
+                          "Save "
+                          "₹ "
+                          "100 "
+                          "with this code",
                           style:
                               secondaryTextStyle(color: Colors.blue, size: 12),
                         ),
@@ -152,8 +159,8 @@ class _DiscountScreenState extends State<DiscountScreen> {
                     12.width,
                     Container(
                       decoration: BoxDecoration(
-                          border:
-                              Border.all(color: Colors.grey.withOpacity(0.5)),
+                          border: Border.all(
+                              color: Colors.grey.withValues(red: 0.5)),
                           borderRadius: BorderRadius.circular(4)),
                       child: Text(
                         "GET50!",
@@ -167,7 +174,7 @@ class _DiscountScreenState extends State<DiscountScreen> {
                   endIndent: 12,
                   indent: 12,
                   height: 0,
-                  color: Colors.grey.withOpacity(0.4),
+                  color: Colors.grey.withValues(red: 0.4),
                 ),
                 16.height,
                 Text(

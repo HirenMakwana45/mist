@@ -13,7 +13,6 @@ import 'package:toastification/toastification.dart';
 import '../Services/auth_service.dart';
 import '../extensions/app_button.dart';
 import '../extensions/app_text_field.dart';
-import '../extensions/colors.dart';
 import '../extensions/common.dart';
 import '../extensions/constants.dart';
 import '../extensions/decorations.dart';
@@ -38,12 +37,12 @@ class _LoginScreenState extends State<LoginScreen> {
   GlobalKey<FormState> mFormKey = GlobalKey<FormState>();
 
   List<Widget> imageItems = [
-    Image.asset(ic_car_wash_1, fit: BoxFit.cover),
-    Image.asset(ic_car_wash_2, fit: BoxFit.cover),
-    Image.asset(ic_car_wash_3, fit: BoxFit.cover),
-    Image.asset(ic_car_wash_4, fit: BoxFit.cover),
-    Image.asset(ic_car_wash_5, fit: BoxFit.cover),
-    Image.asset(ic_car_wash_6, fit: BoxFit.cover),
+    Image.asset(icCarWash_1, fit: BoxFit.cover),
+    Image.asset(icCarWash_2, fit: BoxFit.cover),
+    Image.asset(icCarWash_3, fit: BoxFit.cover),
+    Image.asset(icCarWash_4, fit: BoxFit.cover),
+    Image.asset(icCarWash_5, fit: BoxFit.cover),
+    Image.asset(icCarWash_6, fit: BoxFit.cover),
   ];
 
   Future<void> sendOTP() async {
@@ -132,7 +131,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   children: [
                     Expanded(
                       child: Divider(
-                        color: Colors.grey.withOpacity(0.5),
+                        color: Colors.grey.withValues(red:0.5),
                       ),
                     ),
                     Padding(
@@ -144,7 +143,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     Expanded(
                       child: Divider(
-                        color: Colors.grey.withOpacity(0.5),
+                        color: Colors.grey.withValues(red:0.5),
                       ),
                     ),
                   ],
@@ -156,7 +155,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     Text('Mobile Number',
                         style: secondaryTextStyle(color: textPrimaryColorGlobal)),
                     2.width,
-                    Text('*', style: secondaryTextStyle(color: RedColor))
+                    Text('*', style: secondaryTextStyle(color: redColor))
                   ],
                 ).paddingSymmetric(horizontal: 26, vertical: 4),
                 4.height,
@@ -164,7 +163,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   // focus: _focusNode,
 
                   controller: mMobileCont,
-                  textFieldType: TextFieldType.PHONE,
+                  textFieldType: TextFieldType.pHONE,
                   // maxLength: 10,
                   isValidationRequired: true,
                   inputFormatters: [
@@ -209,7 +208,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 // setValue(COUNTRY_CODE, c.code);
                               },
                             ),
-                            VerticalDivider(color: Colors.grey.withOpacity(0.5)),
+                            VerticalDivider(color: Colors.grey.withValues(red:0.5)),
                             16.width,
                           ],
                         ),

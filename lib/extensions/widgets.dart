@@ -17,14 +17,14 @@ import 'constants.dart';
 import 'loader_widget.dart';
 
 /// show confirm dialog box
-Future<bool?> showConfirmDialog<bool>(
+Future<bool?> showConfirmDialog<booln>(
   context,
   String title, {
   String positiveText = 'Yes',
   String negativeText = 'No',
   Color? buttonColor,
   Color? barrierColor,
-  bool? barrierDismissible,
+  booln? barrierDismissible,
   Function? onAccept,
 }) async {
   return showDialog(
@@ -36,18 +36,18 @@ Future<bool?> showConfirmDialog<bool>(
         SimpleDialogOption(
           child: Text(negativeText.validate(), style: secondaryTextStyle()),
           onPressed: () {
-            finish(_, false);
+            finish(context, false);
           },
         ),
         SimpleDialogOption(
           onPressed: () {
-            finish(_, true);
+            finish(context, true);
 
             onAccept?.call();
           },
           child: Text(
             positiveText.validate(),
-            style: primaryTextStyle(color: buttonColor ?? Theme.of(_).primaryColor),
+            style: primaryTextStyle(color: buttonColor ?? Theme.of(context).primaryColor),
           ),
         ),
       ],
@@ -66,7 +66,7 @@ Future<T?> showInDialog<T>(
   EdgeInsetsGeometry? contentPadding,
   //bool scrollable = false,
   Color? backgroundColor,
-  DialogAnimation dialogAnimation = DialogAnimation.DEFAULT,
+  DialogAnimation dialogAnimation = DialogAnimation.dEFAULT,
   double? elevation,
   Color? barrierColor,
   //EdgeInsets insetPadding = const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
@@ -93,7 +93,7 @@ Future<T?> showInDialog<T>(
         dialogAnimation: dialogAnimation,
         curve: curve,
         child: AlertDialog(
-          content: builder != null ? builder.call(_) : child,
+          content: builder != null ? builder.call(context) : child,
           shape: shape ?? defaultDialogShape,
           title: title,
           titleTextStyle: titleTextStyle,
@@ -139,7 +139,7 @@ AppBar appBarWidget(String title,
         ),
     actions: actions ?? [],
     automaticallyImplyLeading: showBack,
-    backgroundColor:  secondaryColor.withOpacity(0.02),
+    backgroundColor:  secondaryColor.withValues(red:0.02),
     leading: showBack ? (backWidget) : null,
     shadowColor: shadowColor,
     elevation: elevation ?? defaultAppBarElevation,

@@ -5,6 +5,8 @@ import '../extensions/text_styles.dart';
 import '../main.dart';
 
 class ThemeModeSelectorBottomSheet extends StatelessWidget {
+  const ThemeModeSelectorBottomSheet({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Padding(

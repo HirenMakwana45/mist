@@ -1,15 +1,10 @@
 import 'dart:async';
-import 'dart:convert';
 import 'dart:developer';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
-// import 'package:html/parser.dart';
 import 'package:intl/intl.dart';
 import 'package:mist/extensions/extension_util/widget_extensions.dart';
 import 'package:toastification/toastification.dart';
-import '../extensions/extension_util/int_extensions.dart';
-// import 'package:onesignal_flutter/onesignal_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../extensions/extension_util/string_extensions.dart';
 import '../../utils/app_images.dart';
@@ -19,14 +14,7 @@ import '../extensions/setting_item_widget.dart';
 import '../extensions/shared_pref.dart';
 import '../extensions/text_styles.dart';
 import '../main.dart';
-// import '../models/language_data_model.dart';
-// import '../models/progress_setting_model.dart';
-// import '../models/reminder_model.dart';
-// import '../models/user_response.dart';
-// import '../network/rest_api.dart';
-import '../network/rest_api.dart';
 import 'app_colors.dart';
-import 'app_config.dart';
 import 'app_constants.dart';
 
 class DiagonalPathClipperTwo extends CustomClipper<Path> {
@@ -64,7 +52,7 @@ Widget outlineIconButton(BuildContext context,
       children: [
         // if (icon != null) ImageIcon(AssetImage(icon), color: appStore.isDarkMode ? Colors.white : primaryColor, size: 24),
         if (icon != null) SizedBox(width: 8),
-        Text(text, style: primaryTextStyle(color: textColor ?? null, size: 14)),
+        Text(text, style: primaryTextStyle(color: textColor, size: 14)),
       ],
     ),
   );
@@ -111,7 +99,7 @@ Widget cachedImage(String? url,
       },
     );
   } else {
-    return Image.asset(ic_placeholder,
+    return Image.asset(icPlaceholder,
             height: height,
             width: width,
             fit: BoxFit.cover,
@@ -126,7 +114,7 @@ Widget placeHolderWidget(
     BoxFit? fit,
     AlignmentGeometry? alignment,
     double? radius}) {
-  return Image.asset(ic_placeholder,
+  return Image.asset(icPlaceholder,
           height: height,
           width: width,
           fit: BoxFit.cover,
@@ -135,14 +123,14 @@ Widget placeHolderWidget(
 }
 
 void showToast(
-    String? value, {
-      ToastificationType type = ToastificationType.info,
-      ToastificationStyle style = ToastificationStyle.flat,
-      Duration duration = const Duration(seconds: 2),
-      Color? backgroundColor,
-      Color? foregroundColor,
-      Color? progressColor,
-    }) {
+  String? value, {
+  ToastificationType type = ToastificationType.info,
+  ToastificationStyle style = ToastificationStyle.flat,
+  Duration duration = const Duration(seconds: 2),
+  Color? backgroundColor,
+  Color? foregroundColor,
+  Color? progressColor,
+}) {
   if (value.validate().isEmpty) return;
 
   toastification.show(
@@ -161,16 +149,14 @@ void showToast(
   );
 }
 
-
 setLogInValue() {
-  userStore.setLogin(getBoolAsync(IS_LOGIN));
+  userStore.setLogin(getBoolAsync(iSLOGIN));
   if (userStore.isLoggedIn) {
-    userStore.setFirstName(getStringAsync(FIRSTNAME));
-    userStore.setToken(getStringAsync(TOKEN));
-    userStore.setUserID(getStringAsync(USER_ID));
-    userStore.setUserNativeLanguage(getStringAsync(USER_NATIVE_LANGUAGE));
-    userStore
-        .setUserEnglishProficiency(getStringAsync(USER_ENGLISH_PROFICIENCY));
+    userStore.setFirstName(getStringAsync(fIRSTNAME));
+    userStore.setToken(getStringAsync(tOKEN));
+    userStore.setUserID(getStringAsync(uSERID));
+    userStore.setUserNativeLanguage(getStringAsync(uSERNATIVELANGUAGE));
+    userStore.setUserEnglishProficiency(getStringAsync(uSERENGLISHPROFICIENCY));
   }
 }
 
@@ -212,6 +198,7 @@ Future<void> launchUrls(String url, {bool forceWebView = false}) async {
       type: ToastificationType.error,
       progressColor: Colors.red,
     );
+    return true;
   });
 }
 
@@ -225,10 +212,10 @@ Widget mBlackEffect(double? width, double? height, {double? radiusValue = 16}) {
         begin: Alignment.topCenter,
         end: Alignment.bottomCenter,
         colors: [
-          Colors.black.withOpacity(0.2),
-          Colors.black.withOpacity(0.2),
-          Colors.black.withOpacity(0.4),
-          Colors.black.withOpacity(0.4),
+          Colors.black.withValues(red: 0.2),
+          Colors.black.withValues(red: 0.2),
+          Colors.black.withValues(red: 0.4),
+          Colors.black.withValues(red: 0.4),
         ],
       ),
     ),
@@ -275,8 +262,6 @@ String formatDateTime(DateTime dateTime) {
 
   return DateFormat('hh:mm a dd MMM yyyy').format(localDateTime);
 }
-
-
 
 String getDynamicDescription(String createdAt) {
   final createdDate = DateTime.parse(createdAt)
@@ -362,20 +347,16 @@ String extractCountryCode(String fullNumber) {
 class InstallDateHelper {
   /// Save the install date if not already saved
   static Future<void> saveInstallDate() async {
-    String? installDateStr = getStringAsync(DAYS_SINCE_INSTALL);
+    String? installDateStr = getStringAsync(dAYSSINCEINSTALL);
 
     if (installDateStr.isEmpty) {
-      await setValue(DAYS_SINCE_INSTALL, DateTime.now().toIso8601String());
-      print("Install date saved: ${DateTime.now().toIso8601String()}");
-    } else {
-      print("Install date already exists: $installDateStr");
-    }
+      await setValue(dAYSSINCEINSTALL, DateTime.now().toIso8601String());
+    } else {}
   }
 
   /// Calculate days since install
   static Future<int> getDaysSinceInstall() async {
-    String? installDateStr = getStringAsync(DAYS_SINCE_INSTALL);
-    print("Install Date: $installDateStr");
+    String? installDateStr = getStringAsync(dAYSSINCEINSTALL);
 
     if (installDateStr.isNotEmpty) {
       DateTime installDate = DateTime.parse(installDateStr);
@@ -383,11 +364,7 @@ class InstallDateHelper {
       int daysSinceInstall = currentDate.difference(installDate).inDays;
       return daysSinceInstall;
     } else {
-      print("No install date found.");
       return 0;
     }
   }
 }
-
-
-

@@ -13,7 +13,6 @@ import '../extensions/system_utils.dart';
 import '../main.dart';
 import '../utils/app_constants.dart';
 
-
 Map<String, String> buildHeaderTokens() {
   Map<String, String> header = {
     HttpHeaders.contentTypeHeader: 'application/json; charset=utf-8',
@@ -23,7 +22,7 @@ Map<String, String> buildHeaderTokens() {
     'Access-Control-Allow-Origin': '*',
   };
 
-  if (userStore.isLoggedIn ) {
+  if (userStore.isLoggedIn) {
     header.putIfAbsent(
         HttpHeaders.authorizationHeader, () => 'Bearer ${userStore.token}');
   }
@@ -40,27 +39,26 @@ Uri buildBaseUrl(String endPoint) {
   return url;
 }
 
-Future<Response> buildHttpResponse(String endPoint, {HttpMethod method = HttpMethod.GET, Map? request}) async {
+Future<Response> buildHttpResponse(String endPoint,
+    {HttpMethod method = HttpMethod.gET, Map? request}) async {
   if (await isNetworkAvailable()) {
     var headers = buildHeaderTokens();
     Uri url = buildBaseUrl(endPoint);
 
     Response response;
 
-    if (method == HttpMethod.POST) {
+    if (method == HttpMethod.pOST) {
       log('Request: $request');
       response =
-      await http.post(url, body: jsonEncode(request), headers: headers);
-      print("Raw Response: ${response.body}");
-
-    } else if (method == HttpMethod.DELETE) {
+          await http.post(url, body: jsonEncode(request), headers: headers);
+    } else if (method == HttpMethod.dELETE) {
       response = await http.delete(url, headers: headers);
-    } else if (method == HttpMethod.PUT) {
+    } else if (method == HttpMethod.pUT) {
       response =
-      await http.put(url, body: jsonEncode(request), headers: headers);
-    } else if (method == HttpMethod.PATCH) {
+          await http.put(url, body: jsonEncode(request), headers: headers);
+    } else if (method == HttpMethod.pATCH) {
       response =
-      await http.patch(url, body: jsonEncode(request), headers: headers);
+          await http.patch(url, body: jsonEncode(request), headers: headers);
     } else {
       response = await http.get(url, headers: headers);
     }
@@ -73,13 +71,20 @@ Future<Response> buildHttpResponse(String endPoint, {HttpMethod method = HttpMet
   }
 }
 
-@deprecated
+@Deprecated('Use buildHttpResponse() with HttpMethod.get instead')
 Future<Response> getRequest(String endPoint) async =>
     buildHttpResponse(endPoint);
 
-@deprecated
-Future<Response> postRequest(String endPoint, Map request) async =>
-    buildHttpResponse(endPoint, request: request, method: HttpMethod.POST);
+@Deprecated('Use buildHttpResponse() with HttpMethod.post instead')
+Future<Response> postRequest(
+  String endPoint,
+  Map request,
+) async =>
+    buildHttpResponse(
+      endPoint,
+      request: request,
+      method: HttpMethod.pOST,
+    );
 
 Future handleResponse(Response response) async {
   if (!await isNetworkAvailable()) {
@@ -92,12 +97,12 @@ Future handleResponse(Response response) async {
     var string = await (isJsonValid(response.body));
     if (string!.isNotEmpty) {
       if (string.toString().contains("Unauthenticated")) {
-        await removeKey(IS_LOGIN);
+        await removeKey(iSLOGIN);
         // await removeKey(USER_ID);
-        await removeKey(FIRSTNAME);
-        await removeKey(LASTNAME);
+        await removeKey(fIRSTNAME);
+        await removeKey(lASTNAME);
 
-        await removeKey(PHONE_NUMBER);
+        await removeKey(pHONENUMBER);
 
         // await removeKey(WEIGHT);
         // await removeKey(WEIGHT_UNIT);
@@ -118,7 +123,7 @@ Future handleResponse(Response response) async {
 }
 
 //region Common
-enum HttpMethod { GET, POST, DELETE, PUT, PATCH }
+enum HttpMethod { gET, pOST, dELETE, pUT, pATCH }
 
 class TokenException implements Exception {
   final String message;
@@ -165,5 +170,3 @@ Future<void> sendMultiPartRequest(MultipartRequest multiPartRequest,
     onError?.call(errorSomethingWentWrong);
   }
 }
-
-

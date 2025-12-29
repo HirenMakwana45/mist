@@ -1,6 +1,5 @@
 import 'dart:async';
 
-// import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
@@ -10,7 +9,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:mist/screens/no_internet_screen.dart';
 import 'package:mist/screens/splash_screen.dart';
-import 'package:mist/store/UserStore/UserStore.dart';
+import 'package:mist/store/UserStore/user_Store.dart';
 import 'package:mist/store/app_store.dart';
 import 'package:mist/utils/app_common.dart';
 import 'package:mist/utils/app_constants.dart';
@@ -23,10 +22,7 @@ import 'app_theme.dart';
 import 'extensions/common.dart';
 import 'extensions/constants.dart';
 import 'extensions/decorations.dart';
-
 import 'extensions/system_utils.dart';
-
-
 
 
 AppStore appStore = AppStore();
@@ -39,10 +35,10 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
       options: const FirebaseOptions(
-          apiKey: FIREBASEANDROIDAPIKEY,
-          appId: FIREBASEANDROIDAPPID,
-          messagingSenderId: FIREBASEANDROIDMESSAGINGSENDERID,
-          projectId: FIREBASEANDROIDPROJECTID)
+          apiKey: fIREBASEANDROIDAPIKEY,
+          appId: fIREBASEANDROIDAPPID,
+          messagingSenderId: fIREBASEANDROIDMESSAGINGSENDERID,
+          projectId: fIREBASEANDROIDPROJECTID)
   )
       .then((value) {
     FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;
@@ -95,6 +91,8 @@ Future<void> main() async {
 class MyApp extends StatefulWidget {
   static String tag = '/MyApp';
 
+  const MyApp({super.key});
+
   @override
   MyAppState createState() => MyAppState();
 }
@@ -141,7 +139,7 @@ class MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return Observer(builder: (context) {
       return MaterialApp(
-        title: APP_NAME,
+        title: appName,
         navigatorKey: navigatorKey,
         debugShowCheckedModeBanner: false,
         scrollBehavior: SBehavior(),

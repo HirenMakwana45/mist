@@ -5,7 +5,6 @@ import 'package:mist/extensions/extension_util/widget_extensions.dart';
 
 import '../Utils/app_colors.dart';
 import '../Utils/app_common.dart';
-import '../extensions/horizontal_list.dart';
 import '../extensions/text_styles.dart';
 import '../extensions/widgets.dart';
 import '../utils/app_images.dart';
@@ -26,7 +25,7 @@ class _ServiceDetailScreenState extends State<ServiceDetailScreen> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Image.asset(ic_car_wash_3,fit: BoxFit.cover, height: 200, width: double.infinity),
+          Image.asset(icCarWash_3,fit: BoxFit.cover, height: 200, width: double.infinity),
           20.height,
           Text(
             "Bike High Pressure Wash",
@@ -50,7 +49,7 @@ class _ServiceDetailScreenState extends State<ServiceDetailScreen> {
                 child: Row(
                   children: [
                     Image.asset(
-                      ic_doorstep_service,
+                      icDoorstepService,
                       height: 30,
                       width: 30,
                     ),
@@ -72,7 +71,7 @@ class _ServiceDetailScreenState extends State<ServiceDetailScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     cachedImage(
-                      ic_car_wash,
+                      icCarWash,
                       height: 30,
                       width: 30,
                     ),

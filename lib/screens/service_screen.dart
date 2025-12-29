@@ -1,7 +1,5 @@
-import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:linear_progress_bar/linear_progress_bar.dart';
-import 'package:mist/Utils/app_common.dart';
 import 'package:mist/extensions/extension_util/context_extensions.dart';
 import 'package:mist/extensions/extension_util/int_extensions.dart';
 import 'package:mist/extensions/extension_util/string_extensions.dart';
@@ -14,8 +12,6 @@ import 'package:mist/utils/app_images.dart';
 import 'package:story_view/controller/story_controller.dart';
 import 'package:story_view/widgets/story_view.dart';
 
-// import '../Utils/app_colors.dart';
-import '../extensions/app_button.dart';
 import '../extensions/colors.dart';
 import '../extensions/horizontal_list.dart';
 import '../extensions/text_styles.dart';
@@ -82,7 +78,6 @@ class _ServiceScreenState extends State<ServiceScreen> {
                     ),
                   ).onTap(() {
                     selectedStatus = serviceList[index];
-                    print("Selected Index" + selectedStatus.toString());
                     setState(() {});
                   }).paddingRight(18);
                 },
@@ -95,7 +90,7 @@ class _ServiceScreenState extends State<ServiceScreen> {
             Divider(
               thickness: 2,
               height: 0,
-              color: Colors.grey.withOpacity(0.4),
+              color: Colors.grey.withValues(red:0.4),
             ),
             Container(
               decoration: BoxDecoration(
@@ -107,7 +102,7 @@ class _ServiceScreenState extends State<ServiceScreen> {
                 "Car Wash",
                 style: boldTextStyle(
                   size: 14,
-                  color: Colors.grey.withOpacity(0.9),
+                  color: Colors.grey.withValues(red:0.9),
                 ),
               ).paddingSymmetric(vertical: 10, horizontal: 8),
             ),
@@ -193,7 +188,7 @@ class _ServiceScreenState extends State<ServiceScreen> {
                       children: [
                         Container(
                           decoration: BoxDecoration(
-                              border: Border.all(color: grey.withOpacity(0.4)),
+                              border: Border.all(color: grey.withValues(red:0.4)),
                               borderRadius: BorderRadius.circular(16)),
                           child: Row(
                             children: [
@@ -314,11 +309,9 @@ class _ServiceScreenState extends State<ServiceScreen> {
                                                     ],
                                                     onStoryShow:
                                                         (storyItem, index) {
-                                                      print("Showing a story");
                                                     },
                                                     onComplete: () {
-                                                      print(
-                                                          "Completed a cycle");
+
                                                     },
                                                     progressPosition:
                                                         ProgressPosition.bottom,
@@ -454,17 +447,17 @@ class _ServiceScreenState extends State<ServiceScreen> {
                                                                 child: Column(
                                                                   children: [
                                                                     ClipRRect(
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              8),
                                                                       child: Image.asset(
-                                                                          ic_car_wash_1,
+                                                                          icCarWash_1,
                                                                           fit: BoxFit
                                                                               .cover,
                                                                           height:
                                                                               70,
                                                                           width:
                                                                               74),
-                                                                      borderRadius:
-                                                                          BorderRadius.circular(
-                                                                              8),
                                                                     ),
                                                                     6.height,
                                                                     Row(
@@ -504,17 +497,17 @@ class _ServiceScreenState extends State<ServiceScreen> {
                                                                 child: Column(
                                                                   children: [
                                                                     ClipRRect(
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              8),
                                                                       child: Image.asset(
-                                                                          ic_car_wash_2,
+                                                                          icCarWash_2,
                                                                           fit: BoxFit
                                                                               .cover,
                                                                           height:
                                                                               70,
                                                                           width:
                                                                               74),
-                                                                      borderRadius:
-                                                                          BorderRadius.circular(
-                                                                              8),
                                                                     ),
                                                                     6.height,
                                                                     Row(
@@ -550,17 +543,17 @@ class _ServiceScreenState extends State<ServiceScreen> {
                                                                 child: Column(
                                                                   children: [
                                                                     ClipRRect(
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              8),
                                                                       child: Image.asset(
-                                                                          ic_car_wash_3,
+                                                                          icCarWash_3,
                                                                           fit: BoxFit
                                                                               .cover,
                                                                           height:
                                                                               70,
                                                                           width:
                                                                               74),
-                                                                      borderRadius:
-                                                                          BorderRadius.circular(
-                                                                              8),
                                                                     ),
                                                                     6.height,
                                                                     Row(
@@ -596,17 +589,17 @@ class _ServiceScreenState extends State<ServiceScreen> {
                                                                 child: Column(
                                                                   children: [
                                                                     ClipRRect(
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              8),
                                                                       child: Image.asset(
-                                                                          ic_car_wash_4,
+                                                                          icCarWash_4,
                                                                           fit: BoxFit
                                                                               .cover,
                                                                           height:
                                                                               70,
                                                                           width:
                                                                               74),
-                                                                      borderRadius:
-                                                                          BorderRadius.circular(
-                                                                              8),
                                                                     ),
                                                                     6.height,
                                                                     Row(
@@ -670,6 +663,9 @@ class _ServiceScreenState extends State<ServiceScreen> {
                                                           color:
                                                               secondaryColor),
                                                     ),
+                                                    tilePadding:
+                                                        EdgeInsets.symmetric(
+                                                            horizontal: 6.0),
                                                     children: <Widget>[
                                                       30.height,
                                                       Row(
@@ -722,7 +718,7 @@ class _ServiceScreenState extends State<ServiceScreen> {
                                                                 secondaryColor,
                                                             backgroundColor:
                                                                 Colors.grey
-                                                                    .withOpacity(
+                                                                    .withValues(red:
                                                                         0.5),
                                                           ).expand(),
                                                           6.width,
@@ -761,7 +757,7 @@ class _ServiceScreenState extends State<ServiceScreen> {
                                                                 secondaryColor,
                                                             backgroundColor:
                                                                 Colors.grey
-                                                                    .withOpacity(
+                                                                    .withValues(red:
                                                                         0.5),
                                                           ).expand(),
                                                           6.width,
@@ -800,7 +796,7 @@ class _ServiceScreenState extends State<ServiceScreen> {
                                                                 secondaryColor,
                                                             backgroundColor:
                                                                 Colors.grey
-                                                                    .withOpacity(
+                                                                    .withValues(red:
                                                                         0.5),
                                                           ).expand(),
                                                           6.width,
@@ -839,7 +835,7 @@ class _ServiceScreenState extends State<ServiceScreen> {
                                                                 secondaryColor,
                                                             backgroundColor:
                                                                 Colors.grey
-                                                                    .withOpacity(
+                                                                    .withValues(red:
                                                                         0.5),
                                                           ).expand(),
                                                           6.width,
@@ -878,7 +874,7 @@ class _ServiceScreenState extends State<ServiceScreen> {
                                                                 secondaryColor,
                                                             backgroundColor:
                                                                 Colors.grey
-                                                                    .withOpacity(
+                                                                    .withValues(red:
                                                                         0.5),
                                                           ).expand(),
                                                           6.width,
@@ -892,9 +888,6 @@ class _ServiceScreenState extends State<ServiceScreen> {
                                                         ],
                                                       ),
                                                     ],
-                                                    tilePadding:
-                                                        EdgeInsets.symmetric(
-                                                            horizontal: 6.0),
                                                   ).paddingSymmetric(
                                                       horizontal: 16),
                                                 ),
@@ -1076,7 +1069,7 @@ class _ServiceScreenState extends State<ServiceScreen> {
                   children: [
                     ClipRRect(
                         borderRadius: BorderRadius.circular(12),
-                        child: Image.asset(ic_car_wash_1,
+                        child: Image.asset(icCarWash_1,
                             fit: BoxFit.cover, height: 110, width: 110)),
                     14.height,
                     Container(
@@ -1134,7 +1127,7 @@ class _ServiceScreenState extends State<ServiceScreen> {
             Divider(
               thickness: 2,
               height: 0,
-              color: Colors.grey.withOpacity(0.4),
+              color: Colors.grey.withValues(red:0.4),
             ),
             Container(
               decoration: BoxDecoration(
@@ -1232,7 +1225,7 @@ class _ServiceScreenState extends State<ServiceScreen> {
                       children: [
                         Container(
                           decoration: BoxDecoration(
-                              border: Border.all(color: grey.withOpacity(0.4)),
+                              border: Border.all(color: grey.withValues(red:0.4)),
                               borderRadius: BorderRadius.circular(16)),
                           child: Row(
                             children: [
@@ -1352,11 +1345,9 @@ class _ServiceScreenState extends State<ServiceScreen> {
                                                     ],
                                                     onStoryShow:
                                                         (storyItem, index) {
-                                                      print("Showing a story");
                                                     },
                                                     onComplete: () {
-                                                      print(
-                                                          "Completed a cycle");
+
                                                     },
                                                     progressPosition:
                                                     ProgressPosition.bottom,
@@ -1492,17 +1483,17 @@ class _ServiceScreenState extends State<ServiceScreen> {
                                                             child: Column(
                                                               children: [
                                                                 ClipRRect(
+                                                                  borderRadius:
+                                                                  BorderRadius.circular(
+                                                                      8),
                                                                   child: Image.asset(
-                                                                      ic_car_wash_1,
+                                                                      icCarWash_1,
                                                                       fit: BoxFit
                                                                           .cover,
                                                                       height:
                                                                       70,
                                                                       width:
                                                                       74),
-                                                                  borderRadius:
-                                                                  BorderRadius.circular(
-                                                                      8),
                                                                 ),
                                                                 6.height,
                                                                 Row(
@@ -1542,17 +1533,17 @@ class _ServiceScreenState extends State<ServiceScreen> {
                                                             child: Column(
                                                               children: [
                                                                 ClipRRect(
+                                                                  borderRadius:
+                                                                  BorderRadius.circular(
+                                                                      8),
                                                                   child: Image.asset(
-                                                                      ic_car_wash_2,
+                                                                      icCarWash_2,
                                                                       fit: BoxFit
                                                                           .cover,
                                                                       height:
                                                                       70,
                                                                       width:
                                                                       74),
-                                                                  borderRadius:
-                                                                  BorderRadius.circular(
-                                                                      8),
                                                                 ),
                                                                 6.height,
                                                                 Row(
@@ -1588,17 +1579,17 @@ class _ServiceScreenState extends State<ServiceScreen> {
                                                             child: Column(
                                                               children: [
                                                                 ClipRRect(
+                                                                  borderRadius:
+                                                                  BorderRadius.circular(
+                                                                      8),
                                                                   child: Image.asset(
-                                                                      ic_car_wash_3,
+                                                                      icCarWash_3,
                                                                       fit: BoxFit
                                                                           .cover,
                                                                       height:
                                                                       70,
                                                                       width:
                                                                       74),
-                                                                  borderRadius:
-                                                                  BorderRadius.circular(
-                                                                      8),
                                                                 ),
                                                                 6.height,
                                                                 Row(
@@ -1634,17 +1625,17 @@ class _ServiceScreenState extends State<ServiceScreen> {
                                                             child: Column(
                                                               children: [
                                                                 ClipRRect(
+                                                                  borderRadius:
+                                                                  BorderRadius.circular(
+                                                                      8),
                                                                   child: Image.asset(
-                                                                      ic_car_wash_4,
+                                                                      icCarWash_4,
                                                                       fit: BoxFit
                                                                           .cover,
                                                                       height:
                                                                       70,
                                                                       width:
                                                                       74),
-                                                                  borderRadius:
-                                                                  BorderRadius.circular(
-                                                                      8),
                                                                 ),
                                                                 6.height,
                                                                 Row(
@@ -1708,6 +1699,9 @@ class _ServiceScreenState extends State<ServiceScreen> {
                                                           color:
                                                           secondaryColor),
                                                     ),
+                                                    tilePadding:
+                                                    EdgeInsets.symmetric(
+                                                        horizontal: 6.0),
                                                     children: <Widget>[
                                                       30.height,
                                                       Row(
@@ -1760,7 +1754,7 @@ class _ServiceScreenState extends State<ServiceScreen> {
                                                             secondaryColor,
                                                             backgroundColor:
                                                             Colors.grey
-                                                                .withOpacity(
+                                                                .withValues(red:
                                                                 0.5),
                                                           ).expand(),
                                                           6.width,
@@ -1799,7 +1793,7 @@ class _ServiceScreenState extends State<ServiceScreen> {
                                                             secondaryColor,
                                                             backgroundColor:
                                                             Colors.grey
-                                                                .withOpacity(
+                                                                .withValues(red:
                                                                 0.5),
                                                           ).expand(),
                                                           6.width,
@@ -1838,7 +1832,7 @@ class _ServiceScreenState extends State<ServiceScreen> {
                                                             secondaryColor,
                                                             backgroundColor:
                                                             Colors.grey
-                                                                .withOpacity(
+                                                                .withValues(red:
                                                                 0.5),
                                                           ).expand(),
                                                           6.width,
@@ -1877,7 +1871,7 @@ class _ServiceScreenState extends State<ServiceScreen> {
                                                             secondaryColor,
                                                             backgroundColor:
                                                             Colors.grey
-                                                                .withOpacity(
+                                                                .withValues(red:
                                                                 0.5),
                                                           ).expand(),
                                                           6.width,
@@ -1916,7 +1910,7 @@ class _ServiceScreenState extends State<ServiceScreen> {
                                                             secondaryColor,
                                                             backgroundColor:
                                                             Colors.grey
-                                                                .withOpacity(
+                                                                .withValues(red:
                                                                 0.5),
                                                           ).expand(),
                                                           6.width,
@@ -1930,9 +1924,6 @@ class _ServiceScreenState extends State<ServiceScreen> {
                                                         ],
                                                       ),
                                                     ],
-                                                    tilePadding:
-                                                    EdgeInsets.symmetric(
-                                                        horizontal: 6.0),
                                                   ).paddingSymmetric(
                                                       horizontal: 16),
                                                 ),
@@ -2114,7 +2105,7 @@ class _ServiceScreenState extends State<ServiceScreen> {
                   children: [
                     ClipRRect(
                         borderRadius: BorderRadius.circular(12),
-                        child: Image.asset(ic_car_wash_2,
+                        child: Image.asset(icCarWash_2,
                             fit: BoxFit.cover, height: 110, width: 110)),
                     14.height,
                     Container(
@@ -2172,7 +2163,7 @@ class _ServiceScreenState extends State<ServiceScreen> {
             Divider(
               thickness: 2,
               height: 0,
-              color: Colors.grey.withOpacity(0.4),
+              color: Colors.grey.withValues(red:0.4),
             ),
           ],
         ),

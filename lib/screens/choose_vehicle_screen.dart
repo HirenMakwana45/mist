@@ -4,7 +4,6 @@ import 'package:mist/extensions/extension_util/int_extensions.dart';
 import 'package:mist/extensions/extension_util/widget_extensions.dart';
 import 'package:mist/extensions/text_styles.dart';
 import 'package:mist/screens/dashboard/dashboard_screen.dart';
-import 'package:mist/screens/dashboard/home_screen.dart';
 
 import '../utils/app_images.dart';
 
@@ -69,7 +68,7 @@ class _ChooseVehicleScreenState extends State<ChooseVehicleScreen> {
                   ],
                 ),
                 // 10.width,
-                Image.asset(ic_choose_car,
+                Image.asset(icChooseCar,
                     height: 80, width: 181, fit: BoxFit.cover),
               ],
             ).paddingOnly(left: 20, top: 20),
@@ -82,7 +81,7 @@ class _ChooseVehicleScreenState extends State<ChooseVehicleScreen> {
             children: [
               Expanded(
                 child: Divider(
-                  color: Colors.grey.withOpacity(0.5),
+                  color: Colors.grey.withValues(red:0.5),
                 ),
               ),
               Padding(
@@ -94,7 +93,7 @@ class _ChooseVehicleScreenState extends State<ChooseVehicleScreen> {
               ),
               Expanded(
                 child: Divider(
-                  color: Colors.grey.withOpacity(0.5),
+                  color: Colors.grey.withValues(red:0.5),
                 ),
               ),
             ],
@@ -125,7 +124,7 @@ class _ChooseVehicleScreenState extends State<ChooseVehicleScreen> {
                     ),
                   ],
                 ),
-                Image.asset(ic_choose_bike, height: 80, fit: BoxFit.fill),
+                Image.asset(icChooseBike, height: 80, fit: BoxFit.fill),
               ],
             ).paddingOnly(left: 20, top: 20),
           ).onTap((){

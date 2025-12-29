@@ -14,10 +14,10 @@ import 'system_utils.dart';
 import 'text_styles.dart';
 
 /// Enum for Dialog Type
-enum DialogType { CONFIRMATION, ACCEPT, DELETE, UPDATE, ADD, RETRY }
+enum DialogType { cONFIRMATION, aCCEPT, dELETE, uPDATE, aDD, rETRY }
 
 /// Enum for Dialog Animation
-enum DialogAnimation { DEFAULT, ROTATE, SLIDE_TOP_BOTTOM, SLIDE_BOTTOM_TOP, SLIDE_LEFT_RIGHT, SLIDE_RIGHT_LEFT, SCALE }
+enum DialogAnimation { dEFAULT, rOTATE, sLIDETOPBOTTOM, sLIDEBOTTOMTOP, sLIDELEFTRIGHT, sLIDERIGHTLEFT, sCALE }
 
 /// dialog primary color
 Color getDialogPrimaryColor(
@@ -29,18 +29,18 @@ Color getDialogPrimaryColor(
   Color color;
 
   switch (dialogType) {
-    case DialogType.DELETE:
+    case DialogType.dELETE:
       color = Colors.red;
       break;
-    case DialogType.UPDATE:
+    case DialogType.uPDATE:
       color = Colors.amber;
       break;
-    case DialogType.CONFIRMATION:
-    case DialogType.ADD:
-    case DialogType.RETRY:
+    case DialogType.cONFIRMATION:
+    case DialogType.aDD:
+    case DialogType.rETRY:
       color = Colors.blue;
       break;
-    case DialogType.ACCEPT:
+    case DialogType.aCCEPT:
       color = Colors.green;
       break;
   }
@@ -52,22 +52,22 @@ String getPositiveText(DialogType dialogType) {
   String positiveText = "";
 
   switch (dialogType) {
-    case DialogType.CONFIRMATION:
+    case DialogType.cONFIRMATION:
       positiveText = "Yes";
       break;
-    case DialogType.DELETE:
+    case DialogType.dELETE:
       positiveText = "Delete";
       break;
-    case DialogType.UPDATE:
+    case DialogType.uPDATE:
       positiveText = "Update";
       break;
-    case DialogType.ADD:
+    case DialogType.aDD:
       positiveText = "Add";
       break;
-    case DialogType.ACCEPT:
+    case DialogType.aCCEPT:
       positiveText = "Accept";
       break;
-    case DialogType.RETRY:
+    case DialogType.rETRY:
       positiveText = "Retry";
       break;
   }
@@ -79,22 +79,22 @@ String getTitle(DialogType dialogType) {
   String titleText = "";
 
   switch (dialogType) {
-    case DialogType.CONFIRMATION:
+    case DialogType.cONFIRMATION:
       titleText = "Are you sure want to perform this action?";
       break;
-    case DialogType.DELETE:
+    case DialogType.dELETE:
       titleText = "Do you want to delete?";
       break;
-    case DialogType.UPDATE:
+    case DialogType.uPDATE:
       titleText = "Do you want to update?";
       break;
-    case DialogType.ADD:
+    case DialogType.aDD:
       titleText = "Do you want to add?";
       break;
-    case DialogType.ACCEPT:
+    case DialogType.aCCEPT:
       titleText = "Do you want to accept?";
       break;
-    case DialogType.RETRY:
+    case DialogType.rETRY:
       titleText = "Click to retry";
       break;
   }
@@ -106,18 +106,18 @@ Widget getIcon(DialogType dialogType, {double? size}) {
   Icon icon;
 
   switch (dialogType) {
-    case DialogType.CONFIRMATION:
-    case DialogType.RETRY:
-    case DialogType.ACCEPT:
+    case DialogType.cONFIRMATION:
+    case DialogType.rETRY:
+    case DialogType.aCCEPT:
       icon = Icon(Icons.done, size: size ?? 20, color: Colors.white);
       break;
-    case DialogType.DELETE:
+    case DialogType.dELETE:
       icon = Icon(Icons.delete_forever_outlined, size: size ?? 20, color: Colors.white);
       break;
-    case DialogType.UPDATE:
+    case DialogType.uPDATE:
       icon = Icon(Icons.edit, size: size ?? 20, color: Colors.white);
       break;
-    case DialogType.ADD:
+    case DialogType.aDD:
       icon = Icon(Icons.add, size: size ?? 20, color: Colors.white);
       break;
   }
@@ -133,10 +133,10 @@ Widget? getCenteredImage(
   Widget? widget;
 
   switch (dialogType) {
-    case DialogType.CONFIRMATION:
+    case DialogType.cONFIRMATION:
       widget = Container(
         decoration: BoxDecoration(
-          color: getDialogPrimaryColor(context, dialogType, primaryColor).withOpacity(0.2),
+          color: getDialogPrimaryColor(context, dialogType, primaryColor).withValues(red:0.2),
           shape: BoxShape.circle,
         ),
         padding: EdgeInsets.all(16),
@@ -147,20 +147,20 @@ Widget? getCenteredImage(
         ),
       );
       break;
-    case DialogType.DELETE:
+    case DialogType.dELETE:
       widget = Container(
         decoration: BoxDecoration(
-          color: getDialogPrimaryColor(context, dialogType, primaryColor).withOpacity(0.2),
+          color: getDialogPrimaryColor(context, dialogType, primaryColor).withValues(red:0.2),
           shape: BoxShape.circle,
         ),
         padding: EdgeInsets.all(16),
         child: Icon(Icons.close, color: getDialogPrimaryColor(context, dialogType, primaryColor), size: 40),
       );
       break;
-    case DialogType.UPDATE:
+    case DialogType.uPDATE:
       widget = Container(
         decoration: BoxDecoration(
-          color: getDialogPrimaryColor(context, dialogType, primaryColor).withOpacity(0.2),
+          color: getDialogPrimaryColor(context, dialogType, primaryColor).withValues(red:0.2),
           shape: BoxShape.circle,
         ),
         padding: EdgeInsets.all(16),
@@ -171,11 +171,11 @@ Widget? getCenteredImage(
         ),
       );
       break;
-    case DialogType.ADD:
-    case DialogType.ACCEPT:
+    case DialogType.aDD:
+    case DialogType.aCCEPT:
       widget = Container(
         decoration: BoxDecoration(
-          color: getDialogPrimaryColor(context, dialogType, primaryColor).withOpacity(0.2),
+          color: getDialogPrimaryColor(context, dialogType, primaryColor).withValues(red:0.2),
           shape: BoxShape.circle,
         ),
         padding: EdgeInsets.all(16),
@@ -186,14 +186,14 @@ Widget? getCenteredImage(
         ),
       );
       break;
-    case DialogType.RETRY:
+    case DialogType.rETRY:
       widget = Container(
         decoration: BoxDecoration(
           color: getDialogPrimaryColor(
             context,
             dialogType,
             primaryColor,
-          ).withOpacity(0.2),
+          ).withValues(red:0.2),
           shape: BoxShape.circle,
         ),
         padding: EdgeInsets.all(16),
@@ -224,7 +224,7 @@ Widget defaultPlaceHolder(
     height: height,
     width: width,
     decoration: BoxDecoration(
-      color: getDialogPrimaryColor(context, dialogType, primaryColor).withOpacity(0.2),
+      color: getDialogPrimaryColor(context, dialogType, primaryColor).withValues(red:0.2),
     ),
     alignment: Alignment.center,
     child: child ?? getCenteredImage(context, dialogType, primaryColor),
@@ -317,8 +317,8 @@ Future<bool?> showConfirmDialogCustom(
   double? width,
   bool cancelable = true,
   Color? barrierColor,
-  DialogType dialogType = DialogType.CONFIRMATION,
-  DialogAnimation dialogAnimation = DialogAnimation.DEFAULT,
+  DialogType dialogType = DialogType.cONFIRMATION,
+  DialogAnimation dialogAnimation = DialogAnimation.dEFAULT,
   Duration? transitionDuration,
   Curve curve = Curves.easeInBack,
 }) async {
@@ -344,7 +344,7 @@ Future<bool?> showConfirmDialogCustom(
           //backgroundColor: _.cardColor,
           elevation: defaultElevation.toDouble(),
           title: buildTitleWidget(
-            _,
+            context,
             dialogType,
             primaryColor,
             customCenterWidget,
@@ -395,9 +395,9 @@ Future<bool?> showConfirmDialogCustom(
                         // style: boldTextStyle(color: negativeTextColor ?? textPrimaryColorGlobal),
                       ).fit(),
                       onTap: () {
-                        if (cancelable) finish(_, false);
+                        if (cancelable) finish(context, false);
 
-                        onCancel?.call(_);
+                        onCancel?.call(context);
                       },
                     ).center().expand(),
                     16.width,
@@ -405,15 +405,15 @@ Future<bool?> showConfirmDialogCustom(
                       width: 358,
                       height: 48,
                       elevation: 0,
-                      color: getDialogPrimaryColor(_, dialogType, primaryColor),
+                      color: getDialogPrimaryColor(context, dialogType, primaryColor),
                       child: Text(
                         positiveText ?? getPositiveText(dialogType),
                         style: boldTextStyle(color: positiveTextColor ?? Colors.white),
                       ).fit(),
                       onTap: () {
-                        onAccept.call(_);
+                        onAccept.call(context);
 
-                        if (cancelable) finish(_, true);
+                        if (cancelable) finish(context, true);
                       },
                     ).center().expand(),
                   ],

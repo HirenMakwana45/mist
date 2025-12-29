@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mist/Utils/app_colors.dart';
 import 'package:mist/extensions/extension_util/int_extensions.dart';
 import 'package:mist/extensions/extension_util/widget_extensions.dart';
 import 'package:mist/extensions/text_styles.dart';
@@ -35,7 +34,7 @@ class _FaqScreenState extends State<FaqScreen> {
             10.height,
             Divider(
               height: 0,
-              color: Colors.grey.withOpacity(0.5),
+              color: Colors.grey.withValues(red:0.5),
             ),
             14.height,
             Text(
@@ -50,7 +49,7 @@ class _FaqScreenState extends State<FaqScreen> {
             10.height,
             Divider(
               height: 0,
-              color: Colors.grey.withOpacity(0.5),
+              color: Colors.grey.withValues(red:0.5),
             ),
             14.height,
             Text(
@@ -65,7 +64,7 @@ class _FaqScreenState extends State<FaqScreen> {
             10.height,
             Divider(
               height: 0,
-              color: Colors.grey.withOpacity(0.5),
+              color: Colors.grey.withValues(red:0.5),
             ),
             14.height,
             Text(
@@ -80,7 +79,7 @@ class _FaqScreenState extends State<FaqScreen> {
             10.height,
             Divider(
               height: 0,
-              color: Colors.grey.withOpacity(0.5),
+              color: Colors.grey.withValues(red:0.5),
             ),
             14.height,
             Text(
@@ -95,7 +94,7 @@ class _FaqScreenState extends State<FaqScreen> {
             10.height,
             Divider(
               height: 0,
-              color: Colors.grey.withOpacity(0.5),
+              color: Colors.grey.withValues(red:0.5),
             ),
             14.height,
             Text(
@@ -110,7 +109,7 @@ class _FaqScreenState extends State<FaqScreen> {
             10.height,
             Divider(
               height: 0,
-              color: Colors.grey.withOpacity(0.5),
+              color: Colors.grey.withValues(red:0.5),
             ),
             14.height,
             Text(
@@ -125,7 +124,7 @@ class _FaqScreenState extends State<FaqScreen> {
             10.height,
             // Divider(
             //   height: 0,
-            //   color: Colors.grey.withOpacity(0.5),
+            //   color: Colors.grey.withValues(red:0.5),
             // ),
           ],
         ).paddingAll(16),

@@ -2,8 +2,8 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 enum TrimMode {
-  Length,
-  Line,
+  length,
+  line,
 }
 
 /// Add read more button to a long text
@@ -16,12 +16,12 @@ class ReadMoreText extends StatefulWidget {
     this.colorClickableText,
     this.trimLength = 240,
     this.trimLines = 2,
-    this.trimMode = TrimMode.Length,
+    this.trimMode = TrimMode.length,
     this.style,
     this.textAlign,
     this.textDirection,
     this.locale,
-    this.textScaleFactor,
+    this.textScalerOf,
     this.semanticsLabel,
   });
 
@@ -36,7 +36,7 @@ class ReadMoreText extends StatefulWidget {
   final TextAlign? textAlign;
   final TextDirection? textDirection;
   final Locale? locale;
-  final double? textScaleFactor;
+  final double? textScalerOf;
   final String? semanticsLabel;
 
   @override
@@ -66,8 +66,8 @@ class ReadMoreTextState extends State<ReadMoreText> {
     final textAlign =
         widget.textAlign ?? defaultTextStyle.textAlign ?? TextAlign.start;
     final textDirection = widget.textDirection ?? Directionality.of(context);
-    final textScaleFactor =
-        widget.textScaleFactor ?? MediaQuery.textScaleFactorOf(context);
+    // final textScaleFactor =
+    //     widget.textScalerOf ?? MediaQuery.textScalerOf(context);
     final overflow = defaultTextStyle.overflow;
     final locale = widget.locale ?? Localizations.maybeLocaleOf(context);
 
@@ -98,7 +98,7 @@ class ReadMoreTextState extends State<ReadMoreText> {
           text: link,
           textAlign: textAlign,
           textDirection: textDirection,
-          textScaleFactor: textScaleFactor,
+          textScaler: TextScaler.noScaling,
           maxLines: widget.trimLines,
           ellipsis: overflow == TextOverflow.ellipsis ? _kEllipsis : null,
           locale: locale,
@@ -131,7 +131,7 @@ class ReadMoreTextState extends State<ReadMoreText> {
 
         TextSpan textSpan;
         switch (widget.trimMode) {
-          case TrimMode.Length:
+          case TrimMode.length:
             if (widget.trimLength < widget.data.length) {
               textSpan = TextSpan(
                 style: effectiveTextStyle,
@@ -147,7 +147,7 @@ class ReadMoreTextState extends State<ReadMoreText> {
               );
             }
             break;
-          case TrimMode.Line:
+          case TrimMode.line:
             if (textPainter.didExceedMaxLines) {
               textSpan = TextSpan(
                 style: effectiveTextStyle,
@@ -164,10 +164,7 @@ class ReadMoreTextState extends State<ReadMoreText> {
               );
             }
             break;
-          default:
-            throw Exception(
-                'TrimMode type: ${widget.trimMode} is not supported');
-        }
+          }
 
         return SelectableText.rich(textSpan,
             textAlign: textAlign, textDirection: textDirection);

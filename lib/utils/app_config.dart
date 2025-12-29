@@ -1,5 +1,5 @@
 //region App Name
-const APP_NAME = "Mist";
+const appName = "Mist";
 //endregion
 
 //region baseurl
@@ -9,7 +9,7 @@ const mBackendURL = "";
 //endregion
 
 //region Default Language Code
-const DEFAULT_LANGUAGE = 'en';
+const defaultLanguage = 'en';
 //endregion
 
 //region country
@@ -17,10 +17,10 @@ String? countryCode = "IN";
 //endregion
 
 //region logins
-const ENABLE_SOCIAL_LOGIN = true;
-const ENABLE_GOOGLE_SIGN_IN = true;
-const ENABLE_OTP = true;
-// const ENABLE_APPLE_SIGN_IN = true;
+// const ENABLE_SOCIAL_LOGIN = true;
+// const ENABLE_GOOGLE_SIGN_IN = true;
+// const ENABLE_OTP = true;
+// // const ENABLE_APPLE_SIGN_IN = true;
 //endregion
 
 

@@ -163,12 +163,15 @@ class OTPTextFieldState extends State<OTPTextField>  {
               setState(() {});
             },
             onTap: () async {
-              context.unFocus(list[index].focusNode!);
+              list[index].focusNode!.unfocus();
+
               await 1.milliseconds.delay;
-              context.requestFocus(list[index].focusNode!);
+
+              list[index].focusNode!.requestFocus();
 
               setTextSelection(index);
             },
+
           ),
         );
       }),

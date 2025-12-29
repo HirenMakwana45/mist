@@ -45,7 +45,7 @@ class AnimatedScrollView extends StatefulWidget {
     this.restorationId,
     this.reverse = false,
     required this.children,
-    this.listAnimationType = ListAnimationType.Slide,
+    this.listAnimationType = ListAnimationType.slide,
     this.slideConfiguration,
     this.fadeInConfiguration,
     this.scaleConfiguration,

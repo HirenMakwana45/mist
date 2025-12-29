@@ -29,9 +29,9 @@ String formatTime(int timestamp) {
     result = countWeeks(difference);
   } else if (difference / 1000 < 31536000) {
     result = countMonths(difference);
-  } else
+  } else {
     result = countYears(difference);
-
+  }
   return !result.startsWith("J") ? '$result ago' : result;
 }
 

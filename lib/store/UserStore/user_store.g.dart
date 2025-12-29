@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'UserStore.dart';
+part of 'user_store.dart';
 
 // **************************************************************************
 // StoreGenerator
@@ -54,6 +54,23 @@ mixin _$UserStore on UserStoreBase, Store {
   set userNativeLanguage(String value) {
     _$userNativeLanguageAtom.reportWrite(value, super.userNativeLanguage, () {
       super.userNativeLanguage = value;
+    });
+  }
+
+  late final _$userEnglishProficiencyAtom =
+      Atom(name: 'UserStoreBase.userEnglishProficiency', context: context);
+
+  @override
+  String get userEnglishProficiency {
+    _$userEnglishProficiencyAtom.reportRead();
+    return super.userEnglishProficiency;
+  }
+
+  @override
+  set userEnglishProficiency(String value) {
+    _$userEnglishProficiencyAtom
+        .reportWrite(value, super.userEnglishProficiency, () {
+      super.userEnglishProficiency = value;
     });
   }
 
@@ -229,6 +246,38 @@ mixin _$UserStore on UserStoreBase, Store {
     });
   }
 
+  late final _$isTTSPlayingAtom =
+      Atom(name: 'UserStoreBase.isTTSPlaying', context: context);
+
+  @override
+  String get isTTSPlaying {
+    _$isTTSPlayingAtom.reportRead();
+    return super.isTTSPlaying;
+  }
+
+  @override
+  set isTTSPlaying(String value) {
+    _$isTTSPlayingAtom.reportWrite(value, super.isTTSPlaying, () {
+      super.isTTSPlaying = value;
+    });
+  }
+
+  late final _$previousSentenceAtom =
+      Atom(name: 'UserStoreBase.previousSentence', context: context);
+
+  @override
+  String get previousSentence {
+    _$previousSentenceAtom.reportRead();
+    return super.previousSentence;
+  }
+
+  @override
+  set previousSentence(String value) {
+    _$previousSentenceAtom.reportWrite(value, super.previousSentence, () {
+      super.previousSentence = value;
+    });
+  }
+
   late final _$currencyPositionAtom =
       Atom(name: 'UserStoreBase.currencyPosition', context: context);
 
@@ -286,6 +335,25 @@ mixin _$UserStore on UserStoreBase, Store {
         .run(() => super.setPhoneNo(val, isInitialization: isInitialization));
   }
 
+  late final _$setTTSPlayingAsyncAction =
+      AsyncAction('UserStoreBase.setTTSPlaying', context: context);
+
+  @override
+  Future<void> setTTSPlaying(String val, {bool isInitialization = false}) {
+    return _$setTTSPlayingAsyncAction.run(
+        () => super.setTTSPlaying(val, isInitialization: isInitialization));
+  }
+
+  late final _$setPreviousSentenceAsyncAction =
+      AsyncAction('UserStoreBase.setPreviousSentence', context: context);
+
+  @override
+  Future<void> setPreviousSentence(String val,
+      {bool isInitialization = false}) {
+    return _$setPreviousSentenceAsyncAction.run(() =>
+        super.setPreviousSentence(val, isInitialization: isInitialization));
+  }
+
   late final _$setTokenAsyncAction =
       AsyncAction('UserStoreBase.setToken', context: context);
 
@@ -312,6 +380,16 @@ mixin _$UserStore on UserStoreBase, Store {
       {bool isInitialization = false}) {
     return _$setUserNativeLanguageAsyncAction.run(() =>
         super.setUserNativeLanguage(val, isInitialization: isInitialization));
+  }
+
+  late final _$setUserEnglishProficiencyAsyncAction =
+      AsyncAction('UserStoreBase.setUserEnglishProficiency', context: context);
+
+  @override
+  Future<void> setUserEnglishProficiency(String val,
+      {bool isInitialization = false}) {
+    return _$setUserEnglishProficiencyAsyncAction.run(() => super
+        .setUserEnglishProficiency(val, isInitialization: isInitialization));
   }
 
   late final _$setLoginAsyncAction =
@@ -355,6 +433,7 @@ mixin _$UserStore on UserStoreBase, Store {
 isLoggedIn: ${isLoggedIn},
 userId: ${userId},
 userNativeLanguage: ${userNativeLanguage},
+userEnglishProficiency: ${userEnglishProficiency},
 email: ${email},
 password: ${password},
 fName: ${fName},
@@ -366,6 +445,8 @@ token: ${token},
 username: ${username},
 displayName: ${displayName},
 phoneNo: ${phoneNo},
+isTTSPlaying: ${isTTSPlaying},
+previousSentence: ${previousSentence},
 currencyPosition: ${currencyPosition},
 privacyPolicy: ${privacyPolicy},
 isPlaying: ${isPlaying}

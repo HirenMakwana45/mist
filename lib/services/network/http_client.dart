@@ -10,7 +10,6 @@ import 'package:mist/Utils/app_config.dart';
 
 import '../../Utils/app_constants.dart';
 import '../../extensions/shared_pref.dart';
-import '../../main.dart';
 
 class ApiClass {
   static final String _baseUrl = mBackendURL;
@@ -23,7 +22,7 @@ class ApiClass {
       "Content-Type": "application/json",
       ...(isHeader != null
           ? {
-              'Authorization': 'Bearer ${getStringAsync(TOKEN)}',
+              'Authorization': 'Bearer ${getStringAsync(tOKEN)}',
             }
           : {})
     });
@@ -49,7 +48,6 @@ class ApiClass {
   static Future<Response> post(String endPoint, Map<String, dynamic> object, {bool isHeader = true}) async {
     final headers = await getHeaders(isHeader: isHeader);
     http.Response response;
-    print("Headers: $headers");
 
     try {
       response = await http

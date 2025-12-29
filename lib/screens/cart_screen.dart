@@ -7,7 +7,6 @@ import 'package:mist/screens/discount_screen.dart';
 import 'package:mist/screens/slot_selection_screen.dart';
 
 import '../Utils/app_colors.dart';
-import '../Utils/app_common.dart';
 import '../extensions/colors.dart';
 import '../extensions/horizontal_list.dart';
 import '../extensions/text_styles.dart';
@@ -36,7 +35,7 @@ class _CartScreenState extends State<CartScreen> {
                 Text(
                   'Cart Page',
                   style: boldTextStyle(
-                      size: 14, color: Colors.blueGrey.withOpacity(0.6)),
+                      size: 14, color: Colors.blueGrey.withValues(red: 0.6)),
                 ),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -80,7 +79,7 @@ class _CartScreenState extends State<CartScreen> {
                     Row(
                       children: [
                         Image.asset(
-                          ic_a4,
+                          icA4,
                           height: 60,
                           width: 80,
                         ),
@@ -109,18 +108,27 @@ class _CartScreenState extends State<CartScreen> {
                   children: [
                     Text(
                       'Interior + Exterior Foam Wash ',
-                      style: boldTextStyle(color: appStore.isDarkMode? Colors.white: secondaryColor),
+                      style: boldTextStyle(
+                          color: appStore.isDarkMode
+                              ? Colors.white
+                              : secondaryColor),
                     ),
                     Text(
-                      '₹' + '129 ',
-                      style: boldTextStyle(color:appStore.isDarkMode? Colors.white: secondaryColor),
+                      '₹ '
+                      '129 ',
+                      style: boldTextStyle(
+                          color: appStore.isDarkMode
+                              ? Colors.white
+                              : secondaryColor),
                     )
                   ],
                 ).paddingSymmetric(horizontal: 16),
                 28.height,
                 Text(
                   'Add Ons',
-                  style: boldTextStyle(color:appStore.isDarkMode? Colors.white: secondaryColor),
+                  style: boldTextStyle(
+                      color:
+                          appStore.isDarkMode ? Colors.white : secondaryColor),
                 ).paddingSymmetric(horizontal: 16),
                 HorizontalList(
                     padding: EdgeInsets.all(0),
@@ -138,20 +146,21 @@ class _CartScreenState extends State<CartScreen> {
                               children: [
                                 Stack(
                                   children: [
-                                    Image.asset(ic_car_wash_5,
-                                         fit: BoxFit.cover,
-                                         height: 80, width: 140),
+                                    Image.asset(icCarWash_5,
+                                        fit: BoxFit.cover,
+                                        height: 80,
+                                        width: 140),
                                     Container(
+                                      decoration: BoxDecoration(
+                                          color: primaryColor,
+                                          borderRadius:
+                                              BorderRadius.circular(6)),
                                       child: Text(
                                         '35 mins',
                                         style: secondaryTextStyle(
                                             size: 12, color: Colors.black),
                                       ).paddingSymmetric(
                                           horizontal: 8, vertical: 2),
-                                      decoration: BoxDecoration(
-                                          color: primaryColor,
-                                          borderRadius:
-                                              BorderRadius.circular(6)),
                                     ).paddingOnly(left: 8, top: 8),
                                   ],
                                 ),
@@ -174,7 +183,8 @@ class _CartScreenState extends State<CartScreen> {
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Text(
-                                      "₹ " + "809",
+                                      "₹ "
+                                      "809",
                                       style: boldTextStyle(
                                         color: Colors.white,
                                         size: 12,
@@ -183,16 +193,16 @@ class _CartScreenState extends State<CartScreen> {
                                     Row(
                                       children: [
                                         Container(
+                                          decoration: BoxDecoration(
+                                              color: Colors.white,
+                                              borderRadius:
+                                                  BorderRadius.circular(6)),
                                           child: Text(
                                             'Add',
                                             style: boldTextStyle(
                                                 size: 12, color: Colors.black),
                                           ).paddingSymmetric(
                                               horizontal: 18, vertical: 2),
-                                          decoration: BoxDecoration(
-                                              color: Colors.white,
-                                              borderRadius:
-                                                  BorderRadius.circular(6)),
                                         ),
                                       ],
                                     ),
@@ -211,20 +221,21 @@ class _CartScreenState extends State<CartScreen> {
                               children: [
                                 Stack(
                                   children: [
-                                    Image.asset(ic_car_wash_6,
+                                    Image.asset(icCarWash_6,
                                         fit: BoxFit.cover,
-                                      height: 80, width: 140),
+                                        height: 80,
+                                        width: 140),
                                     Container(
+                                      decoration: BoxDecoration(
+                                          color: primaryColor,
+                                          borderRadius:
+                                              BorderRadius.circular(6)),
                                       child: Text(
                                         '1 mins',
                                         style: secondaryTextStyle(
                                             size: 12, color: Colors.black),
                                       ).paddingSymmetric(
                                           horizontal: 8, vertical: 2),
-                                      decoration: BoxDecoration(
-                                          color: primaryColor,
-                                          borderRadius:
-                                              BorderRadius.circular(6)),
                                     ).paddingOnly(left: 8, top: 8),
                                   ],
                                 ),
@@ -247,7 +258,8 @@ class _CartScreenState extends State<CartScreen> {
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Text(
-                                      "₹ " + "809",
+                                      "₹ "
+                                      "809",
                                       style: boldTextStyle(
                                         color: Colors.white,
                                         size: 12,
@@ -256,16 +268,16 @@ class _CartScreenState extends State<CartScreen> {
                                     Row(
                                       children: [
                                         Container(
+                                          decoration: BoxDecoration(
+                                              color: Colors.white,
+                                              borderRadius:
+                                                  BorderRadius.circular(6)),
                                           child: Text(
                                             'Add',
                                             style: boldTextStyle(
                                                 size: 12, color: Colors.black),
                                           ).paddingSymmetric(
                                               horizontal: 18, vertical: 2),
-                                          decoration: BoxDecoration(
-                                              color: Colors.white,
-                                              borderRadius:
-                                                  BorderRadius.circular(6)),
                                         ),
                                       ],
                                     ),
@@ -284,20 +296,21 @@ class _CartScreenState extends State<CartScreen> {
                               children: [
                                 Stack(
                                   children: [
-                                    Image.asset(ic_car_wash_4,
+                                    Image.asset(icCarWash_4,
                                         fit: BoxFit.cover,
-                                         height: 80, width: 140),
+                                        height: 80,
+                                        width: 140),
                                     Container(
+                                      decoration: BoxDecoration(
+                                          color: primaryColor,
+                                          borderRadius:
+                                              BorderRadius.circular(6)),
                                       child: Text(
                                         '35 mins',
                                         style: secondaryTextStyle(
                                             size: 12, color: Colors.black),
                                       ).paddingSymmetric(
                                           horizontal: 8, vertical: 2),
-                                      decoration: BoxDecoration(
-                                          color: primaryColor,
-                                          borderRadius:
-                                              BorderRadius.circular(6)),
                                     ).paddingOnly(left: 8, top: 8),
                                   ],
                                 ),
@@ -307,7 +320,7 @@ class _CartScreenState extends State<CartScreen> {
                                     Text(
                                       overflow: TextOverflow.ellipsis,
                                       maxLines: 1,
-                                      "Bike Pressure  Wash + Hybrid Ceramic Coat",
+                                      "Bike Pressure Wash Hybrid Ceramic Coat",
                                       style: boldTextStyle(
                                           size: 12, color: Colors.white),
                                     ).expand(),
@@ -320,7 +333,8 @@ class _CartScreenState extends State<CartScreen> {
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Text(
-                                      "₹ " + "809",
+                                      "₹ "
+                                          "809",
                                       style: boldTextStyle(
                                         color: Colors.white,
                                         size: 12,
@@ -329,16 +343,16 @@ class _CartScreenState extends State<CartScreen> {
                                     Row(
                                       children: [
                                         Container(
+                                          decoration: BoxDecoration(
+                                              color: Colors.white,
+                                              borderRadius:
+                                                  BorderRadius.circular(6)),
                                           child: Text(
                                             'Add',
                                             style: boldTextStyle(
                                                 size: 12, color: Colors.black),
                                           ).paddingSymmetric(
                                               horizontal: 18, vertical: 2),
-                                          decoration: BoxDecoration(
-                                              color: Colors.white,
-                                              borderRadius:
-                                                  BorderRadius.circular(6)),
                                         ),
                                       ],
                                     ),
@@ -357,15 +371,17 @@ class _CartScreenState extends State<CartScreen> {
                     Row(
                       children: [
                         Image.asset(
-                          ic_coupon,
+                          icCoupon,
                           height: 25,
                           width: 25,
-
                         ),
                         6.width,
                         Text(
                           'Apply Coupon',
-                          style: boldTextStyle(color:appStore.isDarkMode? Colors.white: secondaryColor),
+                          style: boldTextStyle(
+                              color: appStore.isDarkMode
+                                  ? Colors.white
+                                  : secondaryColor),
                         ).onTap(() {
                           DiscountScreen().launch(context);
                         }),
@@ -389,20 +405,24 @@ class _CartScreenState extends State<CartScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Image.asset(img_car_shine,
+                    Image.asset(imgCarShine,
                         fit: BoxFit.cover, height: 55, width: 90),
                     Text(
                       'Add another Car/Bike',
-                      style: boldTextStyle(color:appStore.isDarkMode? Colors.white: secondaryColor, size: 18),
+                      style: boldTextStyle(
+                          color: appStore.isDarkMode
+                              ? Colors.white
+                              : secondaryColor,
+                          size: 18),
                     ),
                     Container(
+                      decoration: BoxDecoration(
+                          color: Colors.black,
+                          borderRadius: BorderRadius.circular(6)),
                       child: Text(
                         'Add',
                         style: boldTextStyle(size: 14, color: Colors.white),
                       ).paddingSymmetric(horizontal: 12, vertical: 8),
-                      decoration: BoxDecoration(
-                          color: Colors.black,
-                          borderRadius: BorderRadius.circular(6)),
                     ).paddingRight(16),
                   ],
                 ),
@@ -450,7 +470,7 @@ class _CartScreenState extends State<CartScreen> {
                       ),
                     ],
                   ),
-                ).onTap((){
+                ).onTap(() {
                   SlotSelectionScreen().launch(context);
                 })
               ],

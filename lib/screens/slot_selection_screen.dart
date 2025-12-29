@@ -4,8 +4,6 @@ import 'package:mist/Utils/app_colors.dart';
 import 'package:mist/extensions/extension_util/context_extensions.dart';
 import 'package:mist/extensions/extension_util/int_extensions.dart';
 import 'package:mist/extensions/extension_util/widget_extensions.dart';
-import 'package:mist/screens/dashboard/dashboard_screen.dart';
-import 'package:mist/screens/payment/payment_screen.dart';
 import 'package:razorpay_flutter/razorpay_flutter.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:flutter_time_picker_spinner/flutter_time_picker_spinner.dart';
@@ -73,12 +71,12 @@ class _SlotSelectionScreenState extends State<SlotSelectionScreen> {
 
   void showAlertDialog(BuildContext context, String title, String message) {
     // set up the buttons
-    Widget continueButton = ElevatedButton(
-      child: const Text("Continue"),
-      onPressed: () {
-        DashboardScreen().launch(context);
-      },
-    );
+    // Widget continueButton = ElevatedButton(
+    //   child: const Text("Continue"),
+    //   onPressed: () {
+    //     DashboardScreen().launch(context);
+    //   },
+    // );
     // set up the AlertDialog
     AlertDialog alert = AlertDialog(
       title: Text(title),
@@ -128,7 +126,7 @@ class _SlotSelectionScreenState extends State<SlotSelectionScreen> {
             //           padding: EdgeInsets.symmetric(horizontal: 20,vertical: 10),
             //           decoration: BoxDecoration(
             //             color: selectedDateIndex == index
-            //                 ? secondaryColor.withOpacity(0.9)
+            //                 ? secondaryColor.withValues(red:0.9)
             //                 : Colors.grey[200],
             //             borderRadius: BorderRadius.circular(10),
             //           ),
@@ -176,7 +174,7 @@ class _SlotSelectionScreenState extends State<SlotSelectionScreen> {
                   shape: BoxShape.circle,
                 ),
                 todayDecoration: BoxDecoration(
-                  color: secondaryColor.withOpacity(0.5),
+                  color: secondaryColor.withValues(red:0.5),
                   shape: BoxShape.circle,
                 ),
                 selectedTextStyle: TextStyle(color: Colors.white),
@@ -236,7 +234,7 @@ class _SlotSelectionScreenState extends State<SlotSelectionScreen> {
             //       child: Container(
             //         decoration: BoxDecoration(
             //           color: selectedTimeIndex == index
-            //               ? secondaryColor.withOpacity(0.9)
+            //               ? secondaryColor.withValues(red:0.9)
             //               : Colors.grey[200],
             //           borderRadius: BorderRadius.circular(10),
             //         ),
@@ -362,7 +360,7 @@ class _SlotSelectionScreenState extends State<SlotSelectionScreen> {
                       'retry': {'enabled': true, 'max_count': 1},
                       'send_sms_hash': true,
                       // 'prefill': {
-                      //   'contact': '+91 9638469716',
+                      //   'contact':   '+91 9638469716',
                       //   'email': 'cntact@heyepion.com'
                       // },
                       'external': {

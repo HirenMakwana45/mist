@@ -6,11 +6,7 @@ import '../../extensions/widgets.dart';
 import '../../main.dart';
 import '../../utils/app_images.dart';
 
-import 'package:flutter/material.dart';
-import 'package:mist/extensions/extension_util/widget_extensions.dart';
 
-import '../../extensions/widgets.dart';
-import '../../utils/app_images.dart';
 
 class PlusScreen extends StatefulWidget {
   const PlusScreen({super.key});
@@ -36,7 +32,7 @@ class _PlusScreenState extends State<PlusScreen> {
           children: [
             20.height,
             Image.asset(
-              img_mist_premium,
+              imgMistPremium,
               fit: BoxFit.cover,
               scale: 2,
             ).center(),

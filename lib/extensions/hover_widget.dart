@@ -15,7 +15,7 @@ class HoverWidget extends StatefulWidget {
   });
 
   @override
-  _HoverWidgetState createState() => _HoverWidgetState();
+  State<HoverWidget> createState() => _HoverWidgetState();
 }
 
 class _HoverWidgetState extends State<HoverWidget> {
